@@ -1,0 +1,9 @@
+# 학생 개인 작업물·설정 (템플릿엔 미포함)
+.DS_Store
+~$*
+__pycache__/
+*.pyc
+.obsidian/
+# wiki/ 산출물은 학생이 직접 생성 (빈 폴더만 유지)
+wiki/*
+!wiki/.gitkeep
