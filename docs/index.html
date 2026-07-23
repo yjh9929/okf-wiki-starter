@@ -2,583 +2,277 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나만의 AI 지식 허브 만들기 | 모두의연구소</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#030712;-webkit-font-smoothing:antialiased}
-
-/* ── Navigator ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;gap:3px;padding:10px 40px;opacity:0.15;transition:opacity .4s}
-.nav:hover{opacity:0.85}
-.nav-dot{width:22px;height:3px;background:rgba(255,255,255,.25);border-radius:2px;border:none;cursor:pointer;transition:all .25s;flex-shrink:0}
-.nav-dot.active{background:#F7585C;width:30px}
-.nav-dot:hover{background:rgba(247,88,92,.6)}
-body.light-slide .nav-dot{background:rgba(0,0,0,.12)}
-body.light-slide .nav-dot.active{background:#F7585C}
-body.light-slide .nav-dot:hover{background:rgba(247,88,92,.5)}
-
-/* ── Slide Number ── */
-.slide-num{position:fixed;bottom:24px;right:36px;font-size:.75rem;color:rgba(255,255,255,.15);z-index:100;font-variant-numeric:tabular-nums;letter-spacing:1px;transition:color .5s}
-body.light-slide .slide-num{color:rgba(0,0,0,.12)}
-
-/* ── Deck & Slides ── */
-.deck{width:100%;height:100%;position:relative}
-.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:64px 88px 52px;opacity:0;transition:opacity .45s ease;pointer-events:none;overflow:hidden}
-.slide.active{opacity:1;pointer-events:auto}
-
-/* ── Slide Themes ── */
-.s-white{background:#fff;color:#030712}
-.s-light{background:#F4F6F8;color:#030712}
-.s-dark{background:#030712;color:#fff}
-.s-accent{background:#F7585C;color:#fff}
-.s-coral{background:#FFF2F2;color:#030712}
-.s-gradient{background:linear-gradient(135deg,#030712 0%,#1a1f2e 100%);color:#fff}
-
-/* ── Typography ── */
-.s-label{font-size:.76rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F7585C;margin-bottom:12px}
-.s-dark .s-label,.s-gradient .s-label,.s-accent .s-label{color:rgba(255,255,255,.45)}
-
-.s-title{font-size:2.3rem;font-weight:700;line-height:1.3;margin-bottom:24px;max-width:88%;word-break:keep-all}
-
-.s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
-
-.t-main{font-size:1.3rem;line-height:1.7;color:#2E3339;max-width:82%;word-break:keep-all}
-.s-dark .t-main,.s-gradient .t-main{color:rgba(255,255,255,.82)}
-.s-accent .t-main{color:rgba(255,255,255,.92)}
-
-.t-sub{font-size:1.02rem;line-height:1.6;color:#5F656C;margin-top:12px;max-width:80%;word-break:keep-all}
-.s-dark .t-sub,.s-gradient .t-sub{color:rgba(255,255,255,.42)}
-.s-accent .t-sub{color:rgba(255,255,255,.6)}
-
-.t-quote{font-size:1.35rem;line-height:1.7;border-left:4px solid #F7585C;padding-left:22px;margin:14px 0;max-width:80%;word-break:keep-all}
-.s-dark .t-quote{border-left-color:rgba(255,255,255,.2)}
-.s-accent .t-quote{border-left-color:rgba(255,255,255,.4)}
-
-.t-big{font-size:2.7rem;font-weight:700;line-height:1.4;word-break:keep-all}
-.t-emphasis{font-size:1.7rem;font-weight:700;line-height:1.5;word-break:keep-all}
-
-.hl{color:#F7585C}
-.s-accent .hl{color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
-.dim{opacity:.45}
-.note{font-size:.95rem;color:#5F656C;margin-top:14px;line-height:1.6;max-width:82%}
-.s-dark .note,.s-gradient .note{color:rgba(255,255,255,.5)}
-
-/* ── Cover ── */
-.slide.cover{justify-content:center;padding-top:0}
-.cover .s-title{font-size:3.1rem;max-width:72%;margin-bottom:18px}
-.cover-sub{font-size:1.12rem;color:#5F656C;margin-bottom:6px}
-.s-dark .cover-sub{color:rgba(255,255,255,.4)}
-.cover-brand{font-size:.85rem;color:#F7585C;font-weight:700;letter-spacing:1.5px;margin-top:12px}
-
-/* ── Cards ── */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:92%}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;max-width:96%}
-.card{padding:24px 26px;border-radius:14px;background:#F4F6F8}
-.s-dark .card,.s-gradient .card{background:rgba(255,255,255,.06)}
-.s-light .card{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.card-icon{font-size:1.6rem;margin-bottom:10px}
-.card-title{font-size:1.1rem;font-weight:700;margin-bottom:7px;line-height:1.35}
-.card-desc{font-size:.93rem;line-height:1.55;color:#5F656C}
-.s-dark .card-desc,.s-gradient .card-desc{color:rgba(255,255,255,.55)}
-
-/* ── Comparison Table ── */
-.cmp-table{width:92%;border-collapse:collapse;margin-top:6px}
-.cmp-table th{text-align:left;padding:12px 16px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5F656C;border-bottom:2px solid #E5E7EB}
-.s-dark .cmp-table th,.s-gradient .cmp-table th{color:rgba(255,255,255,.5);border-bottom-color:rgba(255,255,255,.15)}
-.cmp-table td{padding:13px 16px;font-size:1.02rem;line-height:1.45;border-bottom:1px solid #F0F0F0}
-.s-dark .cmp-table td,.s-gradient .cmp-table td{border-bottom-color:rgba(255,255,255,.08)}
-.cmp-table td:first-child{font-weight:600;width:26%}
-.cmp-table .old{color:#9198A1}
-.cmp-table .new{color:#F7585C;font-weight:700}
-
-/* ── Number / Check List ── */
-.num-list{list-style:none;padding:0;counter-reset:item}
-.num-list li{font-size:1.18rem;line-height:1.5;padding:9px 0 9px 46px;position:relative;counter-increment:item;word-break:keep-all}
-.num-list li::before{content:counter(item);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:#F7585C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
-.chk-list{list-style:none;padding:0}
-.chk-list li{font-size:1.2rem;line-height:1.5;padding:8px 0 8px 34px;position:relative;word-break:keep-all}
-.chk-list li::before{content:'';position:absolute;left:0;top:13px;width:15px;height:15px;border-radius:50%;background:#F7585C}
-.s-dark .chk-list li,.s-gradient .chk-list li{color:rgba(255,255,255,.85)}
-
-/* ── Code block ── */
-.codeblock{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.9rem;line-height:1.65;background:#0d1117;color:#e6edf3;padding:20px 24px;border-radius:12px;max-width:84%;white-space:pre;overflow:auto;text-align:left;margin-top:6px}
-.cb-key{color:#F7585C;font-weight:600}
-.cb-com{color:#8b949e}
-.cb-str{color:#7ee787}
-
-/* ── Flow diagram ── */
-.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin:14px 0}
-.flow-box{padding:12px 16px;border-radius:10px;background:#F4F6F8;font-weight:600;font-size:.98rem;text-align:center;line-height:1.35;display:flex;flex-direction:column;justify-content:center;min-width:96px}
-.s-dark .flow-box,.s-gradient .flow-box{background:rgba(255,255,255,.08)}
-.s-light .flow-box{background:#fff}
-.flow-box small{display:block;font-weight:400;font-size:.76rem;color:#5F656C;margin-top:4px}
-.s-dark .flow-box small,.s-gradient .flow-box small{color:rgba(255,255,255,.45)}
-.flow-box.hot{background:rgba(247,88,92,.12);color:#F7585C}
-.flow-arrow{color:#F7585C;font-size:1.3rem;font-weight:700;display:flex;align-items:center}
-.flow-gate{display:flex;align-items:center;font-size:.8rem;font-weight:700;color:#5F656C;padding:0 4px;text-align:center;line-height:1.2}
-
-/* ── Demo Tag ── */
-.demo-tag{display:inline-block;padding:6px 16px;background:#F7585C;color:#fff;border-radius:6px;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-
-/* ── Animation ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.slide.active .s-label{animation:fadeUp .45s ease .06s both}
-.slide.active .s-title{animation:fadeUp .45s ease .14s both}
-.slide.active .s-body>*{animation:fadeUp .45s ease .24s both}
-.slide.active .s-body>*:nth-child(2){animation-delay:.32s}
-.slide.active .s-body>*:nth-child(3){animation-delay:.38s}
-.slide.active .s-body>*:nth-child(4){animation-delay:.44s}
-
-/* ── Center Variant ── */
-.slide.centered{align-items:center;text-align:center}
-.centered .s-title{max-width:90%;text-align:center}
-.centered .t-main{max-width:80%;text-align:center;margin:0 auto}
-.centered .t-sub{max-width:72%;text-align:center;margin:12px auto 0}
-
-/* ── Responsive ── */
-@media(max-width:1100px){
-  .slide{padding:48px 48px 36px}
-  .s-title{font-size:1.9rem}
-  .cover .s-title{font-size:2.4rem}
-  .t-main{font-size:1.12rem}
-  .codeblock{font-size:.8rem;max-width:100%}
-  .grid-2,.grid-3{max-width:100%}
-  .flow{gap:6px}
-  .flow-box{font-size:.85rem;padding:9px 11px;min-width:0}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나만의 AI 지식 관리 시스템 만들기</title>
+<meta name="description" content="질문할 때마다 다시 뒤지지 말고, 모을 때 미리 정리해 두자 (RAG → LLM Wiki). 연세대 학부생 대상 4시간 실습 세미나.">
+<meta property="og:title" content="나만의 AI 지식 관리 시스템 만들기">
+<meta property="og:description" content="질문할 때마다 다시 뒤지지 말고, 모을 때 미리 정리해 두자 (RAG → LLM Wiki)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="light-slide">
-<div class="nav" id="nav"></div>
-<div class="slide-num" id="slideNum"></div>
-<div class="deck" id="deck">
+<body>
+<a class="skip" href="#tt">타임테이블로 건너뛰기</a>
 
-<!-- 1. 커버 -->
-<div class="slide s-dark cover" data-theme="dark">
-  <div class="cover-brand">모두의연구소 × 연세대학교</div>
-  <h1 class="s-title" style="margin-top:16px">나만의 AI 지식 허브 만들기</h1>
-  <p class="cover-sub">Claude Code × Obsidian으로 짓는 OKF 지식 위키 — 원리부터 실습까지</p>
-  <p class="cover-sub dim">교안 · 2026년 8월</p>
-</div>
+<div class="hub">
 
-<!-- 2. 여정 -->
-<div class="slide s-gradient centered" data-theme="dark">
-  <p class="s-label">오늘의 목표</p>
-  <h2 class="s-title">"그냥 되네"가 아니라<br><span class="hl">"왜 이렇게 되는지"</span>까지</h2>
-  <div class="s-body"><p class="t-main">RAG의 한계 → 컴파일 타임 발상 → OKF·그래프 → 3작업의 내부 동작까지, 원리를 이해하고 직접 돌려봅니다.</p></div>
-</div>
+  <header class="masthead">
+    <span class="who">연세대학교 &times; 모두의연구소</span>
+    <span class="when">2026. 8. 26. 수요일 · 4시간</span>
+  </header>
 
-<!-- 3. RAG란 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">Part 1 · 문제 정의</p>
-  <h2 class="s-title">먼저, 요즘 방식 — RAG</h2>
-  <div class="s-body">
-    <p class="t-main"><b>RAG</b>(검색 증강 생성)는 "AI에게 내 문서를 붙여 답하게" 하는 가장 흔한 방식입니다.</p>
-    <p class="t-sub">문서를 통째로 넣을 수 없으니(컨텍스트 한계), <b>필요한 조각만 찾아서</b> 그때그때 넣어줍니다. 이 "찾아 넣기"가 어떻게 동작하는지 봐야 한계가 보입니다.</p>
-  </div>
-</div>
+  <section class="hero">
+    <h1>나만의 AI 지식<br>관리 시스템 만들기</h1>
+    <p class="msg">흩어져 있던 자료를 AI가 개념 단위로 정리하고 서로 이어 준 <strong>나만의 위키</strong>로 만듭니다.</p>
 
-<!-- 4. RAG 동작 원리 -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">RAG 동작 원리</p>
-  <h2 class="s-title">조각내고 → 벡터로 → 질문 때 유사한 걸 검색</h2>
-  <div class="s-body">
-    <div class="flow">
-      <div class="flow-box">문서<small>원본</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">청킹<small>조각으로 쪼갬</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">임베딩<small>조각→벡터(숫자)</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">벡터 DB<small>저장</small></div>
+    <div class="about">
+      <div>
+        <h4>개요</h4>
+        <div class="lines">- 연세대 학부생 대상 (20명)
+- 총 시간 : 4시간
+- 일정 : 2026년 8월 26일 수요일
+- 준비물 : 노트북 1대
+- 사전 준비 : <a href="https://www.google.com/intl/ko_kr/chrome/
+" target="_blank" rel="noopener">크롬 브라우저 설치하기</a>, <a href="https://github.com/yjh9929/okf-wiki-starter" target="_blank" rel="noopener">실습 내용 미리 보기</a></div>
+      </div>
+      <div>
+        <h4>핵심 메시지</h4>
+        <p class="core">질문할 때마다 다시 찾아 보지 말고,<br>모을 때 미리 정리해 두자<br><small>(RAG → LLM Wiki)</small></p>
+      </div>
     </div>
-    <div class="flow">
-      <div class="flow-gate">질문할 때마다 ↓</div>
-      <div class="flow-box hot">질문→벡터<small>같은 방식</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">유사도 top-k<small>가까운 조각 검색</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">컨텍스트 주입<small>프롬프트에 붙임</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">LLM 생성</div>
+  </section>
+
+  <section class="map" aria-label="하루 흐름 지도">
+    <div class="map-head">
+      <b>오늘 하루 미리보기</b>
+      <span>점을 누르면 그 시간의 강의자료로 갑니다</span>
     </div>
-    <p class="note">핵심: 정리는 안 하고 <b>저장만</b> 해둡니다. 질문마다 "가까운 조각"을 새로 꺼내 붙일 뿐이죠.</p>
-  </div>
-</div>
+    <svg viewBox="0 0 960 245" role="img" aria-label="세미나 여덟 블록의 흐름도">
+      <line class="n-edge" x1="70" y1="150" x2="190" y2="105"/>
+      <line class="n-edge" x1="190" y1="105" x2="320" y2="160"/>
+      <line class="n-edge rest" x1="320" y1="160" x2="455" y2="110"/>
+      <line class="n-edge" x1="455" y1="110" x2="590" y2="165"/>
+      <line class="n-edge rest" x1="590" y1="165" x2="715" y2="110"/>
+      <line class="n-edge" x1="715" y1="110" x2="830" y2="165"/>
+      <line class="n-edge" x1="830" y1="165" x2="915" y2="120"/>
+      <rect class="n-rest" x="358" y="126" width="60" height="18" rx="9"/>
+      <text class="n-rest-t" x="388" y="138" text-anchor="middle">휴식 10분</text>
+      <rect class="n-rest" x="622" y="129" width="60" height="18" rx="9"/>
+      <text class="n-rest-t" x="652" y="141" text-anchor="middle">휴식 10분</text>
 
-<!-- 5. RAG 비용1 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">RAG의 한계 ① 비용</p>
-  <h2 class="s-title">질문할 때마다, 매번 다시 읽는다</h2>
-  <div class="s-body">
-    <p class="t-main">같은 문서 조각을 <span class="hl">질문 100번이면 100번</span> 다시 꺼내 컨텍스트에 붙입니다. 매번 그만큼의 토큰이 다시 청구되죠.</p>
-    <p class="t-quote">비용 ≈ (질문 수) × (매번 붙이는 조각 크기) — 질문이 쌓일수록 선형으로 증가</p>
-    <p class="t-sub">"정리해 두면 한 번이면 될 일"을 매번 반복하는 구조입니다.</p>
-  </div>
-</div>
+      <path class="n-edge loop" d="M590 165 C 560 218 490 218 455 110"/>
+      <text class="loop-lbl" x="522" y="236" text-anchor="middle">반복을 통해 위키에 다시 쌓임 (복리화)</text>
 
-<!-- 6. RAG 비용2 -->
-<div class="slide s-coral" data-theme="light">
-  <p class="s-label">RAG의 한계 ② 정합성</p>
-  <h2 class="s-title">조각끼리는 서로를 모른다</h2>
-  <div class="s-body">
-    <p class="t-main">검색된 조각들은 <b>파편</b>일 뿐, 누구도 "이 조각과 저 조각이 모순인지" 맞춰보지 않습니다.</p>
-    <p class="t-sub">예) 한 문서엔 "A는 B다", 다른 문서엔 "A는 B가 아니다" → RAG는 둘 다 던져주고, 그 위에서 그럴듯한 <b>환각</b>이 생깁니다. 지식이 <b>통합·검증되는 시점이 없기</b> 때문이죠.</p>
-  </div>
-</div>
+      <a class="n-node" href="m0.html" aria-label="오프닝">
+        <text class="n-time" x="70" y="116" text-anchor="middle">0:00</text>
+        <text class="n-lbl" x="70" y="130" text-anchor="middle">시작하기</text>
+        <circle class="n-dot" cx="70" cy="150" r="9"/></a>
+      <a class="n-node" href="m1.html" aria-label="LLM wiki와 OKF 이해하기">
+        <text class="n-time" x="190" y="71" text-anchor="middle">0:10</text>
+        <text class="n-lbl" x="190" y="85" text-anchor="middle">이해하기</text>
+        <circle class="n-dot" cx="190" cy="105" r="9"/></a>
+      <a class="n-node" href="m2.html" aria-label="클로드 환경 세팅">
+        <text class="n-time" x="320" y="126" text-anchor="middle">0:40</text>
+        <text class="n-lbl" x="320" y="140" text-anchor="middle">환경 세팅</text>
+        <circle class="n-dot" cx="320" cy="160" r="9"/></a>
+      <a class="n-node" href="m3.html" aria-label="정리하기">
+        <text class="n-time" x="455" y="76" text-anchor="middle">1:40</text>
+        <text class="n-lbl" x="455" y="90" text-anchor="middle">정리하기</text>
+        <circle class="n-dot" cx="455" cy="110" r="10"/></a>
+      <a class="n-node" href="m4.html" aria-label="질문하기">
+        <text class="n-time" x="590" y="131" text-anchor="middle">2:10</text>
+        <text class="n-lbl" x="590" y="145" text-anchor="middle">질문하기</text>
+        <circle class="n-dot" cx="590" cy="165" r="10"/></a>
+      <a class="n-node" href="m5.html" aria-label="연결망으로 보기">
+        <text class="n-time" x="715" y="76" text-anchor="middle">2:50</text>
+        <text class="n-lbl" x="715" y="90" text-anchor="middle">연결망 분석하기</text>
+        <circle class="n-dot" cx="715" cy="110" r="9"/></a>
+      <a class="n-node" href="m6.html" aria-label="발표하기">
+        <text class="n-time" x="830" y="131" text-anchor="middle">3:35</text>
+        <text class="n-lbl" x="830" y="145" text-anchor="middle">발표하기</text>
+        <circle class="n-dot" cx="830" cy="165" r="9"/></a>
+      <a class="n-node" href="m7.html" aria-label="마무리">
+        <text class="n-time" x="915" y="86" text-anchor="middle">3:55</text>
+        <text class="n-lbl" x="915" y="100" text-anchor="middle">마무리</text>
+        <circle class="n-dot" cx="915" cy="120" r="9"/></a>
+    </svg>
+  </section>
 
-<!-- 7. 전환: 컴파일 타임 -->
-<div class="slide s-gradient centered" data-theme="dark">
-  <p class="s-label">발상의 전환</p>
-  <h2 class="s-title">읽을 때 조립하지 말고,<br><span class="hl">모을 때 컴파일</span>하자</h2>
-  <div class="s-body"><p class="t-main">질의 시점(Query Time)이 아니라 수집 시점(Compile Time)에 미리 정제·통합·연결해 둡니다. — Andrej Karpathy, "LLM Wiki"</p></div>
-</div>
-
-<!-- 8. 컴파일러 비유 -->
-<div class="slide s-dark" data-theme="dark">
-  <p class="s-label">컴파일러 비유</p>
-  <h2 class="s-title">지식을 "컴파일"한다는 것</h2>
-  <div class="s-body">
-    <table class="cmp-table">
-      <thead><tr><th>프로그래밍</th><th>지식 위키</th><th>하는 일</th></tr></thead>
-      <tbody>
-        <tr><td>소스 코드</td><td class="new">raw/ 원본</td><td>사람이 모은 불변 입력</td></tr>
-        <tr><td>컴파일러</td><td class="new">LLM (에이전트)</td><td>읽고 정제·통합해 출력</td></tr>
-        <tr><td>실행 파일</td><td class="new">wiki/ OKF 문서</td><td>정제·연결된 산출물</td></tr>
-        <tr><td>테스트</td><td class="new">lint</td><td>무결성 검사</td></tr>
-        <tr><td>런타임</td><td class="new">query</td><td>질의응답</td></tr>
-      </tbody>
-    </table>
-    <p class="note">한 번 잘 컴파일해 두면, 이후엔 "실행 파일"만 쓰면 됩니다.</p>
-  </div>
-</div>
-
-<!-- 9. 비용 모델 대비 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">왜 이득인가</p>
-  <h2 class="s-title">비용이 "누적"에서 "1회+α"로</h2>
-  <div class="s-body">
-    <table class="cmp-table">
-      <thead><tr><th>구분</th><th>RAG (쿼리 타임)</th><th>LLM Wiki (컴파일 타임)</th></tr></thead>
-      <tbody>
-        <tr><td>정제 시점</td><td class="old">없음 (저장만)</td><td class="new">수집 때 1회 컴파일</td></tr>
-        <tr><td>질문 1회 비용</td><td class="old">원문 조각 재검색·주입</td><td class="new">작은 인덱스·개념만 로드</td></tr>
-        <tr><td>N번 질문</td><td class="old">≈ N × 재검색 (선형 누적)</td><td class="new">≈ 1 컴파일 + N × 소량</td></tr>
-        <tr><td>모순·환각</td><td class="old">통합 없음 → 취약</td><td class="new">쓸 때 통합·검증 → 견고</td></tr>
-      </tbody>
-    </table>
-    <p class="note">질문이 많아질수록(=실제 지식 활용) 격차가 벌어집니다. "미리 한 번"이 이깁니다.</p>
-  </div>
-</div>
-
-<!-- 10. 핵심 메시지 (accent) -->
-<div class="slide s-accent centered" data-theme="dark">
-  <div class="s-body" style="justify-content:center">
-    <p class="t-big">질문할 때마다 조립하지 말고,<br><span class="hl">모을 때 미리 컴파일하라.</span></p>
-  </div>
-</div>
-
-<!-- 11. OKF 파일 해부 -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">Part 2 · 구조 원리</p>
-  <h2 class="s-title">컴파일 결과물의 정체 — OKF 파일 한 장</h2>
-  <div class="s-body">
-    <div class="codeblock"><span class="cb-com">--- 여기부터 YAML frontmatter (기계가 읽는 '계약') ---</span>
-<span class="cb-key">type</span>: core-concept        <span class="cb-com"># ★ 필수: 이 문서가 '무엇'인지</span>
-<span class="cb-key">title</span>: <span class="cb-str">"OKF"</span>
-<span class="cb-key">resource</span>: <span class="cb-str">"raw/okf.md"</span>     <span class="cb-com"># 출처(어느 원본에서 왔나)</span>
-<span class="cb-key">tags</span>: [standard]
-<span class="cb-com">---</span>
-# OKF
-마크다운 + 최소 YAML 표준. (raw/okf.md)   <span class="cb-com">← 사실마다 출처</span>
-관련 개념: [[wiki/patterns/llm-wiki]]      <span class="cb-com">← 그래프 '엣지'</span></div>
-    <p class="note">그냥 마크다운입니다. 위쪽 몇 줄(YAML)이 사람+기계 모두 읽는 <b>메타데이터 계약</b>일 뿐.</p>
-  </div>
-</div>
-
-<!-- 12. type이 왜 필수 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">최소주의 설계</p>
-  <h2 class="s-title">왜 <span class="hl">type</span> 하나만 필수일까</h2>
-  <div class="s-body">
-    <p class="t-main"><b>type</b>은 "이 문서가 개념인지·인물인지·표준인지"를 기계가 분류·질의할 수 있게 하는 <b>최소 계약</b>입니다.</p>
-    <p class="t-sub">나머지는 자유 — <b>생산자</b>는 필요한 키를 마음대로 추가하고, <b>소비자</b>는 모르는 키를 거부하지 않고 무시합니다. 이 "느슨한 계약" 덕분에 도구가 달라도 서로 읽히는 <span class="hl">상호운용성</span>이 생깁니다.</p>
-  </div>
-</div>
-
-<!-- 13. 그래프 이론 -->
-<div class="slide s-dark" data-theme="dark">
-  <p class="s-label">지식 = 그래프</p>
-  <h2 class="s-title">파일은 노드, 링크는 엣지</h2>
-  <div class="s-body">
-    <div class="grid-3">
-      <div class="card"><div class="card-icon">⬤</div><div class="card-title">노드 = 개념 파일</div><div class="card-desc">개념 하나 = 파일 하나. 경로가 곧 고유 ID.</div></div>
-      <div class="card"><div class="card-icon">↗</div><div class="card-title">엣지 = [[wikilink]]</div><div class="card-desc">개념 간 연결. Obsidian 그래프의 선.</div></div>
-      <div class="card"><div class="card-icon">◎</div><div class="card-title">루트 = index.md</div><div class="card-desc">모든 노드는 여기서 도달 가능해야 함.</div></div>
+  <section class="tt" id="tt">
+    <div class="tt-head">
+      <h2>타임테이블</h2>
+      <span class="hint">모듈 이름을 누르면 강의자료가 열립니다 · 자료 안에서는 ← → 로 넘깁니다</span>
     </div>
-    <p class="note">이렇게 보면 뒤에 나오는 "점검(Lint)"이 사실 <b>그래프 무결성 검사</b>라는 게 자연스럽습니다.</p>
-  </div>
-</div>
 
-<!-- 14. 3계층 -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">아키텍처</p>
-  <h2 class="s-title">입력 · 출력 · 규칙, 딱 3층</h2>
-  <div class="s-body">
-    <div class="grid-3">
-      <div class="card"><div class="card-icon">📥</div><div class="card-title">raw/ — 입력</div><div class="card-desc">사람이 모은 원본. <b>불변</b>(컴파일러가 소스코드를 안 고치듯).</div></div>
-      <div class="card"><div class="card-icon">📚</div><div class="card-title">wiki/ — 출력</div><div class="card-desc">LLM이 만든 OKF 문서. 재생성·수정 가능.</div></div>
-      <div class="card"><div class="card-icon">📐</div><div class="card-title">schema — 규칙</div><div class="card-desc">어떻게 컴파일할지 정한 규칙 문서.</div></div>
-    </div>
-  </div>
-</div>
+    <!-- 0-1 -->
+    <article class="row">
+      <div class="rt">0:00 – 0:10<span class="dur">0:10</span></div>
+      <div class="rbody">
+        <div class="rmod">0-1</div>
+        <h3><a href="m0.html">오프닝</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- 강사 소개
+- 네 시간 뒤 최종 산출물 미리보기</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">산출물 미리보기</div></div>
+        </div>
+        <a class="rgo" href="m0.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 15. schema=컴파일러 스펙 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">재현성의 열쇠</p>
-  <h2 class="s-title">schema = 컴파일러 설정</h2>
-  <div class="s-body">
-    <p class="t-main">LLM은 그냥 두면 매번 다르게 씁니다. <b>schema</b>(Claude Code의 <span class="code">CLAUDE.md</span> 또는 <span class="code">okf-wiki</span> 스킬)가 출력 규칙을 <b>제약</b>합니다.</p>
-    <p class="t-sub">"모든 문서에 type을 넣어라 · 고아를 만들지 마라 · 사실엔 출처를 달아라" — 이 규칙이 있어서 결과가 <span class="hl">일관되고 재현 가능</span>해집니다. gist가 schema 예시로 콕 집어 <b>CLAUDE.md</b>를 든 이유죠.</p>
-  </div>
-</div>
+    <!-- 1-1 -->
+    <article class="row">
+      <div class="rt">0:10 – 0:40<span class="dur">0:30</span></div>
+      <div class="rbody">
+        <div class="rmod">1-1</div>
+        <h3><a href="m1.html">① 지식관리 에이전트를 위한 LLM wiki와 OKF 이해하기</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- RAG가 물어볼 때마다 비용이 들고 틀리는 이유
+- LLM Wiki, '미리 정리'로 이 문제를 해결하는 방식
+- OKF는 '마크다운 + 표식 하나'</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines"></div></div>
+        </div>
+        <a class="rgo" href="m1.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 16. 3작업 전환 -->
-<div class="slide s-gradient centered" data-theme="dark">
-  <p class="s-label">Part 3 · 내부 동작</p>
-  <h2 class="s-title">세 동작의 속을 열어보자</h2>
-  <div class="s-body"><p class="t-main"><span class="hl">Ingest</span> 정리 · <span class="hl">Query</span> 질문 · <span class="hl">Lint</span> 점검 — 각각 안에서 무슨 일이 일어나는가</p></div>
-</div>
+    <!-- 2-1 -->
+    <article class="row">
+      <div class="rt">0:40 – 1:30<span class="dur">0:50</span></div>
+      <div class="rbody">
+        <div class="rmod">2-1</div>
+        <h3><a href="m2.html">② 클로드 환경 세팅</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- 내 컴퓨터에 실습 환경 갖추기</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- Claude Code 설치, 로그인
+- 실습 github repo 내려받기 (zip)
+- Obsidian 설치 및 열기
+- 크롬, 옵시디언 확장프로그램 설치 (웹 클리퍼, 커뮤니티 플러그인 등)</div></div>
+        </div>
+        <a class="rgo" href="m2.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 17. Ingest 내부 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">Ingest · 내부 동작</p>
-  <h2 class="s-title">원본을 개념으로 "컴파일"</h2>
-  <div class="s-body">
-    <div class="flow">
-      <div class="flow-box">raw 읽기</div><div class="flow-arrow">→</div>
-      <div class="flow-box">개념 추출<small>무엇이 핵심인가</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">중복 병합<small>같은 개념 합침</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">개념=파일<small>원자화</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">[[상호링크]]</div><div class="flow-arrow">→</div>
-      <div class="flow-box">index·log 갱신</div>
-    </div>
-    <p class="note">여러 원본에 흩어진 같은 개념을 <b>하나로 합치며 출처를 병기</b>합니다. 이 "합치는 순간"이 RAG엔 없던 단계예요.</p>
-  </div>
-</div>
+    <!-- 2-2 -->
+    <article class="row is-break">
+      <div class="rt">1:30 – 1:40<span class="dur">0:10</span></div>
+      <div class="rbody"><div class="rmod" style="margin:0">2-2 · 휴식</div></div>
+    </article>
 
-<!-- 18. 왜 병합이 모순을 없애나 -->
-<div class="slide s-coral" data-theme="light">
-  <p class="s-label">핵심 통찰</p>
-  <h2 class="s-title">모순은 "쓸 때" 잡힌다</h2>
-  <div class="s-body">
-    <p class="t-main">병합하려면 LLM이 두 문장을 <b>같은 자리에서 비교</b>해야 합니다. "A는 B다"와 "A는 B가 아니다"가 만나면 그 순간 충돌이 드러나죠.</p>
-    <p class="t-sub"><b>RAG</b>는 읽을 때(read-time) 조각을 던질 뿐 비교하지 않습니다. <b>LLM Wiki</b>는 쓸 때(write-time) 통합·검증합니다 — 그래서 결과가 더 일관됩니다.</p>
-  </div>
-</div>
+    <!-- 3-1 -->
+    <article class="row">
+      <div class="rt">1:40 – 2:10<span class="dur">0:30</span></div>
+      <div class="rbody">
+        <div class="rmod">3-1</div>
+        <h3><a href="m3.html">③ 내 문서로 지식 관리 에이전트 시작하기</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- AI가 여러 자료를 요약하고, 겹치는 내용을 합치고, 개념끼리 잇는 원리</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- 웹 클리퍼로 관심 자료 2~3개를 폴더에 넣기
+<span class="arw">→ '/okf-wiki' 또는 'raw 읽어서 위키로 정리해 줘'
+→ wiki/에 개념문서 생성</span>
 
-<!-- 19. Query 내부 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">Query · 내부 동작</p>
-  <h2 class="s-title">원문이 아니라 "정제된 위키"에 묻는다</h2>
-  <div class="s-body">
-    <div class="flow">
-      <div class="flow-box">질문</div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">인덱스+개념페이지 로드<small>원문 전체 X</small></div><div class="flow-arrow">→</div>
-      <div class="flow-box">합성 + 출처 인용</div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">역보관<small>좋은 답을 다시 저장</small></div>
-    </div>
-    <p class="note">RAG처럼 매번 원문 조각을 재검색하지 않습니다. 이미 <b>정리된 요약</b>만 보니 싸고, 출처가 붙어 있어 검증됩니다.</p>
-  </div>
-</div>
+- 자료 하나 더 추가하고 다시 실행
+<span class="arw">→ 새 문서 대신 기존 문서에 한 줄 늘어나는 것 확인</span></div></div>
+        </div>
+        <a class="rgo" href="m3.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 20. Lint 내부 -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">Lint · 내부 동작</p>
-  <h2 class="s-title">점검 = 그래프 무결성 검사</h2>
-  <div class="s-body">
-    <div class="grid-2">
-      <div class="card"><div class="card-title">① type 누락</div><div class="card-desc">모든 wiki 문서에 필수 계약(type)이 있나 — 스키마 준수.</div></div>
-      <div class="card"><div class="card-title">② 깨진 링크</div><div class="card-desc">[[link]]가 실제 파일을 가리키나 — 엣지 유효성.</div></div>
-      <div class="card"><div class="card-title">③ 고아 문서</div><div class="card-desc">index에서 도달 불가한 노드 — 도달성(BFS).</div></div>
-      <div class="card"><div class="card-title">④ 출처 누락</div><div class="card-desc">사실에 (raw/..) 근거가 붙었나 — 추적성.</div></div>
-    </div>
-    <p class="note">제공 <span class="code">lint_okf.py</span>가 이 4가지를 자동 판정합니다(PASS/FAIL). 컴파일러의 "테스트"에 해당.</p>
-  </div>
-</div>
+    <!-- 3-2 -->
+    <article class="row">
+      <div class="rt">2:10 – 2:40<span class="dur">0:30</span></div>
+      <div class="rbody">
+        <div class="rmod">3-2</div>
+        <h3><a href="m4.html">③ 내 문서로 지식 관리 에이전트 시작하기</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- 위키를 근거로 물으면 출처가 붙는 이유
+- 지식이 쌓이며 넓어지는 구조</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- '위키 근거로 ○○ 알려줘, 출처 달고 쓸만하면 저장'
+<span class="arw">→ 출처 달린 답 + 위키에 다시 쌓임(복리화)</span>
 
-<!-- 21. 복리 -->
-<div class="slide s-dark" data-theme="dark">
-  <p class="s-label">Compounding</p>
-  <h2 class="s-title">쓸수록 똑똑해지는 이유</h2>
-  <div class="s-body">
-    <div class="flow">
-      <div class="flow-box">질문·분석</div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">OKF로 역보관</div><div class="flow-arrow">→</div>
-      <div class="flow-box">노드·엣지 ↑</div><div class="flow-arrow">→</div>
-      <div class="flow-box">그래프 밀도 ↑</div><div class="flow-arrow">→</div>
-      <div class="flow-box hot">다음 질문이 더 정확</div>
-    </div>
-    <p class="note">지식이 <b>단조 증가</b>합니다. RAG는 아무리 질문해도 저장소가 그대로지만, 위키는 매 질문이 자산이 됩니다 — 이게 "복리".</p>
-  </div>
-</div>
+- 저장한 답이 새 점이 되어 그래프로 어떻게 시각화 되는지 확인</div></div>
+        </div>
+        <a class="rgo" href="m4.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 22. 도구: Claude Code -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">Part 4 · 도구</p>
-  <h2 class="s-title">그럼 "컴파일러"는 누가? — Claude Code</h2>
-  <div class="s-body">
-    <p class="t-main">Claude Code는 <b>파일을 읽고 쓸 수 있는 에이전트</b>입니다. <span class="code">read → reason → write</span> 루프를 돌며 raw를 읽고 wiki를 씁니다.</p>
-    <p class="t-sub">API를 코드로 부르는 게 아니라, schema(CLAUDE.md)를 지키며 <b>대화로 지시</b>하면 됩니다. 본인 <b>구독</b>으로 동작해 대화형 작업엔 API 종량 과금이 없습니다.</p>
-  </div>
-</div>
+    <!-- 3-3 -->
+    <article class="row is-break">
+      <div class="rt">2:40 – 2:50<span class="dur">0:10</span></div>
+      <div class="rbody"><div class="rmod" style="margin:0">3-3 · 휴식</div></div>
+    </article>
 
-<!-- 23. 왜 스킬 -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">okf-wiki 스킬</p>
-  <h2 class="s-title">규칙을 "스킬"로 포장한 이유</h2>
-  <div class="s-body">
-    <p class="t-main">앞의 schema 규칙(type 필수·고아 금지·출처)을 <span class="code">okf-wiki</span> 스킬 하나에 담았습니다.</p>
-    <p class="t-sub">학생은 규칙을 외울 필요 없이 <b>설치만</b> 하면, 매번 같은 품질로 컴파일됩니다 — 재현성 확보. 외부 유료 도구·API 키도 필요 없습니다.</p>
-  </div>
-</div>
+    <!-- 4-1 -->
+    <article class="row">
+      <div class="rt">2:50 – 3:35<span class="dur">0:45</span></div>
+      <div class="rbody">
+        <div class="rmod">4-1</div>
+        <h3><a href="m5.html">④ 연결망으로 보는 나만의 지식 위키 완성하기</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- Obsidian 그래프로 연결 읽는 법
+- 끊긴 링크·고립된 노트·표식 누락 점검하기
+- 좋은 답을 저장할수록 촘촘해지는 위키</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- 그래프 읽는 방법 배우기
+- 도전 과제 - 끊긴 링크 0, 외톨이 0
+- 내 전공에 맞게 규칙을 바꿔보기</div></div>
+        </div>
+        <a class="rgo" href="m5.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 24. 세팅 6단계 -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">환경 세팅</p>
-  <h2 class="s-title">6단계면 준비 끝</h2>
-  <div class="s-body">
-    <ol class="num-list" style="columns:2;column-gap:56px">
-      <li>Claude Code 설치·로그인</li>
-      <li>실습 repo 내려받기 (말로)</li>
-      <li>Obsidian 설치·열기</li>
-      <li>웹 클리퍼 확장 <span class="hl">[필수]</span></li>
-      <li>플러그인 3개 <span class="hl">[추천]</span></li>
-      <li>확인 → 첫 실습</li>
-    </ol>
-    <p class="note">상세는 <span class="code">세팅_가이드.md</span>. Node.js는 필요 없어요(심화 때만).</p>
-  </div>
-</div>
+    <!-- 5-1 -->
+    <article class="row">
+      <div class="rt">3:35 – 3:55<span class="dur">0:20</span></div>
+      <div class="rbody">
+        <div class="rmod">5-1</div>
+        <h3><a href="m6.html">④ 연결망으로 보는 나만의 지식 위키 완성하기</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- 내가 만든 위키 다른 사람들에게 설명해 보기</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- 2분 이내 발표하기
+- 보여줄 것 : 내 그래프 화면과 질문으로 메운 지식의 빈틈</div></div>
+        </div>
+        <a class="rgo" href="m6.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 25. 웹확장·플러그인 -->
-<div class="slide s-coral" data-theme="light">
-  <p class="s-label">확장 & 플러그인</p>
-  <h2 class="s-title">수업 후에도 편하게 쓰려면</h2>
-  <div class="s-body">
-    <div class="grid-2">
-      <div class="card"><div class="card-icon">✂️</div><div class="card-title">웹 클리퍼 <span class="hl">[필수]</span></div><div class="card-desc">웹 글을 raw/에 버튼 한 번에 저장. 자료 수집이 곧 위키 재료.</div></div>
-      <div class="card"><div class="card-icon">🧠</div><div class="card-title">Dataview <span class="hl">[핵심]</span></div><div class="card-desc"><b>type로 노트를 쿼리</b>! OKF의 type 계약이 여기서 빛납니다. + Templater·Omnisearch.</div></div>
-    </div>
-    <p class="note">그래프 뷰·속성(Properties)은 Obsidian <b>기본 내장</b> — 설치 불필요.</p>
-  </div>
-</div>
+    <!-- 0-2 -->
+    <article class="row">
+      <div class="rt">3:55 – 4:00<span class="dur">0:05</span></div>
+      <div class="rbody">
+        <div class="rmod">0-2</div>
+        <h3><a href="m7.html">마무리</a></h3>
+        <div class="cols">
+          <div class="col"><h4>이런 걸 배워요</h4>
+            <div class="lines">- 지속적으로 사용하는 방법 더 알아보기</div></div>
+          <div class="col"><h4>이런 걸 해봐요</h4>
+            <div class="lines">- 지속적으로 사용하기</div></div>
+        </div>
+        <a class="rgo" href="m7.html">강의자료 열기</a>
+      </div>
+    </article>
 
-<!-- 26. 실습 전환 -->
-<div class="slide s-gradient centered" data-theme="dark">
-  <p class="s-label">Part 5 · 실습</p>
-  <h2 class="s-title">원리를 알았으니, 이제 돌려보자</h2>
-  <div class="s-body"><p class="t-main">명령은 전부 <b>자연어</b>. 방금 배운 내부 동작이 실제로 일어나는 걸 확인하세요.</p></div>
-</div>
+  </section>
 
-<!-- 27. 실습 Ingest -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">실습 · Ingest</p>
-  <h2 class="s-title">자료를 넣으면, 위키가 된다</h2>
-  <div class="s-body">
-    <p class="t-quote">"raw 폴더 읽어서 위키로 정리해줘"</p>
-    <p class="t-main">→ 개념 추출·<span class="hl">중복 병합</span>·상호링크·index/log 갱신이 한 번에. (17번 슬라이드의 플로우가 실제로 실행됩니다.)</p>
-  </div>
-</div>
-
-<!-- 28. LIVE DEMO -->
-<div class="slide s-dark centered" data-theme="dark">
-  <div class="s-body" style="justify-content:center">
-    <div class="demo-tag">Live Demo</div>
-    <p class="t-big">함께 <span class="hl">/okf-wiki</span> 실행</p>
-    <p class="t-sub" style="margin:16px auto 0">예제 2개 → 위키 만들기 → 질문 → 점검(ALL PASS 확인)</p>
-  </div>
-</div>
-
-<!-- 29. 실습 Query -->
-<div class="slide s-light" data-theme="light">
-  <p class="s-label">실습 · Query</p>
-  <h2 class="s-title">정제된 위키에 물어보기</h2>
-  <div class="s-body">
-    <p class="t-quote">"위키 근거로 'OKF가 뭐야?' 알려줘. 출처도 달고, 쓸만하면 저장해."</p>
-    <p class="t-main">원문 재검색 없이 <b>정리된 개념</b>에서 답이 나오고, 출처가 붙고, 좋은 답은 <span class="hl">역보관</span>돼 그래프가 자랍니다.</p>
-  </div>
-</div>
-
-<!-- 30. 실습 Lint -->
-<div class="slide s-white" data-theme="light">
-  <p class="s-label">실습 · Lint</p>
-  <h2 class="s-title">그래프로 보고, 자동 점검</h2>
-  <div class="s-body">
-    <p class="t-quote">"위키 점검해줘" &nbsp;/&nbsp; <span class="code">python3 lint_okf.py wiki</span></p>
-    <p class="t-main">고아·깨진 링크·type/출처 누락을 자동 판정. <b>ALL PASS</b>면 그래프 무결성 확보 — 완성!</p>
-  </div>
-</div>
-
-<!-- 31. 요약 -->
-<div class="slide s-gradient centered" data-theme="dark">
-  <p class="s-label">한 장 요약</p>
-  <h2 class="s-title">원리 3줄</h2>
-  <div class="s-body">
-    <ul class="chk-list" style="text-align:left;display:inline-block">
-      <li>RAG는 <b>읽을 때</b> 조립 → 반복 비용·모순</li>
-      <li>LLM Wiki는 <b>쓸 때</b> 컴파일 → 통합·재사용·복리</li>
-      <li>OKF(type+링크)로 그래프를 만들고, lint로 지킨다</li>
-    </ul>
-  </div>
-</div>
-
-<!-- 32. 마무리 -->
-<div class="slide s-dark centered" data-theme="dark">
-  <div class="s-body" style="justify-content:center">
-    <p class="t-big">원리를 알았으니,<br><span class="hl">나만의 지식 허브</span>를 지어봐요 🙌</p>
-    <p class="cover-brand" style="margin-top:22px">모두의연구소 · 경쟁이 아닌 상생</p>
-  </div>
-</div>
+  <footer class="hub-foot">
+    <span>실습 폴더 · <a href="https://github.com/yjh9929/okf-wiki-starter" target="_blank" rel="noopener">github.com/yjh9929/okf-wiki-starter</a></span>
+    <span>Karpathy LLM Wiki 패턴 + Google OKF 규격</span>
+  </footer>
 
 </div>
-<script>
-(function(){
-  const slides = document.querySelectorAll('.slide');
-  const nav = document.getElementById('nav');
-  const numEl = document.getElementById('slideNum');
-  const total = slides.length;
-  let current = 0;
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'nav-dot';
-    dot.title = `Slide ${i + 1}`;
-    dot.addEventListener('click', () => go(i));
-    nav.appendChild(dot);
-  });
-  const dots = nav.querySelectorAll('.nav-dot');
-
-  function go(index) {
-    if (index < 0 || index >= total) return;
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    const theme = slides[current].dataset.theme;
-    document.body.classList.toggle('light-slide', theme === 'light');
-    numEl.textContent = `${current + 1} / ${total}`;
-  }
-
-  go(0);
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(current + 1); }
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(current - 1); }
-    if (e.key === 'Home') { e.preventDefault(); go(0); }
-    if (e.key === 'End') { e.preventDefault(); go(total - 1); }
-    if (e.key === 'f' || e.key === 'F') {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
-    }
-  });
-})();
-</script>
 </body>
 </html>

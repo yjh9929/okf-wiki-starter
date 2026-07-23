@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>④ 연결망으로 보기 | 나만의 AI 지식 관리 시스템 만들기</title>
+<meta name="description" content="그래프를 읽고 빈 곳을 찾아 메워 위키를 완성합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="deck">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="bar">
+  <a class="home" href="index.html">← 타임테이블</a>
+  <span class="title">4-1 · 모듈 ④ · 연결망과 점검</span>
+  <span class="keys">← → 넘기기 · F 전체화면 · Esc 목차</span>
+  <span class="count">1 / 1</span>
+</div>
+<div class="prog"></div>
+<main class="slides" id="main">
+<section class="slide cover"><div class="wrap">
+<div class="num">4-1 · 2:50 – 3:35 · 45분</div>
+<h1>④ 연결망으로 보는<br>나만의 지식 위키 완성하기</h1>
+<div class="meta"><span class="tag">Obsidian 그래프 읽기</span></div>
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">4-1 · 2:50 – 3:35 · 45분</div>
+<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- Obsidian 그래프로 연결 읽는 법
+- 끊긴 링크·고립된 노트·표식 누락 점검하기
+- 좋은 답을 저장할수록 촘촘해지는 위키</div></div><div class="box"><h4>이런 걸 해봐요</h4><div class="lines">- 그래프 읽는 방법 배우기
+- 도전 과제 - 끊긴 링크 0, 외톨이 0
+- 내 전공에 맞게 규칙을 바꿔보기</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">Obsidian 그래프 읽기</div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">그래프 읽는 법</div>
+<h2>그래프에서 세 가지가 보입니다</h2>
+<p class="lead">목록으로는 개수만 알 수 있지만, 그래프에서는
+<span class="mark">무엇이 중심이고 무엇이 겉도는지</span>가 드러납니다.</p>
+<div class="grid g3">
+  <div class="card"><div class="k">크고 진한 점</div><h4>중심 개념</h4>
+  <p>여러 문서가 참조하는 개념. 내 관심의 축입니다.</p></div>
+  <div class="card"><div class="k">혼자 떨어진 점</div><h4>고립된 노트</h4>
+  <p>어디서도 이어지지 않은 문서. 만들어 두고 잊힙니다.</p></div>
+  <div class="card"><div class="k">끊어진 선</div><h4>끊긴 링크</h4>
+  <p>없는 문서를 가리키는 링크. 눌러도 이동하지 않습니다.</p></div>
+</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">도전 과제</div>
+<h2 class="big">끊긴 링크 0<br>외톨이 0</h2>
+<div class="tally">
+  <div><div class="n">0</div><div class="l">끊긴 링크</div></div>
+  <div><div class="n">0</div><div class="l">고립된 노트</div></div>
+  <div><div class="n">0</div><div class="l">표식 누락</div></div>
+  <div><div class="n">0</div><div class="l">출처 누락</div></div>
+</div>
+<p class="lead">네 항목을 모두 0으로 만들면 오늘의 위키는 완성입니다.</p>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">1단계</div>
+<h2>먼저 개수를 확인합니다</h2>
+<div class="say"><span class="k">이렇게 말하세요</span><q>위키 점검해 줘</q></div>
+<p class="lead">네 항목이 몇 건씩 걸리는지, 어느 문서가 문제인지 알려 줍니다.</p>
+<div class="note">저장소에 점검 도구도 들어 있습니다. 결과는 같으니 궁금한 분만 확인하면 됩니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">2단계</div>
+<h2>고치는 방법은 정해져 있습니다</h2>
+<table class="t">
+  <tr><th>걸린 것</th><th>왜 생기나</th><th>어떻게 고치나</th></tr>
+  <tr><td>고립된 노트</td><td>목차나 다른 문서에서 아무도 이 문서를 가리키지 않음</td>
+      <td>관련 문서에 링크를 걸거나 목차에 추가합니다. "이 문서를 관련 개념과 이어 줘"라고 해도 됩니다.</td></tr>
+  <tr><td>끊긴 링크</td><td>아직 만들지 않은 문서를 가리킴</td>
+      <td>그 문서를 만들거나, 링크를 지웁니다. 만들 만한 개념이면 만드는 쪽이 낫습니다.</td></tr>
+  <tr><td>표식 누락</td><td>맨 앞 type이 빠짐</td>
+      <td>"표식 없는 문서에 type 채워 줘"라고 하면 한 번에 처리됩니다.</td></tr>
+  <tr><td>출처 누락</td><td>어느 원문에서 왔는지 표시가 없음</td>
+      <td>원문을 확인해 붙이거나, 근거가 없는 문장이면 지웁니다.</td></tr>
+</table>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">3단계</div>
+<h2>고치고 다시 확인합니다</h2>
+<p class="lead">한 번에 0이 되지는 않습니다. 고치고 확인하기를 몇 번 반복합니다.</p>
+<div class="note">외톨이를 없애려고 아무 문서에나 링크를 걸면 그래프만 촘촘해지고 쓸모는 없어집니다.
+<b>실제로 관련 있는 것끼리만</b> 이어 줍니다. 링크는 "이 둘은 함께 봐야 한다"는 표시입니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">한 걸음 더</div>
+<h2>내 전공에 맞게 규칙을 바꿔보기</h2>
+<p class="lead">정리 규칙은 <span class="path">.claude/skills/okf-wiki/SKILL.md</span> 에 있습니다. 텍스트 파일이라 열어서 고칠 수 있습니다.</p>
+<div class="grid g2">
+  <div class="card"><h4>바꿀 수 있는 것</h4>
+  <p>표식 종류 추가 (예: 논문용 <span class="path">paper</span>), 항상 넣을 항목 지정, 문서 길이 규칙.</p></div>
+  <div class="card"><h4>바꾸는 방법</h4>
+  <p>직접 고쳐도 되고 부탁해도 됩니다. <b>"논문용 표식을 추가하게 규칙 고쳐 줘"</b></p></div>
+</div>
+<div class="note">바꾼 규칙은 다음 정리부터 적용됩니다. 기존 문서까지 맞추려면 "기존 문서도 새 규칙에 맞게 고쳐 줘"라고 합니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">확인</div>
+<h2>완성 기준</h2>
+<ul class="check">
+  <li>점검을 돌려 네 항목의 숫자를 확인했다</li>
+  <li>고립된 노트를 관련 개념과 이어 줬다</li>
+  <li>끊긴 링크를 없앴다</li>
+  <li>다시 점검했을 때 모두 0이 나왔다</li>
+  <li>그래프 화면을 띄워 두었다 (다음 시간에 씁니다)</li>
+</ul>
+
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">이 모듈 끝</div>
+<h2>다음으로</h2>
+<div class="nav-end"><a class="btn" href="m6.html">④ 발표하기</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
+</div></section>
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

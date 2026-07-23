@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>③ 정리하기 | 나만의 AI 지식 관리 시스템 만들기</title>
+<meta name="description" content="웹 클리퍼로 자료를 모으고 위키로 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="deck">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="bar">
+  <a class="home" href="index.html">← 타임테이블</a>
+  <span class="title">3-1 · 모듈 ③ · 정리하기</span>
+  <span class="keys">← → 넘기기 · F 전체화면 · Esc 목차</span>
+  <span class="count">1 / 1</span>
+</div>
+<div class="prog"></div>
+<main class="slides" id="main">
+<section class="slide cover"><div class="wrap">
+<div class="num">3-1 · 1:40 – 2:10 · 30분</div>
+<h1>③ 내 문서로 지식 관리<br>에이전트 시작하기</h1>
+<div class="meta"><span class="tag">관심 자료 쌓기</span></div>
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">3-1 · 1:40 – 2:10 · 30분</div>
+<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- AI가 여러 자료를 요약하고, 겹치는 내용을 합치고, 개념끼리 잇는 원리</div></div><div class="box"><h4>이런 걸 해봐요</h4><div class="lines">- 웹 클리퍼로 관심 자료 2~3개를 폴더에 넣기
+<span class='arw'>→ '/okf-wiki' 또는 'raw 읽어서 위키로 정리해 줘'
+→ wiki/에 개념문서 생성</span>
+
+- 자료 하나 더 추가하고 다시 실행
+<span class='arw'>→ 새 문서 대신 기존 문서에 한 줄 늘어나는 것 확인</span></div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">관심 자료 쌓기</div></div><div class="box"><h4>참고</h4><div class="lines">관심있는 주제가 없으면 예시 주제들 중에 선택할 수 있게 합니다.</div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">준비</div>
+<h2>실습 주제를 고릅니다</h2>
+<p class="lead"><span class="mark">한 주제에 대해 서로 다른 글 두세 개</span>면 충분합니다.
+겹치는 내용이 있어야 합쳐지는 과정을 볼 수 있습니다.</p>
+<div class="topics">
+  <section><h4>전공 · 이공</h4><ul>
+    <li>트랜스포머와 어텐션</li>
+    <li>확산 모델과 이미지 생성</li>
+    <li>2차전지 양극재 소재</li>
+    <li>반도체 미세 공정</li>
+    <li>유전자가위 치료제</li>
+  </ul></section>
+  <section><h4>전공 · 인문사회</h4><ul>
+    <li>행동경제학의 넛지</li>
+    <li>플랫폼 기업의 수익 구조</li>
+    <li>저출생 대응 정책 비교</li>
+    <li>개인정보보호법과 AI 규제</li>
+    <li>도시 재생과 젠트리피케이션</li>
+  </ul></section>
+  <section><h4>진로 · 학업</h4><ul>
+    <li>가고 싶은 회사의 채용 공고와 기술 블로그</li>
+    <li>직무별 인턴 후기 모음</li>
+    <li>대학원 진학 준비 과정</li>
+    <li>교환학생 지원 절차</li>
+    <li>공모전·학회 준비 자료</li>
+  </ul></section>
+  <section><h4>관심사</h4><ul>
+    <li>러닝 훈련 루틴</li>
+    <li>자취 요리 레시피</li>
+    <li>카메라 렌즈 비교</li>
+    <li>커피 원두와 추출 방식</li>
+    <li>여행 도시별 정보</li>
+  </ul></section>
+  <section><h4>취미 · 문화</h4><ul>
+    <li>좋아하는 감독의 작품 세계</li>
+    <li>축구 전술 흐름</li>
+    <li>보드게임 룰과 전략</li>
+    <li>식물 키우기</li>
+  </ul></section>
+  <section><h4>고를 때 기준</h4><ul>
+    <li>서로 겹치는 글이 있는 주제</li>
+    <li>앞으로도 계속 찾아볼 주제</li>
+    <li>용어가 여러 개 나오는 주제</li>
+    <li>한 페이지로는 안 끝나는 주제</li>
+  </ul></section>
+</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">1단계</div>
+<h2>웹 클리퍼로 자료 담기</h2>
+<ol class="steps">
+  <li><b>관심 있는 글을 브라우저로 엽니다</b><p>기사, 블로그 글, 위키백과 항목.</p></li>
+  <li><b>웹 클리퍼 아이콘을 누릅니다</b><p>본문이 마크다운으로 <span class="path">raw/</span> 에 저장됩니다.</p></li>
+  <li><b>두세 개를 담습니다</b></li>
+</ol>
+<div class="note">파일을 못 찾으면 웹 클리퍼 설정의 <b>저장 위치가 raw 인지</b> 확인합니다.
+<span class="path">raw/</span> 에는 예제 두 개가 있어, 자료를 못 담아도 실습은 진행됩니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">2단계</div>
+<h2>정리를 실행합니다</h2>
+<p class="lead">Code 탭 아래 입력창에 둘 중 하나를 넣습니다.</p>
+<div class="say"><span class="k">방법 1 · 명령</span><q>/okf-wiki</q></div>
+<div class="say"><span class="k">방법 2 · 문장으로</span><q>raw 폴더 읽어서 위키로 정리해 줘</q></div>
+<p class="lead">둘은 같은 일을 합니다 — 자료를 읽어 개념을 뽑고, 겹치는 내용을 합치고, 파일로 나눠 링크를 걸고, 목차를 갱신합니다. 1~3분 걸리는 동안 Obsidian 그래프를 옆에 띄워 둡니다.</p>
+<div class="note">파일을 만들어도 되냐고 물으면 <b>승인</b>합니다. 승인 전에는 아무것도 바뀌지 않습니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">3단계</div>
+<h2>만들어진 문서를 확인합니다</h2>
+<p class="lead">Obsidian에서 새로 생긴 문서를 하나 엽니다. 앞에서 본 세 가지가 들어 있습니다.</p>
+<div class="grid g3">
+  <div class="card"><div class="k">맨 앞</div><h4>표식</h4>
+  <p><span class="path">type:</span> 이 붙어 있어야 합니다. 이게 없으면 규격 위반입니다.</p></div>
+  <div class="card"><div class="k">문단 끝</div><h4>출처</h4>
+  <p><span class="path">(raw/...)</span> 형태로 어느 자료에서 나온 이야기인지 표시돼 있습니다.</p></div>
+  <div class="card"><div class="k">아래쪽</div><h4>연결</h4>
+  <p><span class="wl">wiki/...</span> 로 다른 개념과 이어져 있습니다. 이게 그래프의 선입니다.</p></div>
+</div>
+<div class="note"><b>출처를 눌러 원문까지 확인합니다.</b> AI가 지어낸 문장을 걸러 내는 가장 확실한 방법입니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">4단계 · 오늘의 핵심 장면</div>
+<h2>자료를 하나 더 넣고 다시 돌립니다</h2>
+<p class="lead">같은 주제의 글을 하나 더 담고 정리를 다시 실행합니다.
+새 문서가 여러 개 생길 것 같지만 결과는 다릅니다.</p>
+<figure class="dia">
+<svg viewBox="0 0 900 400" role="img" aria-label="파일 변경 내용을 확인하고 승인하는 화면 예시">
+  <rect class="u-win" x="10" y="10" width="880" height="380" rx="12"/>
+  <rect class="u-bar" x="11" y="11" width="878" height="38" rx="11"/>
+  <rect class="u-bar" x="11" y="36" width="878" height="13"/>
+  <text class="u-t" x="30" y="35">wiki/pattern/LLM-Wiki.md</text>
+  <text class="u-s" x="770" y="35">+3  -0</text>
+
+  <rect class="u-line" x="30" y="72" width="14" height="5" rx="2.5"/>
+  <text class="u-s" x="58" y="78">## 1. 개요</text>
+  <text class="u-s" x="58" y="100">질의 시점이 아니라 수집 시점에 정리한다. (raw/karpathy_llm_wiki.md)</text>
+
+  <rect class="u-add" x="26" y="118" width="700" height="26" rx="5"/>
+  <text class="u-s" x="36" y="136" fill="#2C6B0B">+</text>
+  <text class="u-s" x="58" y="136" fill="#2C6B0B">Google은 이를 형식화한 규격을 공개했다. (raw/google_okf.md)</text>
+
+  <rect class="u-add" x="26" y="150" width="700" height="26" rx="5"/>
+  <text class="u-s" x="36" y="168" fill="#2C6B0B">+</text>
+  <text class="u-s" x="58" y="168" fill="#2C6B0B">필수 항목은 type 하나뿐이다. (raw/google_okf.md)</text>
+
+  <text class="u-s" x="58" y="200">## 2. 연관 개념</text>
+  <rect class="u-add" x="26" y="212" width="700" height="26" rx="5"/>
+  <text class="u-s" x="36" y="230" fill="#2C6B0B">+</text>
+  <text class="u-s" x="58" y="230" fill="#2C6B0B">- [[wiki/format/OKF]]</text>
+
+  <rect class="u-hi" x="20" y="112" width="712" height="132" rx="10"/>
+
+  <rect class="u-btn" x="600" y="330" width="120" height="34" rx="9"/>
+  <text class="u-btn-t" x="660" y="352" text-anchor="middle">변경 적용</text>
+  <rect class="u-win" x="734" y="330" width="120" height="34" rx="9"/>
+  <text class="u-s" x="794" y="351" text-anchor="middle">되돌리기</text>
+
+  <path class="u-lead" d="M736 178 H790"/>
+  <circle class="u-num" cx="806" cy="178" r="10"/><text class="u-num-t" x="806" y="182" text-anchor="middle">1</text>
+  <path class="u-lead" d="M660 320 V300"/>
+  <circle class="u-num" cx="660" cy="290" r="10"/><text class="u-num-t" x="660" y="294" text-anchor="middle">2</text>
+</svg>
+<ol class="shots"><li><span class="n">1</span>초록색으로 표시된 줄이 <b>이번에 새로 추가된 내용</b>입니다. 파일 전체를 다시 쓴 게 아니라 세 줄만 늘어난 것을 볼 수 있습니다.</li><li><span class="n">2</span>확인하고 <b>변경 적용</b>을 누르면 파일에 반영됩니다. 누르기 전까지는 아무것도 바뀌지 않습니다.</li></ol></figure>
+<div class="note">자료가 쌓일수록 문서 수가 아니라 <b>문서의 밀도</b>가 올라갑니다. 이것이 복리의 실체입니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">확인</div>
+<h2>여기까지 확인합니다</h2>
+<ul class="check">
+  <li>wiki/ 폴더에 개념 문서가 세 개 이상 생겼다</li>
+  <li>문서 맨 앞에 type 표식이 있다</li>
+  <li>문단 끝에 (raw/...) 출처가 붙어 있다</li>
+  <li>Obsidian 그래프에 점과 선이 보인다</li>
+  <li>자료를 추가하고 다시 돌렸을 때 기존 문서에 줄이 늘어나는 것을 확인했다</li>
+</ul>
+
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">이 모듈 끝</div>
+<h2>다음으로</h2>
+<div class="nav-end"><a class="btn" href="m4.html">③ 내 위키에 질문하기</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
+</div></section>
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

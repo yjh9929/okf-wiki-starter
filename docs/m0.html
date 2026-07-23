@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오프닝 | 나만의 AI 지식 관리 시스템 만들기</title>
+<meta name="description" content="오늘의 목표와 네 시간 뒤 최종 산출물 미리보기.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="deck">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="bar">
+  <a class="home" href="index.html">← 타임테이블</a>
+  <span class="title">0-1 · 시작하기</span>
+  <span class="keys">← → 넘기기 · F 전체화면 · Esc 목차</span>
+  <span class="count">1 / 1</span>
+</div>
+<div class="prog"></div>
+<main class="slides" id="main">
+<section class="slide cover"><div class="wrap">
+<div class="num">0-1 · 0:00 – 0:10 · 10분</div>
+<h1>오프닝</h1>
+<div class="meta"><span class="tag">산출물 미리보기</span></div>
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">0-1 · 0:00 – 0:10 · 10분</div>
+<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- 오늘의 목표 안내
+- 네 시간 뒤 최종 산출물 미리보기</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">산출물 미리보기</div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+
+
+<div class="eyebrow">오늘의 목표</div>
+<h2>원리까지 이해하고, 직접 돌려봅니다</h2>
+<p class="lead">같은 자료를 매번 다시 넣어 질문하는 <strong>AI 활용의 비효율</strong>을 줄이는 것이 목표입니다.
+<span class="mark">RAG의 한계 → 컴파일 타임 발상 → OKF·그래프 → 세 가지 작업의 내부 동작</span>까지, 그냥 되는 게 아니라 왜 그렇게 되는지를 따라갑니다.</p>
+<div class="note">오늘은 코드를 쓰지 않습니다. 한국어로 부탁하고, 바뀔 내용을 확인한 뒤 승인합니다. 승인 전에는 아무것도 바뀌지 않습니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">네 시간 뒤</div>
+<h2>이 화면을 만듭니다</h2>
+<figure class="dia">
+<svg viewBox="0 0 900 420" role="img" aria-label="완성된 지식 그래프 화면 예시">
+  <rect class="u-win" x="10" y="10" width="880" height="400" rx="12"/>
+  <rect class="u-bar" x="11" y="11" width="878" height="36" rx="11"/>
+  <rect class="u-bar" x="11" y="34" width="878" height="13"/>
+  <text class="u-t" x="30" y="34">그래프 뷰</text>
+  <text class="u-s" x="800" y="34">문서 14</text>
+
+  <rect class="u-side" x="11" y="47" width="150" height="362"/>
+  <text class="u-s" x="28" y="74">wiki</text>
+  <rect class="u-line" x="28" y="88" width="96" height="5" rx="2.5"/><rect class="u-line" x="28" y="101" width="78" height="5" rx="2.5"/><rect class="u-line" x="28" y="114" width="88" height="5" rx="2.5"/><rect class="u-line" x="28" y="127" width="70" height="5" rx="2.5"/><rect class="u-line" x="28" y="140" width="92" height="5" rx="2.5"/><rect class="u-line" x="28" y="153" width="74" height="5" rx="2.5"/><rect class="u-line" x="28" y="166" width="84" height="5" rx="2.5"/>
+  <text class="u-s" x="28" y="212">raw</text>
+  <rect class="u-line" x="28" y="226" width="88" height="5" rx="2.5"/><rect class="u-line" x="28" y="239" width="76" height="5" rx="2.5"/><rect class="u-line" x="28" y="252" width="92" height="5" rx="2.5"/>
+
+  <line class="u-edge" x1="330" y1="150" x2="450" y2="210"/>
+  <line class="u-edge" x1="330" y1="150" x2="300" y2="255"/>
+  <line class="u-edge" x1="450" y1="210" x2="300" y2="255"/>
+  <line class="u-edge" x1="450" y1="210" x2="592" y2="140"/>
+  <line class="u-edge" x1="450" y1="210" x2="600" y2="290"/>
+  <line class="u-edge" x1="592" y1="140" x2="700" y2="200"/>
+  <line class="u-edge" x1="600" y1="290" x2="700" y2="200"/>
+  <line class="u-edge" x1="300" y1="255" x2="360" y2="340"/>
+  <line class="u-edge" x1="600" y1="290" x2="520" y2="350"/>
+  <line class="u-edge" x1="700" y1="200" x2="782" y2="278"/>
+  <line class="u-edge" x1="592" y1="140" x2="660" y2="88"/>
+
+  <circle class="u-node" cx="450" cy="210" r="15"/>
+  <circle class="u-node" cx="330" cy="150" r="9"/>
+  <circle class="u-node" cx="300" cy="255" r="9"/>
+  <circle class="u-node" cx="592" cy="140" r="11"/>
+  <circle class="u-node" cx="700" cy="200" r="9"/>
+  <circle class="u-node" cx="600" cy="290" r="11"/>
+  <circle class="u-node" cx="360" cy="340" r="7"/>
+  <circle class="u-node" cx="520" cy="350" r="7"/>
+  <circle class="u-node" cx="782" cy="278" r="7"/>
+  <circle class="u-node" cx="660" cy="88" r="7"/>
+  <circle class="u-node acc" cx="806" cy="128" r="8"/>
+
+  <text class="u-s" x="450" y="240" text-anchor="middle">LLM Wiki</text>
+  <text class="u-s" x="330" y="134" text-anchor="middle">RAG</text>
+  <text class="u-s" x="592" y="124" text-anchor="middle">OKF</text>
+  <text class="u-s" x="600" y="314" text-anchor="middle">Obsidian</text>
+  <text class="u-s" x="806" y="112" text-anchor="middle" fill="#45A216">저장한 답</text>
+
+  <path class="u-lead" d="M470 200 H556 V166"/>
+  <circle class="u-num" cx="556" cy="154" r="10"/><text class="u-num-t" x="556" y="158" text-anchor="middle">1</text>
+  <path class="u-lead" d="M796 140 V186"/>
+  <circle class="u-num" cx="796" cy="198" r="10"/><text class="u-num-t" x="796" y="202" text-anchor="middle">2</text>
+</svg>
+<ol class="shots"><li><span class="n">1</span>선이 많이 모인 큰 점이 <b>내 관심의 중심</b>입니다. 무엇을 많이 모았는지가 그대로 드러납니다.</li><li><span class="n">2</span>초록 점은 위키에 질문하고 <b>저장한 답</b>입니다. 질문할수록 점이 늘어납니다.</li></ol><figcaption>점 하나가 개념 하나, 선 하나가 개념 사이의 연결입니다.</figcaption></figure>
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">진행 순서</div>
+<h2>네 시간, 네 걸음</h2>
+<table class="t">
+  <tr><th>순서</th><th>무엇을</th><th>끝나면 손에 남는 것</th></tr>
+  <tr><td>①&nbsp;이해하기</td><td>이 방식이 왜 더 싸고 정확한지</td><td>남에게 설명할 수 있는 한 문장</td></tr>
+  <tr><td>②&nbsp;환경 세팅</td><td>내 컴퓨터에 도구 갖추기</td><td>수업 후에도 쓸 작업 환경</td></tr>
+  <tr><td>③&nbsp;정리·질문</td><td>자료를 넣어 위키로 만들고 질문하기</td><td>개념 문서와 출처 달린 답</td></tr>
+  <tr><td>④&nbsp;연결망</td><td>빈 곳을 메우고 발표하기</td><td>끊긴 링크 0, 외톨이 0의 위키</td></tr>
+</table>
+<div class="note">막히면 손을 들어 주세요. 설치는 원래 막히는 구간입니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">이 모듈 끝</div>
+<h2>다음으로</h2>
+<div class="nav-end"><a class="btn" href="m1.html">① LLM wiki와 OKF 이해하기</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
+</div></section>
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>
