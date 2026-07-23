@@ -3,6 +3,8 @@
 > **연세대학교 학부생 대상 4시간 집중 특강 실습용 Starter Repository**  
 > *"질문할 때마다 다시 뒤지지 말고, 수집할 때 미리 정리하자!" (RAG → LLM Wiki)*
 
+📑 **세미나 교안 슬라이드 →** <https://yjh9929.github.io/okf-wiki-starter/>
+
 ---
 
 ## 💡 강의 개요 (Overview)
