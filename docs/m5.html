@@ -29,10 +29,13 @@
 <section class="slide"><div class="wrap">
 <div class="eyebrow">4-1 · 2:50 – 3:35 · 45분</div>
 <div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- Obsidian 그래프로 연결 읽는 법
-- 끊긴 링크·고립된 노트·표식 누락 점검하기
+- 끊긴 링크·연결 안 된 문서·표식 누락 점검하기
 - 좋은 답을 저장할수록 촘촘해지는 위키</div></div><div class="box"><h4>이런 걸 해봐요</h4><div class="lines">- 그래프 읽는 방법 배우기
-- 도전 과제 - 끊긴 링크 0, 외톨이 0
+- 도전 과제 - 끊긴 링크 0, 연결 안 된 문서 0
 - 내 전공에 맞게 규칙을 바꿔보기</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">Obsidian 그래프 읽기</div></div></div>
+<div class="fn">
+  <p><b>스킬</b>AI에게 "이런 일은 이렇게 처리해라"를 적어 둔 문서. 코드가 아니라 사람이 읽을 수 있는 한국어·영어 문장이라, 열어서 고칠 수 있습니다. <span class="en">skill</span></p>
+</div>
 </div></section>
 <section class="slide"><div class="wrap">
 
@@ -43,20 +46,24 @@
 <div class="grid g3">
   <div class="card"><div class="k">크고 진한 점</div><h4>중심 개념</h4>
   <p>여러 문서가 참조하는 개념. 내 관심의 축입니다.</p></div>
-  <div class="card"><div class="k">혼자 떨어진 점</div><h4>고립된 노트</h4>
+  <div class="card"><div class="k">혼자 떨어진 점</div><h4><span class="ft">연결 안 된 문서</span></h4>
   <p>어디서도 이어지지 않은 문서. 만들어 두고 잊힙니다.</p></div>
   <div class="card"><div class="k">끊어진 선</div><h4>끊긴 링크</h4>
   <p>없는 문서를 가리키는 링크. 눌러도 이동하지 않습니다.</p></div>
 </div>
 
+<div class="fn">
+  <p><b>연결 안 된 문서</b>다른 어떤 문서에서도 가리키지 않는 문서. 만들어 두고 잊히기 쉽습니다. 영어 자료에서는 <span class="en">orphan</span> 이라고 부릅니다.</p>
+  <p><b>끊긴 링크</b>존재하지 않는 문서를 가리키는 링크. 눌러도 아무 데도 가지 않습니다.</p>
+</div>
 </div></section>
 <section class="slide"><div class="wrap">
 
 <div class="eyebrow">도전 과제</div>
-<h2 class="big">끊긴 링크 0<br>외톨이 0</h2>
+<h2 class="big">끊긴 링크 0<br>연결 안 된 문서 0</h2>
 <div class="tally">
   <div><div class="n">0</div><div class="l">끊긴 링크</div></div>
-  <div><div class="n">0</div><div class="l">고립된 노트</div></div>
+  <div><div class="n">0</div><div class="l">연결 안 된 문서</div></div>
   <div><div class="n">0</div><div class="l">표식 누락</div></div>
   <div><div class="n">0</div><div class="l">출처 누락</div></div>
 </div>
@@ -69,8 +76,11 @@
 <h2>먼저 개수를 확인합니다</h2>
 <div class="say"><span class="k">이렇게 말하세요</span><q>위키 점검해 줘</q></div>
 <p class="lead">네 항목이 몇 건씩 걸리는지, 어느 문서가 문제인지 알려 줍니다.</p>
-<div class="note">저장소에 점검 도구도 들어 있습니다. 결과는 같으니 궁금한 분만 확인하면 됩니다.</div>
+<div class="note">저장소에 <span class="ft">점검</span> 도구도 들어 있습니다. 결과는 같으니 궁금한 분만 확인하면 됩니다.</div>
 
+<div class="fn">
+  <p><b>점검</b>문서들이 규칙에 맞는지, 링크가 제대로 이어져 있는지 기계적으로 훑어보는 일. 프로그램 세계에서는 <span class="en">lint</span> 라고 부릅니다.</p>
+</div>
 </div></section>
 <section class="slide"><div class="wrap">
 
@@ -78,7 +88,7 @@
 <h2>고치는 방법은 정해져 있습니다</h2>
 <table class="t">
   <tr><th>걸린 것</th><th>왜 생기나</th><th>어떻게 고치나</th></tr>
-  <tr><td>고립된 노트</td><td>목차나 다른 문서에서 아무도 이 문서를 가리키지 않음</td>
+  <tr><td>연결 안 된 문서</td><td>목차나 다른 문서에서 아무도 이 문서를 가리키지 않음</td>
       <td>관련 문서에 링크를 걸거나 목차에 추가합니다. "이 문서를 관련 개념과 이어 줘"라고 해도 됩니다.</td></tr>
   <tr><td>끊긴 링크</td><td>아직 만들지 않은 문서를 가리킴</td>
       <td>그 문서를 만들거나, 링크를 지웁니다. 만들 만한 개념이면 만드는 쪽이 낫습니다.</td></tr>
@@ -94,7 +104,7 @@
 <div class="eyebrow">3단계</div>
 <h2>고치고 다시 확인합니다</h2>
 <p class="lead">한 번에 0이 되지는 않습니다. 고치고 확인하기를 몇 번 반복합니다.</p>
-<div class="note">외톨이를 없애려고 아무 문서에나 링크를 걸면 그래프만 촘촘해지고 쓸모는 없어집니다.
+<div class="note">연결 안 된 문서를 없애려고 아무 문서에나 링크를 걸면 그래프만 촘촘해지고 쓸모는 없어집니다.
 <b>실제로 관련 있는 것끼리만</b> 이어 줍니다. 링크는 "이 둘은 함께 봐야 한다"는 표시입니다.</div>
 
 </div></section>
@@ -102,7 +112,7 @@
 
 <div class="eyebrow">한 걸음 더</div>
 <h2>내 전공에 맞게 규칙을 바꿔보기</h2>
-<p class="lead">정리 규칙은 <span class="path">.claude/skills/okf-wiki/SKILL.md</span> 에 있습니다. 텍스트 파일이라 열어서 고칠 수 있습니다.</p>
+<p class="lead">정리 규칙(<span class="ft">스킬</span>)은 <span class="path">.claude/skills/okf-wiki/SKILL.md</span> 에 있습니다. 텍스트 파일이라 열어서 고칠 수 있습니다.</p>
 <div class="grid g2">
   <div class="card"><h4>바꿀 수 있는 것</h4>
   <p>표식 종류 추가 (예: 논문용 <span class="path">paper</span>), 항상 넣을 항목 지정, 문서 길이 규칙.</p></div>
@@ -118,7 +128,7 @@
 <h2>완성 기준</h2>
 <ul class="check">
   <li>점검을 돌려 네 항목의 숫자를 확인했다</li>
-  <li>고립된 노트를 관련 개념과 이어 줬다</li>
+  <li>연결 안 된 문서를 관련 개념과 이어 줬다</li>
   <li>끊긴 링크를 없앴다</li>
   <li>다시 점검했을 때 모두 0이 나왔다</li>
   <li>그래프 화면을 띄워 두었다 (다음 시간에 씁니다)</li>

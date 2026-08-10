@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-OKF 위키 무결성 린터 (Path B — Claude Code 네이티브 검증용)
-사용: python3 lint_okf.py <wiki_dir>
-검사: (1) type frontmatter 필수  (2) 깨진 위키링크  (3) 고아 문서(index 미도달)  (4) 출처 표기
+OKF 위키 점검 도구
+
+위키가 규칙에 맞게 만들어졌는지 기계적으로 훑어본다. 선택 도구이며,
+Claude에게 "위키 점검해 줘"라고 부탁하는 것으로 대체할 수 있다.
+
+사용법: python3 lint_okf.py wiki
+
+점검 항목
+  1. type 표식 누락      — 모든 개념 문서 맨 앞에 type이 있는가
+  2. 끊긴 링크          — 존재하지 않는 문서를 가리키는 링크가 있는가
+  3. 연결 안 된 문서     — index.md에서 링크를 따라가 닿을 수 없는 문서가 있는가
+  4. 출처 누락          — 각 문서가 (raw/...) 형태로 출처를 밝히고 있는가
 """
 import sys, os, re
 
@@ -48,7 +57,7 @@ def main(wiki):
             if t not in ids:
                 broken.append((src, t))
 
-    # (3) 고아: index.md에서 BFS 도달 불가한 concept
+    # (3) 연결 안 된 문서: index.md에서 BFS 도달 불가한 concept
     start = "wiki/index"
     seen = set()
     stack = [start]
@@ -72,7 +81,7 @@ def main(wiki):
         if lst: fails.append(name)
     rep("type frontmatter 누락", no_type)
     rep("깨진 위키링크", [f"{s}->{t}" for s, t in broken])
-    rep("고아 문서(index 미도달)", orphans)
+    rep("연결 안 된 문서(index 미도달)", orphans)
     rep("출처(raw/..) 누락", no_src)
     print("== 결과:", "ALL PASS ✅" if not fails else f"FAIL ❌ ({', '.join(fails)})", "==")
     return 0 if not fails else 1
