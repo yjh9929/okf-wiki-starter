@@ -123,5 +123,12 @@
     openLightbox(img.src, img.alt);
   });
 
+  /* ---------- 체크리스트 ---------- */
+  document.addEventListener('click', function (e) {
+    var li = e.target.closest('ul.check > li');
+    if (!li) return;
+    li.classList.toggle('on');
+  });
+
   paint();
 })();

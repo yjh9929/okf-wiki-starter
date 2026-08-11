@@ -43,8 +43,20 @@
 
 <div class="eyebrow">지금 쓰는 방식</div>
 <h2>RAG는 물어볼 때마다 찾습니다</h2>
-<p class="lead">자료를 잘게 쪼개 두고, 질문이 올 때마다 비슷한 조각을 꺼내 답을 만듭니다.
-문제는 <span class="mark">이 일이 질문마다 처음부터 반복된다</span>는 점입니다.</p>
+<p class="lead">보통 LLM에 문서를 넣고 쓸 때는 <b><span class="ft">RAG</span></b> 방식을 씁니다.</p>
+<p class="lead">파일을 올려두면 잘게 쪼개져 저장되고, 질문이 들어올 때마다 <span class="mark">관련 조각을 찾아 붙여</span> 답을 만듭니다.</p>
+<div class="fn">
+  <p><b>RAG</b>자료를 미리 쪼개 저장해 두고, 질문이 올 때마다 관련 조각을 찾아 붙여 답을 만드는 방식. <span class="en">Retrieval-Augmented Generation</span></p>
+  <p><b>청킹</b>긴 문서를 문단 정도 크기로 잘게 나누는 것. 문서 전체는 한 번에 넣기엔 너무 길기 때문입니다.</p>
+  <p><b>임베딩</b>글을 숫자 목록으로 바꾸는 것. 뜻이 비슷한 글은 비슷한 숫자가 되어서, 컴퓨터가 의미를 비교할 수 있게 됩니다.</p>
+  <p><b>벡터 DB</b>임베딩으로 바꾼 숫자들을 모아 두고 "이것과 비슷한 것"을 빠르게 찾아 주는 저장소.</p>
+  <p><b>컨텍스트 주입</b>찾아낸 조각을 질문 앞에 붙여서 AI에게 함께 건네는 것. AI는 이 붙은 내용만 보고 답합니다.</p>
+</div>
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">RAG의 동작</div>
+<h2>저장은 한 번, 검색은 질문마다</h2>
 <figure class="dia">
 <svg viewBox="0 0 900 300" role="img" aria-label="RAG 동작 원리 도해">
   <text class="d-s" x="30" y="30">① 미리 저장 · 한 번</text>
@@ -85,21 +97,15 @@
     <marker id="rag1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#BEB4B4"/></marker>
   </defs>
 </svg>
-<figcaption>정리는 안 하고 저장만 해 둡니다. 질문마다 "가까운 조각"을 새로 꺼내 붙일 뿐입니다.</figcaption>
+<figcaption>①은 한 번, ②는 질문할 때마다 반복됩니다</figcaption>
 </figure>
-
-<div class="fn">
-  <p><b>RAG</b>자료를 미리 쪼개 저장해 두고, 질문이 올 때마다 관련 조각을 찾아 붙여 답을 만드는 방식. <span class="en">Retrieval-Augmented Generation</span></p>
-  <p><b>청킹</b>긴 문서를 문단 정도 크기로 잘게 나누는 것. 문서 전체는 한 번에 넣기엔 너무 길기 때문입니다.</p>
-  <p><b>임베딩</b>글을 숫자 목록으로 바꾸는 것. 뜻이 비슷한 글은 비슷한 숫자가 되어서, 컴퓨터가 의미를 비교할 수 있게 됩니다.</p>
-  <p><b>벡터 DB</b>임베딩으로 바꾼 숫자들을 모아 두고 "이것과 비슷한 것"을 빠르게 찾아 주는 저장소.</p>
-  <p><b>컨텍스트 주입</b>찾아낸 조각을 질문 앞에 붙여서 AI에게 함께 건네는 것. AI는 이 붙은 내용만 보고 답합니다.</p>
-</div>
+<div class="note">저장할 때는 <b>쪼개서 넣어 두기만</b> 합니다. 내용을 읽고 정리하는 일은 아무도 하지 않습니다.</div>
 </div></section>
 <section class="slide"><div class="wrap">
 
-<div class="eyebrow">기존 AI 활용 방식의 한계</div>
-<h2>세션이 끝나면, 매번 처음부터</h2>
+<div class="eyebrow">그래서 무엇이 문제인가</div>
+<h2>아무것도 쌓이지 않습니다</h2>
+<p class="lead">매번 처음부터 다시 찾아내는 구조라, 새 자료가 들어와도 기존 지식과 이어지며 발전하지 않습니다. 내가 던진 질문과 피드백도 어디에도 남지 않습니다.</p>
 <div class="grid g3">
   <div class="card"><div class="k">비용</div><h4>매번 처음부터</h4>
   <p>어제 정리한 내용을 오늘 또 정리합니다. 쌓이는 것이 없습니다.</p></div>
@@ -127,17 +133,18 @@
 
 <div class="eyebrow">두 방식 비교</div>
 <h2>RAG와 LLM Wiki, 무엇이 다른가</h2>
+<p class="lead">둘 다 자료를 읽고 답합니다. 갈리는 지점은 <span class="mark">정리를 언제 하느냐</span> 하나입니다.</p>
 <div class="vs">
   <div class="side"><h4>RAG · 물어볼 때 찾기</h4><ul>
-    <li>질문 100번 = 정리 100번</li>
-    <li>어제의 답이 오늘 남아 있지 않음</li>
-    <li>쓸수록 비용만 늘어남</li>
+    <li><b>언제 정리하나</b> — 질문할 때마다</li>
+    <li><b>무엇이 남나</b> — 남지 않음</li>
+    <li><b>시간이 지나면</b> — 처음과 같음</li>
   </ul></div>
   <div class="mid">vs</div>
   <div class="side b"><h4>LLM Wiki · 모을 때 정리</h4><ul>
-    <li>정리 1번 + 질문 100번</li>
-    <li>좋은 답은 위키에 다시 쌓임</li>
-    <li>쓸수록 위키가 두꺼워짐</li>
+    <li><b>언제 정리하나</b> — 자료를 넣을 때 한 번</li>
+    <li><b>무엇이 남나</b> — 위키 문서</li>
+    <li><b>시간이 지나면</b> — 두꺼워짐</li>
   </ul></div>
 </div>
 <div class="note">Karpathy는 이 위키를 <b>영속적이고 복리로 누적되는 산출물</b>이라고 표현했습니다.</div>
