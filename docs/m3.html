@@ -89,6 +89,11 @@
 
 <div class="eyebrow">1단계</div>
 <h2>웹 클리퍼로 자료 담기</h2>
+<figure class="dia two">
+<img src="assets/img/m3-01-clipper-save.png" alt="클리퍼 저장 팝업">
+<img src="assets/img/m3-01d-clipped-result.png" alt="raw 폴더에 저장된 결과">
+<figcaption>왼쪽 : 기사에서 클리퍼 아이콘을 누르면 저장 팝업이 뜹니다 · 오른쪽 : 표식이 자동으로 붙어 <b>raw/</b> 에 저장됩니다</figcaption>
+</figure>
 <ol class="steps">
   <li><b>관심 있는 글을 브라우저로 엽니다</b><p>기사, 블로그 글, 위키백과 항목.</p></li>
   <li><b>웹 클리퍼 아이콘을 누릅니다</b><p>본문만 뽑혀(<span class="ft">클리핑</span>) 마크다운으로 <span class="path">raw/</span> 에 저장됩니다.</p></li>
@@ -105,10 +110,13 @@
 
 <div class="eyebrow">2단계</div>
 <h2>정리를 실행합니다</h2>
-<p class="lead">Code 탭 아래 입력창에 둘 중 하나를 넣습니다.</p>
-<div class="say"><span class="k">방법 1 · 명령</span><q>/okf-wiki</q></div>
-<div class="say"><span class="k">방법 2 · 문장으로</span><q>raw 폴더 읽어서 위키로 정리해 줘</q></div>
-<p class="lead">둘은 같은 일을 합니다 — 자료를 읽어 개념을 뽑고, 겹치는 내용을 합치고, 파일로 나눠 링크를 걸고, 목차를 갱신합니다. 1~3분 걸리는 동안 Obsidian 그래프를 옆에 띄워 둡니다.</p>
+<figure class="dia">
+<img src="assets/img/m3-02-ingest-approval.png" alt="정리 실행과 승인 요청 화면">
+<figcaption>파일을 만들기 전에 승인을 물어봅니다. <b>승인 전에는 아무것도 바뀌지 않습니다.</b></figcaption>
+</figure>
+<p class="lead">Code 탭 아래 입력창에 이렇게 넣습니다.</p>
+<div class="say"><span class="k">이렇게 부탁합니다</span><q>raw 폴더 읽어서 위키로 정리해 줘</q></div>
+<p class="lead">자료를 읽어 개념을 뽑고, 겹치는 내용을 합치고, 파일로 나눠 링크를 걸고, 목차를 갱신합니다. 1~3분 걸리는 동안 Obsidian 그래프를 옆에 띄워 둡니다.</p>
 <div class="note">파일을 만들어도 되냐고 물으면 <b>승인</b>합니다. 승인 전에는 아무것도 바뀌지 않습니다.</div>
 
 </div></section>
@@ -116,6 +124,11 @@
 
 <div class="eyebrow">3단계</div>
 <h2>만들어진 문서를 확인합니다</h2>
+<figure class="dia two">
+<img src="assets/img/m3-03-wiki-document.png" alt="생성된 개념 문서">
+<img src="assets/img/m3-03b-wiki-tree.png" alt="주제별로 묶인 문서들">
+<figcaption>왼쪽 : 표식 · 출처 · 연관 개념이 갖춰진 문서 · 오른쪽 : 자료 8건이 개념 18건으로 정리됐습니다</figcaption>
+</figure>
 <p class="lead">Obsidian에서 새로 생긴 문서를 하나 엽니다. 앞에서 본 세 가지가 들어 있습니다.</p>
 <div class="grid g3">
   <div class="card"><div class="k">맨 앞</div><h4>표식</h4>
@@ -135,43 +148,9 @@
 <p class="lead">같은 주제의 글을 하나 더 담고 정리를 다시 실행합니다.
 새 문서가 여러 개 생길 것 같지만 결과는 다릅니다.</p>
 <figure class="dia">
-<svg viewBox="0 0 900 400" role="img" aria-label="파일 변경 내용을 확인하고 승인하는 화면 예시">
-  <rect class="u-win" x="10" y="10" width="880" height="380" rx="12"/>
-  <rect class="u-bar" x="11" y="11" width="878" height="38" rx="11"/>
-  <rect class="u-bar" x="11" y="36" width="878" height="13"/>
-  <text class="u-t" x="30" y="35">wiki/pattern/LLM-Wiki.md</text>
-  <text class="u-s" x="770" y="35">+3  -0</text>
-
-  <rect class="u-line" x="30" y="72" width="14" height="5" rx="2.5"/>
-  <text class="u-s" x="58" y="78">## 1. 개요</text>
-  <text class="u-s" x="58" y="100">질의 시점이 아니라 수집 시점에 정리한다. (raw/karpathy_llm_wiki.md)</text>
-
-  <rect class="u-add" x="26" y="118" width="700" height="26" rx="5"/>
-  <text class="u-s" x="36" y="136" fill="#2C6B0B">+</text>
-  <text class="u-s" x="58" y="136" fill="#2C6B0B">Google은 이를 형식화한 규격을 공개했다. (raw/google_okf.md)</text>
-
-  <rect class="u-add" x="26" y="150" width="700" height="26" rx="5"/>
-  <text class="u-s" x="36" y="168" fill="#2C6B0B">+</text>
-  <text class="u-s" x="58" y="168" fill="#2C6B0B">필수 항목은 type 하나뿐이다. (raw/google_okf.md)</text>
-
-  <text class="u-s" x="58" y="200">## 2. 연관 개념</text>
-  <rect class="u-add" x="26" y="212" width="700" height="26" rx="5"/>
-  <text class="u-s" x="36" y="230" fill="#2C6B0B">+</text>
-  <text class="u-s" x="58" y="230" fill="#2C6B0B">- [[wiki/format/OKF]]</text>
-
-  <rect class="u-hi" x="20" y="112" width="712" height="132" rx="10"/>
-
-  <rect class="u-btn" x="600" y="330" width="120" height="34" rx="9"/>
-  <text class="u-btn-t" x="660" y="352" text-anchor="middle">변경 적용</text>
-  <rect class="u-win" x="734" y="330" width="120" height="34" rx="9"/>
-  <text class="u-s" x="794" y="351" text-anchor="middle">되돌리기</text>
-
-  <path class="u-lead" d="M736 178 H790"/>
-  <circle class="u-num" cx="806" cy="178" r="10"/><text class="u-num-t" x="806" y="182" text-anchor="middle">1</text>
-  <path class="u-lead" d="M660 320 V300"/>
-  <circle class="u-num" cx="660" cy="290" r="10"/><text class="u-num-t" x="660" y="294" text-anchor="middle">2</text>
-</svg>
-<ol class="shots"><li><span class="n">1</span>초록색으로 표시된 줄이 <b>이번에 새로 추가된 내용</b>입니다. 파일 전체를 다시 쓴 게 아니라 세 줄만 늘어난 것을 볼 수 있습니다.</li><li><span class="n">2</span>확인하고 <b><span class="ft">변경 적용</span></b>을 누르면 파일에 반영됩니다. 누르기 전까지는 아무것도 바뀌지 않습니다.</li></ol></figure>
+<img src="assets/img/m3-04-diff.jpeg" alt="두 번째 정리에서 기존 문서가 갱신되는 화면">
+<figcaption><b>초록색이 새로 붙은 줄입니다.</b> 새 문서를 만든 게 아니라 기존 문장 끝에 한 절이 이어졌습니다 (+3 −1)</figcaption>
+</figure>
 <div class="note">자료가 쌓일수록 문서 수가 아니라 <b>문서의 밀도</b>가 올라갑니다. 이것이 복리의 실체입니다.</div>
 
 <div class="fn">
@@ -182,6 +161,10 @@
 
 <div class="eyebrow">확인</div>
 <h2>여기까지 확인합니다</h2>
+<figure class="dia">
+<img src="assets/img/m3-05-log.png" alt="정리 기록">
+<figcaption><span class="path">wiki/log.md</span> — 언제 무엇을 정리했는지 기록이 쌓입니다</figcaption>
+</figure>
 <ul class="check">
   <li>wiki/ 폴더에 개념 문서가 세 개 이상 생겼다</li>
   <li>문서 맨 앞에 type 표식이 있다</li>

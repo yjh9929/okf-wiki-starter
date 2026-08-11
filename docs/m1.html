@@ -118,31 +118,8 @@
 <p class="lead">Andrej Karpathy가 2026년 4월에 공개한 메모에서 나온 방식입니다.
 <span class="mark">자료가 들어오는 시점에 한 번 정리해서 위키로 만들어 둡니다.</span></p>
 <figure class="dia">
-<svg viewBox="0 0 900 200" role="img" aria-label="LLM Wiki 동작 도해">
-  <rect class="d-box warm" x="20" y="58" width="140" height="76" rx="10"/>
-  <text class="d-t" x="90" y="90" text-anchor="middle">모은 자료</text>
-  <text class="d-s" x="90" y="110" text-anchor="middle">raw/</text>
-  <path class="d-l" d="M165 96 H250" marker-end="url(#b1)"/>
-  <text class="d-s" x="207" y="84" text-anchor="middle">한 번만</text>
-  <rect class="d-box hi" x="255" y="40" width="180" height="112" rx="10"/>
-  <text class="d-t" x="345" y="82" text-anchor="middle">정리된 위키</text>
-  <text class="d-s" x="345" y="102" text-anchor="middle">개념 단위로 병합</text>
-  <text class="d-s" x="345" y="120" text-anchor="middle">wiki/</text>
-  <path class="d-l" d="M440 96 H530" marker-end="url(#b1)"/>
-  <rect class="d-box" x="535" y="58" width="150" height="76" rx="10"/>
-  <text class="d-t" x="610" y="90" text-anchor="middle">질문</text>
-  <text class="d-s" x="610" y="110" text-anchor="middle">위키만 본다</text>
-  <path class="d-l" d="M690 96 H760" marker-end="url(#b1)"/>
-  <rect class="d-box" x="765" y="58" width="110" height="76" rx="10"/>
-  <text class="d-t" x="820" y="90" text-anchor="middle">답</text>
-  <text class="d-s" x="820" y="110" text-anchor="middle">출처 포함</text>
-  <path class="d-l dash" d="M820 134 V172 H345 V152" marker-end="url(#b2)"/>
-  <text class="d-s" x="582" y="188" text-anchor="middle" fill="#45A216">쓸 만한 답은 위키에 다시 저장</text>
-  <defs>
-    <marker id="b1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#BEB4B4"/></marker>
-    <marker id="b2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#45A216"/></marker>
-  </defs>
-</svg>
+<img src="assets/img/m1-karpathy-gist.png" alt="Karpathy의 LLM Wiki 메모 원문">
+<figcaption>Andrej Karpathy, llm-wiki.md (GitHub Gist, 2026-04-04)</figcaption>
 </figure>
 
 </div></section>
@@ -205,34 +182,9 @@
 <p class="lead">Google이 2026년 6월에 공개한 파일 형식입니다.
 평소 쓰던 <span class="ft">마크다운</span> 맨 앞에 <span class="mark">표식 몇 줄</span>을 얹은 것이 전부입니다.</p>
 <figure class="dia">
-<svg viewBox="0 0 900 360" role="img" aria-label="Obsidian에서 연 OKF 문서 화면 예시">
-  <rect class="u-win" x="10" y="10" width="880" height="340" rx="12"/>
-  <rect class="u-bar" x="11" y="11" width="878" height="36" rx="11"/>
-  <rect class="u-bar" x="11" y="34" width="878" height="13"/>
-  <text class="u-t" x="30" y="34">LLM-Wiki.md</text>
-
-  <rect class="u-add" x="26" y="62" width="600" height="98" rx="7"/>
-  <text class="u-s" x="44" y="84" fill="#2C6B0B">type: core-concept</text>
-  <text class="u-s" x="44" y="104">title: "LLM Wiki 패턴"</text>
-  <text class="u-s" x="44" y="124">resource: "raw/karpathy_llm_wiki.md"</text>
-  <text class="u-s" x="44" y="146">tags: [지식관리, LLM]</text>
-
-  <text class="u-t" x="44" y="192">LLM Wiki 패턴</text>
-  <text class="u-s" x="44" y="220">질의 시점이 아니라 수집 시점에 정리해 두는 방식이다.</text>
-  <text class="u-s" x="44" y="240" fill="#8E8781">(raw/karpathy_llm_wiki.md)</text>
-
-  <text class="u-s" x="44" y="284">연관 개념</text>
-  <text class="u-s" x="44" y="306" fill="#45A216">[[wiki/format/OKF]]</text>
-  <text class="u-s" x="44" y="326" fill="#45A216">[[wiki/tool/Obsidian]]</text>
-
-  <path class="u-lead" d="M632 110 H690"/>
-  <circle class="u-num" cx="706" cy="110" r="10"/><text class="u-num-t" x="706" y="114" text-anchor="middle">1</text>
-  <path class="u-lead" d="M240 236 H690"/>
-  <circle class="u-num" cx="706" cy="236" r="10"/><text class="u-num-t" x="706" y="240" text-anchor="middle">2</text>
-  <path class="u-lead" d="M240 306 H690"/>
-  <circle class="u-num" cx="706" cy="306" r="10"/><text class="u-num-t" x="706" y="310" text-anchor="middle">3</text>
-</svg>
-<ol class="shots"><li><span class="n">1</span>맨 앞의 <b>표식</b>(<span class="ft">프론트매터</span>). 이 중 필수는 <b>type</b> 한 줄뿐입니다.</li><li><span class="n">2</span>문단 끝의 <b>출처</b>. 이 문장이 어느 원문에서 나왔는지 되짚을 수 있습니다.</li><li><span class="n">3</span>아래쪽의 <b>연결</b>. 대괄호 두 개로 감싼 이 <span class="ft">위키링크</span> 한 줄이 그래프의 선이 됩니다.</li></ol></figure>
+<img src="assets/img/m1-okf-document.png" alt="OKF 규격을 따르는 위키 문서">
+<figcaption>실제 OKF 문서 — 맨 앞의 표식, 문단 끝의 출처, 아래쪽의 연결</figcaption>
+</figure>
 <div class="fn">
   <p><b>마크다운</b>글씨 크기나 목록 같은 서식을 기호 몇 개로 표시하는 글쓰기 형식. 그냥 텍스트 파일이라 어떤 프로그램에서든 열립니다. 파일 확장자는 <span class="en">.md</span></p>
   <p><b>프론트매터</b>문서 맨 앞에 <span class="en">---</span> 로 감싸 적어 두는 정보. 이 문서가 무엇에 관한 것인지를 사람과 프로그램이 함께 읽을 수 있게 합니다. 이 교안에서는 "표식"이라고 부릅니다.</p>
@@ -245,6 +197,10 @@
 
 <div class="eyebrow">규격이 짧은 이유</div>
 <h2>필수 항목은 <span class="mark">type</span> 하나뿐</h2>
+<figure class="dia">
+<img src="assets/img/m1-okf-v02-blog.png" alt="OKF v0.2 발표 블로그">
+<figcaption>Google Cloud Blog — OKF v0.2 (2026-07-25). 항목이 늘어도 필수는 type 하나 그대로</figcaption>
+</figure>
 <div class="grid g2">
   <div class="card"><h4>하나만 필수인 이유</h4>
   <p>규칙이 많으면 아무도 지키지 않습니다. 최소한만 강제하고 나머지는 열어 둡니다.</p></div>

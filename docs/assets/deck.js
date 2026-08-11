@@ -86,6 +86,7 @@
         else document.documentElement.requestFullscreen();
         break;
       case 'Escape':
+        if (document.body.classList.contains('lb-open')) { closeLightbox(); break; }
         if (!document.fullscreenElement) location.href = 'index.html';
         break;
     }
@@ -96,5 +97,31 @@
     var n = parseInt(location.hash.slice(2), 10) - 1;
     window.addEventListener('load', function () { go(n); });
   }
+
+  /* ---------- 이미지 확대 보기 ---------- */
+  var lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.innerHTML = '<img alt=""><span class="lb-x" aria-hidden="true">닫기 Esc</span>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    document.body.classList.add('lb-open');
+  }
+  function closeLightbox() {
+    document.body.classList.remove('lb-open');
+    setTimeout(function () { lbImg.src = ''; }, 200);
+  }
+  lb.addEventListener('click', closeLightbox);
+
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest('figure.dia img');
+    if (!img) return;
+    e.preventDefault();
+    openLightbox(img.src, img.alt);
+  });
+
   paint();
 })();

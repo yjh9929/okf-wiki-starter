@@ -1,5 +1,5 @@
 /* ===========================================================
-   나만의 AI 지식 관리 시스템 만들기 — 강의 사이트
+   Claude로 만드는 나만의 LLM Wiki — 강의 사이트
    팔레트: 0F4B43 / 45A216 / EFE7E1 / D5C6B9 / BEB4B4 / 565855
    =========================================================== */
 
@@ -461,6 +461,43 @@ ol.shots li .n{
 
 /* 화면 예시가 한 장 안에 들어오도록 */
 figure.dia svg{max-height:42vh}
+/* ---------- 실제 화면 캡처 ---------- */
+figure.dia{overflow:hidden}
+figure.dia img{
+  display:block;margin:0 auto;
+  max-width:100%;max-height:30vh;width:auto;height:auto;
+  border-radius:10px;border:1px solid var(--rule);background:var(--surface);
+  cursor:zoom-in;transition:box-shadow .15s ease;
+}
+figure.dia img:hover{box-shadow:0 4px 18px rgba(0,0,0,.14)}
+figure.dia.two{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;justify-items:center;
+}
+figure.dia.two img{max-height:24vh}
+figure.dia.two figcaption{grid-column:1/-1;justify-self:start;margin-top:2px}
+figure.dia figcaption::after{content:" · 클릭하면 크게 보입니다";opacity:.6}
+@media (max-height:820px){
+  figure.dia img{max-height:25vh}
+  figure.dia.two img{max-height:20vh}
+}
+@media (max-width:760px){
+  figure.dia.two{grid-template-columns:1fr}
+}
+
+/* ---------- 이미지 확대 보기 ---------- */
+.lb{
+  position:fixed;inset:0;z-index:200;display:none;
+  align-items:center;justify-content:center;padding:28px;
+  background:rgba(28,26,24,.92);cursor:zoom-out;
+}
+body.lb-open{overflow:hidden}
+body.lb-open .lb{display:flex}
+.lb img{max-width:96vw;max-height:92vh;border-radius:10px;background:var(--paper);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-x{
+  position:fixed;top:18px;right:22px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.06em;color:rgba(255,255,255,.7);
+}
+
 @media(min-width:900px){ol.shots{grid-template-columns:repeat(2,1fr)}ol.shots li:only-child{grid-column:1/-1}}
 @media(max-height:820px){
   figure.dia svg{max-height:40vh}
