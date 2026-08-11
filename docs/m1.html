@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>① LLM wiki와 OKF 이해하기 | 나만의 AI 지식 관리 시스템 만들기</title>
+<title>① LLM wiki와 OKF 이해하기 | Claude로 만드는 나만의 LLM Wiki</title>
 <meta name="description" content="RAG의 한계와 LLM Wiki 패턴, OKF 규격을 이해합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
 </div></section>
 <section class="slide"><div class="wrap">
 <div class="eyebrow">1-1 · 0:10 – 0:40 · 30분</div>
-<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- RAG가 물어볼 때마다 비용이 들고 틀리는 이유
+<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- RAG로는 아무것도 쌓이지 않는 이유
 - LLM Wiki, '미리 정리'로 이 문제를 해결하는 방식
 - OKF는 '마크다운 + 표식 하나'</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">LLM 위키의 장점</div></div></div>
 </div></section>
@@ -238,6 +238,7 @@
   <p><b>프론트매터</b>문서 맨 앞에 <span class="en">---</span> 로 감싸 적어 두는 정보. 이 문서가 무엇에 관한 것인지를 사람과 프로그램이 함께 읽을 수 있게 합니다. 이 교안에서는 "표식"이라고 부릅니다.</p>
   <p><b>YAML</b>프론트매터를 적는 문법. <span class="en">이름: 값</span> 형태로 한 줄씩 쓰면 됩니다.</p>
   <p><b>위키링크</b>대괄호 두 개로 문서 이름을 감싸면 그 문서로 이어지는 링크가 됩니다. Obsidian이 이 표시를 읽어 그래프의 선을 그립니다.</p>
+  <p><b>링크 방식</b>OKF 규격 자체는 일반 마크다운 링크를 씁니다. 대괄호 두 개는 Obsidian이 이해하는 방식인데, 오늘은 그래프를 볼 것이라 이쪽을 씁니다.</p>
 </div>
 </div></section>
 <section class="slide"><div class="wrap">

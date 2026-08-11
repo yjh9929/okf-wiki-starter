@@ -1,6 +1,6 @@
 ---
 name: okf-wiki
-description: Karpathy LLM Wiki 패턴으로 raw/ 원문을 Google OKF 규격의 상호링크 지식 위키(wiki/)로 만들고, 위키에 질의하고, 무결성을 점검한다. 지식 위키·노트 정리, 원문 요약·연결, 위키에 질문(질의응답), 링크/고아 점검이 필요할 때 사용. Build/query/lint an Obsidian-friendly OKF knowledge wiki.
+description: Karpathy LLM Wiki 패턴으로 raw/ 원문을 Google OKF 규격의 상호링크 지식 위키(wiki/)로 만들고, 위키에 질의하고, 무결성을 점검한다. 지식 위키·노트 정리, 원문 요약·연결, 위키에 질문(질의응답), 링크/연결 점검이 필요할 때 사용. Build/query/lint an Obsidian-friendly OKF knowledge wiki.
 ---
 
 # OKF 지식 위키 컴파일러 (okf-wiki)
@@ -25,15 +25,16 @@ description: Karpathy LLM Wiki 패턴으로 raw/ 원문을 Google OKF 규격의 
 - 답이 재사용할 가치가 있으면 `wiki/notes/<슬러그>.md`로 **다시 저장(file back)** → 지식 복리화. index·log 갱신.
 
 ### 3) Lint — 무결성 점검
-- 고아 페이지(index에서 도달 불가), 깨진 `[[wikilink]]`, `type` 누락, 출처 누락, 상호 모순을 점검·보고·수정 제안한다.
-- 배포된 `lint_okf.py`가 있으면 `PYTHONIOENCODING=utf-8 python3 lint_okf.py wiki`로 확인한다.
+- 연결 안 된 문서(index에서 도달 불가), 깨진 `[[wikilink]]`, `type` 누락, 출처 누락, 상호 모순을 점검·보고·수정 제안한다.
+- 점검은 문서를 직접 읽어 수행하는 것이 기본이다.
+- `lint_okf.py`가 있고 python3도 설치되어 있다면 `PYTHONIOENCODING=utf-8 python3 lint_okf.py wiki`로 교차 확인할 수 있다. **python3이 없으면 시도하지 말고 직접 점검만 하고 넘어간다.** 이 스크립트는 선택 도구이며, 없어도 점검 결과는 동일해야 한다.
 
 ## OKF 규격 (반드시 준수)
 모든 `wiki/*.md`(index/log 제외)는 아래 형식을 따른다:
 
 ```markdown
 ---
-type: <core-concept | standard | tool | query-result | ...>   # ★ type 필수 (Google OKF v0.1)
+type: <core-concept | standard | tool | query-result | ...>   # ★ type 필수 (Google OKF — v0.1·v0.2 공통 유일 필수 항목)
 title: "개념 이름"
 description: "한 줄 설명"
 resource: "raw/<출처>.md"
@@ -51,12 +52,14 @@ tags: [tag1, tag2]
 
 ## 철칙
 1. **type frontmatter 필수** — 없으면 OKF 위반.
-2. **고아 금지** — 모든 문서는 index.md 또는 상위 개념에서 도달 가능.
+2. **연결 누락 금지** — 모든 문서는 index.md 또는 상위 개념에서 도달 가능.
 3. **출처 추적** — 사실 단락 끝에 `(raw/...)` 표기. 원문에 없는 내용 지어내기 금지(환각 금지).
 4. **상호링크** — 관련 개념은 `[[wiki/...]]`로 연결(Obsidian 그래프용). ※ 엄격 OKF는 표준 링크를 쓰지만, 본 실습은 Obsidian 그래프를 위해 **OKF 프론트매터 + `[[wikilinks]]` 하이브리드**를 채택한다.
 5. `raw/`는 절대 수정하지 않는다.
 
 ## 사용 예
-- "raw/ 읽고 위키로 컴파일해줘" → Ingest
-- "위키 근거로 ○○ 알려줘, 출처 달아서. 유용하면 저장해" → Query
-- "위키 린트해줘" → Lint
+- "raw 폴더 읽어서 위키로 정리해 줘" → Ingest
+- "위키 근거로 ○○ 알려줘, 출처도 달아줘. 유용하면 저장해 줘" → Query
+- "위키 점검해 줘" → Lint
+
+※ 위 문장은 예시일 뿐이며, 같은 뜻의 다른 표현(컴파일/린트 등)으로 불러도 동일하게 동작한다.
