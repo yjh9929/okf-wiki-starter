@@ -18,3 +18,7 @@ raw/*
 # AI가 생성 — 빈 폴더만 유지
 wiki/*
 !wiki/.gitkeep
+
+# 강의 예시
+docs/assets/img/m0-instructor.jpeg
+고칠거.md

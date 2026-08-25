@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>② 클로드 환경 세팅 | Claude로 만드는 나만의 LLM Wiki</title>
-<meta name="description" content="Claude Code, Obsidian, 웹 클리퍼를 설치하고 실습 폴더를 엽니다.">
+<meta name="description" content="실습의 첫 단계로 도구를 갖추고 내 지식 창고가 될 폴더를 지정합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -21,182 +21,204 @@
 </div>
 <div class="prog"></div>
 <main class="slides" id="main">
+
 <section class="slide cover"><div class="wrap">
-<div class="num">2-1 · 0:40 – 1:30 · 50분</div>
-<h1>② 클로드 환경 세팅</h1>
-<div class="meta"><span class="tag">내 컴퓨터에 직접 환경 세팅</span></div>
+<div class="num">2-1 · 0:35 – 1:25 · 50분</div>
+<h1 style="word-break:keep-all">② 클로드 환경 세팅</h1>
+<div class="meta"><span class="tag">실습의 첫 단계</span></div>
 </div></section>
-<section class="slide"><div class="wrap">
-<div class="eyebrow">2-1 · 0:40 – 1:30 · 50분</div>
-<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- 내 컴퓨터에 실습 환경 갖추기</div></div><div class="box"><h4>이런 걸 해봐요</h4><div class="lines">- Claude 데스크톱 앱 설치, 로그인
-- 실습 github repo 내려받기 (zip)
-- Obsidian 설치 및 열기
-- 웹 클리퍼 설치하고 저장 위치 지정하기</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">내 컴퓨터에 직접 환경 세팅</div></div></div>
-</div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
+<div class="eyebrow">2-1 · 0:35 – 1:25 · 50분</div>
+<div class="spec top">
+  <div class="box"><h4>이런 걸 배워요</h4><div class="lines">- 각 도구가 오늘 맡는 역할
+- 폴더 하나를 고르는 일의 의미</div></div>
+  <div class="box"><h4>이런 걸 해봐요</h4><div class="lines">- Claude 데스크톱 앱 설치, 로그인
+- (윈도우) Git 설치
+- 실습 폴더 내려받고 Code 탭에서 열기
+- Obsidian 설치하고 같은 폴더 열기
+- 웹 클리퍼 설치하고 저장 위치 지정하기</div></div>
+</div>
+<div class="note">여기서부터 <b>실습의 첫 단계</b>입니다. 지금 만드는 폴더가 오늘 하루 내내 쓰는 작업 공간이 되고, 수업이 끝난 뒤에도 그대로 남습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
 <div class="eyebrow">사용 도구</div>
-<h2>각 도구의 역할을 확인합니다</h2>
+<h2>네 가지가 각각 한 가지 일을 맡습니다</h2>
 <table class="t">
-  <tr><th>도구</th><th>맡는 일</th></tr>
-  <tr><td>Claude 데스크톱 앱</td><td>자료를 읽고 정리해 답하기</td></tr>
-  <tr><td>Obsidian</td><td>정리된 결과를 그래프로 보여 주기</td></tr>
-  <tr><td>웹 클리퍼</td><td>웹에서 본 글을 폴더에 담기</td></tr>
-  <tr><td>실습 폴더</td><td>스킬·예제·점검 도구 보관</td></tr>
+  <tr><th>도구</th><th>오늘 맡는 역할</th></tr>
+  <tr><td>Claude 데스크톱 앱</td><td>자료를 <b>읽고 개념으로 정리하는</b> 역할. 오늘 실제로 일을 하는 쪽입니다.</td></tr>
+  <tr><td>실습 폴더</td><td><b>내 지식 창고.</b> 자료와 위키가 여기에 쌓이고, AI는 이 폴더를 기준으로 일합니다.</td></tr>
+  <tr><td>Obsidian</td><td>정리 결과가 <b>어떻게 이어졌는지 눈으로 보는</b> 역할. 그래프를 그려 줍니다.</td></tr>
+  <tr><td>웹 클리퍼</td><td>웹에서 본 글을 <b>창고에 담는</b> 역할. 브라우저 버튼 하나입니다.</td></tr>
 </table>
-<div class="note"><b>터미널은 쓰지 않습니다. Node.js도 필요 없습니다.</b></div>
-
+<div class="note"><b>실습 폴더를 제외한</b> 나머지 앱들은 다른 앱들로 대체될 수 있습니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
 <div class="eyebrow">1단계</div>
 <h2>Claude 데스크톱 앱 설치하고 로그인</h2>
-<figure class="dia two">
+<p class="lead">자료를 읽고 개념으로 정리하는 일을 맡을 도구입니다.</p>
+<figure class="dia">
 <img src="assets/img/m2-01-claude-download.png" alt="Claude 다운로드 페이지">
-<img src="assets/img/m2-04-code-tab.png" alt="앱 왼쪽 위의 Code 탭">
-<figcaption>왼쪽 : 운영체제에 맞는 파일을 내려받습니다 · 오른쪽 : 로그인 후 왼쪽 위의 Code 탭</figcaption>
 </figure>
 <ol class="steps">
-  <li><b>운영체제에 맞는 설치 파일을 내려받습니다</b>
-  <p>맥은 dmg, 윈도우는 exe. 용량이 큽니다.</p></li>
+  <li><b><a href="https://claude.ai/download" target="_blank" rel="noopener">운영체제에 맞는 설치 파일을 내려받습니다</a></b>
+  <p>맥은 dmg, 윈도우는 exe. <span class="win">윈도우는 Git도 함께 설치해야 합니다.</span></p></li>
   <li><b>설치 후 배포받은 계정으로 로그인합니다</b></li>
-  <li><b>가운데 위의 Code 탭을 누릅니다</b>
-  <p>파일을 직접 다루는 것은 Code 탭뿐입니다.</p></li>
 </ol>
-<div class="note">요금제를 올리라는 안내가 나오면 계정이 잘못된 것입니다. 손을 들어 주세요.</div>
-
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
+<div class="eyebrow">1단계 · 이어서</div>
+<h2>왼쪽 위의 Code 탭을 누릅니다</h2>
+<figure class="dia two">
+<img src="assets/img/m2-04-code-tab.png" alt="기존 버전의 Code 탭 위치">
+<img src="assets/img/m2-04-code-tab_2.png" alt="최신 버전의 Code 탭 위치">
+<figcaption>왼쪽 : 기존 버전 · 오른쪽 : 최신 버전 — 버전에 따라 Code 탭 위치가 다릅니다</figcaption>
+</figure>
+<p class="lead">내 컴퓨터의 파일을 직접 다루는 것은 <span class="mark">Code 탭</span>뿐입니다. 오늘 실습은 전부 여기서 진행합니다.</p>
+<div class="note warn"><b>Code 탭이 눌리고 화면이 바뀌면</b> 다음으로 넘어갑니다.
+안 눌리거나 요금제 안내가 뜨면 손을 들어 주시고, <a class="xref warn" href="faq.html#s3" target="_blank" rel="noopener">FAQ 1 · Claude 앱</a> 도 참고해 주세요.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
 <div class="eyebrow win">윈도우만 해당</div>
 <h2>Git 설치하기</h2>
 <p class="lead">맥은 이미 들어 있습니다. <span class="win">윈도우만</span> <span class="mark">git-scm.com</span> 에서 받아 설치합니다.
 설치 중 선택지는 전부 기본값으로 둡니다.</p>
 <div class="grid g2">
   <div class="card"><h4>필요한 이유</h4>
-  <p>윈도우에서는 Code 탭이 내 컴퓨터의 폴더를 열려면 Git이 있어야 합니다. 맥에는 기본으로 들어 있습니다.</p></div>
-  <div class="card"><h4>사용 여부</h4>
-  <p>설치만 하면 됩니다. 오늘 git 명령을 입력할 일은 없습니다.</p></div>
+  <p>윈도우에서는 Code 탭이 내 컴퓨터의 폴더를 열려면 <span class="ft">Git</span>이 있어야 합니다. 맥에는 기본으로 들어 있습니다.</p></div>
+  <div class="card"><h4>설치만 하면 됩니다</h4>
+  <p>오늘 git을 직접 다룰 일은 없습니다. 설치 후에는 Claude 앱을 한 번 다시 시작합니다.</p></div>
 </div>
-
+<div class="note warn"><b>맥이면 이 장은 넘어갑니다.</b> 윈도우인데 설치가 끝난 뒤에도 폴더가 안 열리면 손을 들어 주시고, <a class="xref warn" href="faq.html#s4" target="_blank" rel="noopener">FAQ 2 · 폴더 열기</a> 도 참고해 주세요.</div>
 <div class="fn">
   <p><b>Git</b>파일이 언제 어떻게 바뀌었는지 기록해 두는 프로그램. 오늘은 직접 쓰지 않지만, 윈도우에서는 Code 탭이 내 컴퓨터의 폴더를 열 때 이 프로그램을 필요로 합니다.</p>
+  <p><b>저장소</b>파일 묶음을 인터넷에 올려 두고 여럿이 같이 쓰는 공간. GitHub이 그중 가장 널리 쓰이는 서비스입니다. <span class="en">repository, repo</span></p>
+  <p><b>보관함</b>Obsidian이 관리할 폴더 하나를 가리키는 말. 특별한 형식이 아니라 그냥 평범한 폴더입니다. <span class="en">vault</span></p>
+  <p><b>확장 프로그램</b>브라우저에 기능을 덧붙이는 작은 프로그램. 설치하면 주소창 옆에 아이콘이 하나 생깁니다. <span class="en">extension</span></p>
+  <p><b>플러그인</b>Obsidian 안에 기능을 덧붙이는 프로그램. 확장 프로그램과 같은 개념인데, 브라우저가 아니라 Obsidian에 붙습니다.</p>
+  <p><b>제한 모드</b>외부에서 만든 플러그인을 막아 두는 기본 설정. 설치하려면 이 모드를 먼저 꺼야 합니다.</p>
 </div>
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
 <div class="eyebrow">2단계</div>
 <h2>실습 폴더 내려받기</h2>
-<figure class="dia two">
+<p class="lead">오늘 쓸 <span class="mark">지식 창고의 처음 모습</span>입니다. 스킬, 예제 자료, 점검 도구가 들어 있습니다.</p>
+<figure class="dia">
 <img src="assets/img/m2-06-github-download-zip.png" alt="GitHub Code 버튼에서 Download ZIP">
-<img src="assets/img/m2-07-unzipped-folder.png" alt="압축을 푼 폴더 내부">
-<figcaption>왼쪽 : 초록 Code 버튼 → Download ZIP · 오른쪽 : 압축을 풀면 raw / wiki 가 보입니다</figcaption>
+<figcaption>초록 Code 버튼 → Download ZIP</figcaption>
 </figure>
-<p class="lead">스킬, 예제 자료 두 개, 점검 도구가 들어 있습니다. 직접 만들 것은 없습니다.</p>
 <ol class="steps">
   <li><b><span class="ft">저장소</span> 주소로 들어갑니다</b>
-  <p><a href="https://github.com/yjh9929/okf-wiki-starter" target="_blank" rel="noopener">github.com/yjh9929/okf-wiki-starter</a></p></li>
-  <li><b>초록색 Code 버튼 → Download <span class="ft">ZIP</span></b>
-  <p>파일 하나가 내려받아집니다.</p></li>
-  <li><b>찾기 쉬운 곳에 압축을 풉니다</b>
-  <p>바탕화면이나 문서 폴더에 풉니다. 폴더 이름은 <span class="path">my-wiki</span> 로 바꿔 둡니다.</p></li>
+  <p><a href="https://github.com/modulabs/okf-wiki-starter" target="_blank" rel="noopener">github.com/modulabs/okf-wiki-starter</a></p></li>
+  <li><b>초록색 Code 버튼 → Download ZIP</b></li>
 </ol>
-<div class="note">폴더 안에 <span class="path">raw/</span> 와 <span class="path">wiki/</span> 가 있습니다. raw에는 예제 두 개, wiki는 비어 있습니다.</div>
-
-<div class="fn">
-  <p><b>저장소</b>파일 묶음을 인터넷에 올려 두고 여럿이 같이 쓰는 공간. GitHub이 그중 가장 널리 쓰이는 서비스입니다. <span class="en">repository, repo</span></p>
-  <p><b>ZIP</b>여러 파일을 하나로 압축한 파일. 내려받은 뒤 압축을 풀면 원래 폴더 모양으로 돌아옵니다.</p>
-</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">3단계</div>
-<h2>Code 탭에서 그 폴더를 엽니다</h2>
-<figure class="dia two">
-<img src="assets/img/m2-09-folder-picker.png" alt="폴더 선택 화면">
-<img src="assets/img/m2-10-code-session.png" alt="폴더가 열린 뒤의 Code 세션">
-<figcaption>왼쪽 : Local → 폴더 선택 · 오른쪽 : 아래에 입력창이 나오면 성공</figcaption>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">2단계 · 이어서</div>
+<h2>찾기 쉬운 곳에 압축을 풉니다</h2>
+<figure class="dia">
+<img src="assets/img/m2-07-unzipped-folder.png" alt="압축을 푼 폴더 내부">
+<figcaption>압축을 풀면 raw / wiki 가 보입니다</figcaption>
 </figure>
+<p class="lead">바탕화면이나 문서 폴더처럼 <span class="mark">찾기 쉬운 곳</span>에 풉니다.
+<span class="path">raw/</span> 에는 예제 두 개가 들어 있고, <span class="path">wiki/</span> 는 비어 있습니다.</p>
+<div class="note warn"><b>폴더를 열었을 때 raw 와 wiki 가 보이면</b> 다음으로 넘어갑니다.
+안 보이거나 폴더를 못 찾겠으면 손을 들어 주시고, <a class="xref warn" href="faq.html#s4" target="_blank" rel="noopener">FAQ 2 · 폴더 열기</a> 도 참고해 주세요.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
+<div class="eyebrow">3단계</div>
+<h2>해당 폴더를 엽니다</h2>
+<figure class="dia">
+<img src="assets/img/m2-09-folder-picker.png" alt="폴더 선택 화면">
+<figcaption>Local → 방금 압축을 푼 폴더 선택</figcaption>
+</figure>
+<div class="note warn"><b>아래에 입력창이 나오면</b> 다음으로 넘어갑니다.
+폴더가 안 골라지면 손을 들어 주시고, <a class="xref warn" href="faq.html#s4" target="_blank" rel="noopener">FAQ 2 · 폴더 열기</a> 도 참고해 주세요.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow">방금 한 일</div>
+<h2>이 폴더를 고르는 것은 <span class="mark">내 지식 창고를 정하는 일</span>입니다</h2>
+<p class="lead">앞으로 이 폴더 안에서 모든 일이 일어납니다.</p>
+<div class="grid g3">
+  <div class="card"><div class="k">앞으로</div><h4>여기에 쌓입니다</h4>
+  <p>웹에서 담은 자료도, AI가 정리한 위키도 전부 이 폴더 안에 들어갑니다.</p></div>
+  <div class="card accent"><div class="k">기준</div><h4>AI가 보는 범위</h4>
+  <p>AI는 이 폴더를 기준으로 읽고 씁니다. 밖의 파일은 건드리지 않습니다.</p></div>
+  <div class="card"><div class="k">나중에</div><h4>폴더는 그대로 남습니다</h4>
+  <p>다른 AI 도구로 갈아타도, 프로그램을 지워도, 폴더와 그 안의 마크다운 파일은 남습니다.</p></div>
+</div>
+<div class="note">그래서 <b>찾기 쉬운 곳</b>에 두는 것이 중요합니다. 내려받기 폴더 깊숙한 곳에 있으면 다음에 다시 찾기 어렵습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
 <div class="eyebrow">4단계</div>
 <h2>Obsidian 설치하고 같은 폴더 열기</h2>
+<p class="lead">정리 결과가 <span class="mark">어떻게 이어졌는지 눈으로 보는</span> 역할입니다. 정리를 하는 것은 아닙니다.</p>
 <figure class="dia two">
 <img src="assets/img/m2-11-obsidian-open-vault.jpeg" alt="Obsidian 시작 화면">
 <img src="assets/img/m2-12-obsidian-opened.png" alt="폴더가 열린 직후">
 <figcaption>왼쪽 : <b>폴더를 보관함으로 열기</b> — 새 보관함 만들기가 아닙니다 · 오른쪽 : 같은 폴더가 열린 모습</figcaption>
 </figure>
 <div class="note">연 다음 왼쪽의 <b>그래프 아이콘</b>을 눌러 그래프 뷰를 켭니다. 지금 비어 있는 것이 정상입니다.</div>
-
-<div class="fn">
-  <p><b>보관함</b>Obsidian이 관리할 폴더 하나를 가리키는 말. 특별한 형식이 아니라 그냥 평범한 폴더입니다. <span class="en">vault</span></p>
-</div>
+<div class="note warn"><b>Claude 앱과 같은 폴더가 열렸으면</b> 다음으로 넘어갑니다.
+<span class="ft">보관함</span>을 잘못 열었으면 손을 들어 주시고, <a class="xref warn" href="faq.html#s5" target="_blank" rel="noopener">FAQ 3 · Obsidian</a> 도 참고해 주세요.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
 <div class="eyebrow">5단계 · 가장 놓치기 쉬운 곳</div>
 <h2>웹 클리퍼 설치하고 저장 위치 지정</h2>
+<p class="lead">웹에서 본 글을 <span class="mark">창고에 담는</span> 역할을 하는 브라우저 <span class="ft">확장 프로그램</span>입니다.
+<a href="https://obsidian.md/clipper" target="_blank" rel="noopener">obsidian.md/clipper</a> 에서 설치하고, 저장 위치를 <span class="path">raw</span> 로 맞춰 둡니다.</p>
 <figure class="dia two">
 <img src="assets/img/m2-14a-webclipper-vault.png" alt="General 설정의 Vault">
 <img src="assets/img/m2-14b-webclipper-location.png" alt="Default 템플릿의 저장 위치">
 <figcaption>설정이 두 곳에 나뉘어 있습니다. 왼쪽 General → 보관함 · 오른쪽 Templates의 Default → 저장 위치 <b>raw</b></figcaption>
 </figure>
-<div class="fn">
-  <p><b>확장 프로그램</b>브라우저에 기능을 덧붙이는 작은 프로그램. 설치하면 주소창 옆에 아이콘이 하나 생깁니다. <span class="en">extension</span></p>
-</div>
+<div class="note warn"><b>브라우저에 아이콘이 보이고 저장 위치가 raw 이면</b> 준비가 끝났습니다.
+둘 중 하나라도 안 되면 손을 들어 주시고, <a class="xref warn" href="faq.html#s6" target="_blank" rel="noopener">FAQ 4 · 웹 클리퍼</a> 도 참고해 주세요.</div>
 </div></section>
+
 <section class="slide"><div class="wrap">
-
-<div class="eyebrow">6단계 · 여유가 되면</div>
-<h2>옵시디언 커뮤니티 플러그인</h2>
-<p class="lead">오늘 실습에 <b>필요하지는 않습니다.</b> 앞 단계가 끝난 분만 진행합니다.
-설정 → 커뮤니티 <span class="ft">플러그인</span> → <span class="ft">제한 모드</span> 해제 → 탐색에서 검색 → 설치.</p>
-<table class="t">
-  <tr><th>플러그인</th><th>무엇이 좋아지나</th></tr>
-  <tr><td>Dataview</td><td>표식으로 노트를 한 번에 모아 봅니다. type이 같은 문서를 전부 목록으로 뽑을 수 있습니다.</td></tr>
-  <tr><td>Templater</td><td>새 노트에 표식을 자동으로 넣어 줍니다. 맨 앞 몇 줄을 손으로 칠 필요가 없어집니다.</td></tr>
-  <tr><td>Omnisearch</td><td>노트가 많아졌을 때 더 똑똑하게 검색합니다. PDF 안까지 찾습니다.</td></tr>
-</table>
-
-<div class="fn">
-  <p><b>플러그인</b>Obsidian 안에 기능을 덧붙이는 프로그램. 확장 프로그램과 같은 개념인데, 브라우저가 아니라 Obsidian에 붙습니다.</p>
-  <p><b>제한 모드</b>외부에서 만든 플러그인을 막아 두는 기본 설정. 설치하려면 이 모드를 먼저 꺼야 합니다.</p>
-</div>
-</div></section>
-<section class="slide"><div class="wrap">
-
 <div class="eyebrow">확인</div>
 <h2>여기까지 되면 준비 끝입니다</h2>
 <ul class="check">
-  <li><b>Claude Code</b>에서 실습 폴더가 열려 있다</li>
+  <li><b>Claude 앱의 Code 탭</b>에서 실습 폴더가 열려 있다</li>
   <li>Obsidian에 같은 폴더가 열려 있고, 그래프 뷰가 켜져 있다</li>
   <li>브라우저에 웹 클리퍼 아이콘이 보인다</li>
   <li>웹 클리퍼 저장 위치가 <span class="path">raw</span> 로 지정되어 있다</li>
 </ul>
-<div class="note">네 개가 다 되면 손을 들어 주세요.
-먼저 끝난 분은 Code 탭에 <b>"raw 폴더 읽어서 위키로 정리해 줘"</b> 를 미리 넣어 봅니다.</div>
-
+<div class="note warn">비어 있는 줄이 있으면 <b>손을 들어 주세요.</b> 그 줄에 해당하는 <a class="xref warn" href="faq.html" target="_blank" rel="noopener">FAQ</a> 도 함께 참고해 주세요.</div>
+<div class="note"><b>여기서 10분 쉽니다. 2시 45분까지 돌아와 주세요.</b>
+쉬는 동안 <b>어떤 주제로 위키를 만들지</b> 생각해 두시면 바로 이어집니다.</div>
 </div></section>
+
 <section class="slide"><div class="wrap">
-
-<div class="eyebrow">막혔을 때</div>
-<h2>대부분 이 넷 중 하나입니다</h2>
+<div class="eyebrow">여유가 되면</div>
+<h2>옵시디언 커뮤니티 플러그인</h2>
+<p class="lead">앞 단계를 마치신 분들을 위한 <b>추가 내용</b>입니다.
+설정 → 커뮤니티 <span class="ft">플러그인</span> → <span class="ft">제한 모드</span> 해제 → 탐색에서 검색 → 설치.</p>
 <table class="t">
-  <tr><th>증상</th><th>이렇게 해보세요</th></tr>
-  <tr><td>Code 탭이 안 눌림</td><td>로그인한 계정이 맞는지 확인하세요. 요금제 안내가 뜨면 계정 문제입니다.</td></tr>
-  <tr><td>폴더 선택이 안 됨 <span class="win">(윈도우)</span></td><td>Git이 설치되어 있는지 확인하세요. 윈도우는 Git이 있어야 내 컴퓨터의 파일을 다룰 수 있습니다.</td></tr>
-  <tr><td>폴더를 못 찾겠음</td><td>압축을 어디에 풀었는지 다시 확인하세요. 내려받기 폴더에 그대로 있는 경우가 많습니다.</td></tr>
-  <tr><td>그래프에 아무것도 없음</td><td>아직 정리를 안 돌렸으면 정상입니다. 다음 모듈에서 채웁니다.</td></tr>
+  <tr><th>플러그인</th><th>무엇이 좋아지나</th></tr>
+  <tr><td>Dataview</td><td>프론트매터로 노트를 한 번에 모아 봅니다. type이 같은 문서를 전부 목록으로 뽑을 수 있습니다.</td></tr>
+  <tr><td>Templater</td><td>새 노트에 프론트매터를 자동으로 넣어 줍니다.</td></tr>
+  <tr><td>Omnisearch</td><td>노트가 많아졌을 때 더 똑똑하게 검색합니다. PDF 안까지 찾습니다.</td></tr>
 </table>
-<div class="note">해결되지 않으면 <b>손을 들어 주세요.</b> 혼자 오래 붙잡고 있지 않아도 됩니다.</div>
-
 </div></section>
+
 <section class="slide"><div class="wrap">
 <div class="eyebrow">이 모듈 끝</div>
 <h2>다음으로</h2>
-<div class="nav-end"><a class="btn" href="m3.html">③ 내 문서로 지식 관리 에이전트 시작하기</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
+<div class="nav-end"><a class="btn" href="m3.html">③ 내 문서로 지식 관리 에이전트 시작하기</a><a class="btn ghost" href="faq.html" target="_blank" rel="noopener">FAQ</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
 </div></section>
+
 </main>
 <script src="assets/deck.js"></script>
 </body>

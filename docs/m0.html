@@ -22,33 +22,77 @@
 <div class="prog"></div>
 <main class="slides" id="main">
 <section class="slide cover"><div class="wrap">
-<div class="num">0-1 · 0:00 – 0:10 · 10분</div>
-<h1>오프닝</h1>
+<div class="num">0-1 · 0:00 – 0:05 · 5분</div>
+<h1 style="word-break:keep-all">오프닝</h1>
 <div class="meta"><span class="tag">산출물 미리보기</span></div>
 </div></section>
 <section class="slide"><div class="wrap">
-<div class="eyebrow">0-1 · 0:00 – 0:10 · 10분</div>
-<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- 오늘의 목표 안내
+<div class="eyebrow">0-1 · 0:00 – 0:05 · 5분</div>
+<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- 강사 소개
+- 오늘의 목표 안내
 - 네 시간 뒤 최종 산출물 미리보기</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">산출물 미리보기</div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">강사 소개</div>
+<h2>윤지희</h2>
+<p class="lead">AI학과에서 대학원 과정을 밟고 있습니다. <span class="mark">VQA와 워터마킹</span>을 연구합니다.</p>
+<div class="grid g2">
+  <div class="card"><div class="k">VQA</div><h4>시각 질의응답</h4>
+  <p>사진을 보여 주고 그 안의 내용을 물으면 AI가 답하는 것. "이 사진에 사람이 몇 명 있어?" 같은 질문입니다.</p></div>
+  <div class="card"><div class="k">워터마킹</div><h4>보이지 않는 표식 넣기</h4>
+  <p>이미지나 영상에 눈에 안 보이는 표시를 심어 두는 것. 나중에 AI가 만든 것인지, 누구 것인지 가려낼 수 있습니다.</p></div>
+</div>
+<figure class="dia">
+<img src="assets/img/m0-instructor.jpeg" alt="" onerror="this.closest('figure').style.visibility='hidden'">
+</figure>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">오늘 다루는 것</div>
+<h2>읽은 자료가 폴더에만 쌓이는 문제</h2>
+<div class="grid g2">
+  <div class="card"><div class="k">기존</div><h4>매번 같은 자료를 다시 찾음</h4>
+  <p>자료를 읽어 두고도 필요할 때 어디에 있었는지 기억나지 않아, 결국 처음부터 다시 찾게 됩니다.</p></div>
+  <div class="card accent"><div class="k">오늘 다루는 것</div><h4>LLM Wiki</h4>
+  <p>자료를 넣으면 AI가 읽고 정리해 두는 구조입니다.</p></div>
+</div>
+<div class="note">오늘 예시로 보여 드리는 위키는 제가 연구를 시작할 때 만든 초기 세팅입니다. 여러분은 각자 정하신 주제로 만드시게 됩니다.</div>
+
 </div></section>
 <section class="slide"><div class="wrap">
 
 
 <div class="eyebrow">오늘의 목표</div>
 <h2>원리까지 이해하고, 직접 돌려봅니다</h2>
-<p class="lead">같은 자료를 매번 다시 넣어 질문하는 <strong>AI 활용의 비효율</strong>을 줄이는 것이 목표입니다.
-<span class="mark">RAG의 한계 → 미리 정리해 두는 발상 → OKF·그래프 → 세 가지 작업의 내부 동작</span>까지, 그냥 되는 게 아니라 왜 그렇게 되는지를 따라갑니다.</p>
-<div class="note">오늘은 코드를 쓰지 않습니다. 한국어로 부탁하고, 바뀔 내용을 확인한 뒤 승인합니다.</div>
+<p class="lead">같은 자료를 매번 다시 넣어 질문하고 있다면, 그 일을 한 번으로 줄이는 것이 오늘의 목표입니다.</p>
 
 </div></section>
 <section class="slide"><div class="wrap">
 
 <div class="eyebrow">네 시간 뒤</div>
 <h2>이 화면을 만듭니다</h2>
-<figure class="dia">
-<img src="assets/img/m0-goal-graph.png" alt="완성된 지식 그래프">
-<figcaption>Obsidian 그래프 뷰 — 점 하나가 개념 하나, 선 하나가 개념 사이의 연결</figcaption>
-</figure>
+<p class="lead">Obsidian 그래프 뷰입니다. <span class="mark">점 하나가 개념 하나, 선 하나가 개념 사이의 연결</span>입니다.</p>
+<div class="samples">
+  <figure>
+    <img src="assets/img/m0-goal-graph.png" alt="디즈니 리서치 얼굴 그래픽 위키의 그래프">
+    <figcaption>
+      <span class="k">예시 1 · 네 시간</span>
+      <b>디즈니 리서치의 얼굴 그래픽 기술</b>
+      <p>논문과 기사 8건을 넣어 개념 문서 25개가 나온 위키. 얼굴, 물리 시뮬레이션 관련된 그래프들의 구조가 보입니다.</p>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="assets/img/m7-01-graph-large.png" alt="컴퓨터 그래픽스 연구 위키의 그래프">
+    <figcaption>
+      <span class="k">예시 2 · 계속 쌓은 뒤</span>
+      <b>컴퓨터 비전 연구 분야 전체</b>
+      <p>최근에 사용 중인 저의 위키 모습입니다.</p>
+    </figcaption>
+  </figure>
+</div>
+<div class="note">각자의 주제에 맞춰, 무엇을 담았는지에 따라 그래프 모양이 달라집니다.</div>
 </div></section>
 <section class="slide"><div class="wrap">
 
@@ -59,9 +103,9 @@
   <tr><td>①&nbsp;이해하기</td><td>이 방식이 왜 더 간단하고 정확한지</td><td>LLM Wiki가 무엇인지</td></tr>
   <tr><td>②&nbsp;환경 세팅</td><td>내 컴퓨터에 도구 갖추기</td><td>수업 후에도 지속해서 사용 가능한 작업 환경</td></tr>
   <tr><td>③&nbsp;정리·질문</td><td>자료를 넣어 위키로 만들고 질문하기</td><td>개념 문서와 출처 달린 위키</td></tr>
-  <tr><td>④&nbsp;연결망</td><td>빈 곳을 메우고 발표하기</td><td>정리된 그래프와 다른 사람의 활용법</td></tr>
+  <tr><td>④&nbsp;연결망</td><td>빈 곳을 메우고 결과 공유하기</td><td>정리된 그래프와 다른 사람의 활용법</td></tr>
 </table>
-<div class="note">막히면 손을 들어 주세요.</div>
+<div class="note warn">막히시는 부분은 <b>손을 들어 주세요.</b> 각 단계 슬라이드의 <a class="xref warn" href="faq.html" target="_blank" rel="noopener">FAQ</a> 도 함께 참고해 주세요.</div>
 
 </div></section>
 <section class="slide"><div class="wrap">

@@ -22,8 +22,8 @@
 <div class="prog"></div>
 <main class="slides" id="main">
 <section class="slide cover"><div class="wrap">
-<div class="num">0-2 · 3:55 – 4:00 · 5분</div>
-<h1>마무리</h1>
+<div class="num">0-2 · 3:35 – 3:45 · 10분</div>
+<h1 style="word-break:keep-all">마무리</h1>
 <div class="meta"><span class="tag">계속 쓰기</span></div>
 </div></section>
 <section class="slide"><div class="wrap">
@@ -36,6 +36,47 @@
   <div class="card"><div class="k">그래프</div><p>끊긴 링크 0, 연결 안 된 문서 0을 통과한 연결망</p></div>
   <div class="card"><div class="k">관점</div><p>모을 때 정리해 두면 왜 유리한지 설명할 수 있는 근거</p></div>
 </div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">계속 쌓으면</div>
+<h2>같은 폴더가 이렇게 자랍니다</h2>
+<div class="samples">
+  <figure>
+    <img src="assets/img/m0-goal-graph.png" alt="오늘 만든 규모의 그래프">
+    <figcaption>
+      <span class="k">오늘</span>
+      <b>디즈니 리서치의 얼굴 그래픽 기술</b>
+      <p>자료 8건 → 개념 문서 25개. 오늘 여러분이 만든 것과 같은 규모입니다.</p>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="assets/img/m7-01-graph-large.png" alt="계속 쌓은 뒤의 그래프">
+    <figcaption>
+      <span class="k">계속 쌓은 뒤</span>
+      <b>컴퓨터 비전 연구 분야 전체</b>
+      <p>최근에 사용 중인 저의 위키 모습입니다.</p>
+    </figcaption>
+  </figure>
+</div>
+<div class="note">한 번에 만든 것이 아니라 <b>클리핑하고 가끔 정리를 돌린 결과</b>입니다. 오늘 만든 폴더에 그대로 이어 붙이면 됩니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
+<div class="eyebrow">수업이 끝나면</div>
+<h2>폴더를 안전한 곳에 둡니다</h2>
+<p class="lead">오늘 만든 위키는 <b>내 컴퓨터의 폴더</b>에 있습니다. 폴더만 챙기면 그대로 이어집니다.</p>
+<ol class="steps">
+  <li><b>폴더를 통째로 복사해 둡니다</b>
+  <p>클라우드 드라이브나 외장 디스크에 폴더째 넣어 두면 그대로 백업이 됩니다.</p></li>
+  <li><b>다른 컴퓨터에서 이어 하려면 폴더만 옮깁니다</b>
+  <p>옮긴 곳에서 Claude 앱으로 그 폴더를 열고, Obsidian으로도 같은 폴더를 열면 이어집니다.</p></li>
+  <li><b>GitHub에 올려 두면 이력까지 남습니다</b>
+  <p>여유가 되면 해 볼 만합니다. 언제 무엇이 바뀌었는지 되짚을 수 있습니다.</p></li>
+</ol>
+
 
 </div></section>
 <section class="slide"><div class="wrap">
@@ -59,7 +100,9 @@
   <tr><td>Karpathy의 메모</td><td>3계층과 3작업이 나온 원문. 한 페이지 분량입니다. <span class="path">gist.github.com/karpathy</span></td></tr>
   <tr><td>Google OKF 규격</td><td>필수 항목이 type 하나뿐인 이유와 항목을 추가해도 되는 근거. <span class="path">github.com/GoogleCloudPlatform/knowledge-catalog</span></td></tr>
   <tr><td>한국어로 읽기</td><td>OKF를 우리말로 정리한 글. 영어가 부담되면 여기부터. <span class="path">discuss.pytorch.kr</span></td></tr>
-  <tr><td>실습 저장소</td><td>스킬, 예제, 점검 도구. <span class="path">github.com/yjh9929/okf-wiki-starter</span></td></tr>
+  <tr><td>실습 저장소</td><td>스킬, 예제, 점검 도구. <span class="path">github.com/modulabs/okf-wiki-starter</span></td></tr>
+  <tr><td>OpenWiki</td><td>오늘 만든 구조를 코드 저장소에 적용한 오픈소스 도구. <span class="path">github.com/langchain-ai/openwiki</span></td></tr>
+  <tr><td>더 알아보기</td><td>RAG 내부 동작, OKF 규격 상세, 지식 그래프를 정리해 둔 <a class="xref" href="extra.html" target="_blank" rel="noopener">참고 자료</a></td></tr>
 </table>
 <div class="note">앞의 두 원문은 실습 폴더의 <span class="path">raw/</span> 에 정리해 두었습니다. 오늘 정리한 그 자료이고, 각 메모 맨 아래에 원문 주소가 있습니다.</div>
 
@@ -71,8 +114,8 @@
 <div class="grid g3">
   <div class="card"><div class="k">규칙</div><h4>내 스킬 만들기</h4>
   <p>okf-wiki를 복사해 용도별로 고칩니다. 논문 정리용, 회의록 정리용.</p></div>
-  <div class="card"><div class="k">보기</div><h4>표식으로 모아 보기</h4>
-  <p>Dataview나 Bases로 "type이 paper인 문서 전부" 같은 목록을 만듭니다.</p></div>
+  <div class="card"><div class="k">보기</div><h4>프론트매터로 모아 보기</h4>
+  <p>Dataview로 type이 같은 문서를 한 목록으로 뽑습니다.</p></div>
   <div class="card"><div class="k">자료</div><h4>PDF와 논문 넣기</h4>
   <p>PDF, 강의 노트, 회의록도 raw/에 넣습니다. 형식이 달라도 정리 방식은 같습니다.</p></div>
   <div class="card"><div class="k">공유</div><h4>위키를 웹에 올리기</h4>
@@ -80,14 +123,25 @@
   <div class="card"><div class="k">습관</div><h4>정기 점검 걸어 두기</h4>
   <p>주에 한 번 점검이 자동으로 돌게 하면 위키가 방치되지 않습니다.</p></div>
   <div class="card"><div class="k">확장</div><h4>다른 도구와 잇기</h4>
-  <p>참고문헌 관리 도구나 메모 앱의 자료도 raw/로 모으면 하나로 합쳐집니다.</p></div>
+  <p>참고문헌 도구나 메모 앱의 자료도 raw/로 모읍니다.</p></div>
 </div>
 
 </div></section>
 <section class="slide"><div class="wrap">
 
+<div class="eyebrow">한 걸음 더 · 요즘 이야기</div>
+<h2>같은 구조를 AI에게 읽히는 방향</h2>
+<p class="lead">코드를 사람 대신 AI가 쓰는 일이 늘면서, <span class="mark">AI가 읽을 문서를 따로 만드는 도구</span>가 나오고 있습니다.
+LangChain이 공개한 <b>OpenWiki</b>가 그런 사례입니다 — 프론트매터, 목차 파일, 변경 기록, 문서 사이의 링크까지 오늘 만든 것과 같은 구조입니다.</p>
+<div class="note">개발팀이 밝힌 시행착오가 하나 있습니다. AI만 읽을 것이라 생각하고 만들었는데, <b>사람도 읽고 싶어 했다</b>는 것입니다.
+결국 그림을 넣게 됐다고 합니다. 오늘 우리가 만든 위키도 마찬가지입니다 — AI가 쓰지만, 읽는 것은 사람입니다.
+자세한 내용은 <a class="xref" href="extra.html#s11" target="_blank" rel="noopener">더 알아보기</a> 에 있습니다.</div>
+
+</div></section>
+<section class="slide"><div class="wrap">
+
 <div class="eyebrow">마지막</div>
-<h2 class="big">질문할 때마다 다시 뒤지지 말고,<br>모을 때 미리 정리해 두자.</h2>
+<h2 class="big">질문할 때마다 다시 찾지 말고,<br>모을 때 미리 정리해 두자.</h2>
 <div class="nav-end">
   <a class="btn" href="index.html">타임테이블로 돌아가기</a>
 </div>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수업 전 준비 안내 | Claude로 만드는 나만의 LLM Wiki</title>
+<meta name="description" content="8월 26일 특강 전에 준비해 오실 세 가지 안내입니다.">
+<meta property="og:title" content="수업 전 준비 안내 | Claude로 만드는 나만의 LLM Wiki">
+<meta property="og:description" content="8월 26일 특강 전에 준비해 오실 세 가지 안내입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0F4B43; --leaf:#45A216; --leaf-soft:#EAF3E4;
+  --paper:#EFE7E1; --surface:#FBF8F5; --taupe:#D5C6B9; --grey:#BEB4B4;
+  --slate:#565855; --warn:#B23A2E; --muted:#8E8781;
+  --rule:#D5C6B9; --rule-soft:#E4DBD3;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --display:"IBM Plex Sans KR",var(--sans);
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--slate);
+  font-family:var(--sans);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+
+header{border-bottom:1px solid var(--rule);padding-bottom:28px;margin-bottom:40px}
+.kicker{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:14px;
+}
+h1{
+  font-family:var(--display);font-weight:700;color:var(--green);
+  font-size:38px;line-height:1.25;letter-spacing:-.02em;margin:0 0 14px;
+}
+.sub{font-size:16.5px;color:var(--slate);margin:0}
+.meta{
+  margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  letter-spacing:.03em;
+}
+
+h2{
+  font-family:var(--display);font-weight:700;color:var(--green);
+  font-size:21px;letter-spacing:-.01em;margin:44px 0 6px;
+  display:flex;align-items:baseline;gap:11px;
+}
+h2 .n{
+  font-family:var(--mono);font-size:13px;font-weight:500;color:var(--leaf);
+  border:1.5px solid var(--leaf);border-radius:50%;
+  width:26px;height:26px;flex:0 0 26px;
+  display:inline-grid;place-items:center;letter-spacing:0;
+}
+h3{
+  font-family:var(--display);font-weight:600;color:var(--green);
+  font-size:17px;margin:32px 0 8px;
+}
+p{margin:10px 0}
+a{color:var(--leaf);text-decoration:none;border-bottom:1px solid rgba(69,162,22,.35)}
+a:hover{border-bottom-color:var(--leaf)}
+b,strong{color:var(--green);font-weight:600}
+code{
+  font-family:var(--mono);font-size:.9em;background:var(--surface);
+  border:1px solid var(--rule-soft);border-radius:5px;padding:1px 6px;color:var(--green);
+}
+
+ol,ul{padding-left:22px;margin:10px 0}
+li{margin:6px 0}
+li::marker{color:var(--taupe)}
+
+.card{
+  background:var(--surface);border:1px solid var(--rule);
+  border-radius:13px;padding:20px 22px;margin:16px 0;
+}
+.note{
+  background:var(--leaf-soft);border:1px solid var(--leaf);
+  border-radius:11px;padding:14px 18px;margin:16px 0;font-size:15px;
+}
+.warn{
+  background:#FBF0EE;border:1px solid #E0B5AE;
+  border-radius:11px;padding:14px 18px;margin:16px 0;font-size:15px;
+}
+.warn b{color:var(--warn)}
+
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;border-bottom-color:var(--rule);
+}
+td:first-child{color:var(--green);font-weight:600;white-space:nowrap}
+
+.check{list-style:none;padding:0;margin:14px 0 0}
+.check li{
+  padding:12px 16px 12px 44px;position:relative;background:var(--surface);
+  border:1px solid var(--rule);border-radius:11px;margin-bottom:8px;font-size:15px;
+}
+.check li{cursor:pointer;user-select:none;transition:background .13s ease,border-color .13s ease,color .13s ease}
+.check li:hover{border-color:var(--taupe)}
+.check li::before{
+  content:"";position:absolute;left:16px;top:15px;width:15px;height:15px;
+  border:1.6px solid var(--grey);border-radius:4px;transition:border-color .13s ease;
+}
+.check li::after{
+  content:"";position:absolute;left:20px;top:15px;width:7px;height:12px;
+  border:solid #C4342A;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(.4);
+  opacity:0;transition:opacity .13s ease,transform .13s ease;
+}
+.check li.on{background:var(--paper);border-color:#E8C4C0;color:var(--muted)}
+.check li.on::before{border-color:#E8C4C0}
+.check li.on::after{opacity:1;transform:rotate(45deg) scale(1)}
+
+.dl{
+  display:inline-block;margin:4px 8px 4px 0;padding:8px 18px;border-radius:999px;
+  background:var(--green);color:#fff;font-weight:600;font-size:15px;border:0;
+}
+.dl:hover{background:#0B3A34}
+.dl.ghost{background:var(--surface);color:var(--green);border:1px solid var(--rule)}
+.dl.ghost:hover{background:var(--leaf-soft);border-color:var(--leaf)}
+
+footer{
+  margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
+  font-size:14px;color:var(--muted);
+}
+
+@media (max-width:640px){
+  .wrap{padding:36px 18px 72px}
+  h1{font-size:30px}
+  h2{font-size:19px}
+  table{font-size:14px}
+  th,td{padding:9px 10px}
+  td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">연세대학교 &times; 모두의연구소 · 수업 전 준비 안내</div>
+  <h1>Claude로 만드는<br>나만의 LLM Wiki</h1>
+  <p class="sub">안녕하세요. 이번 수업으로 만나뵙게 되어 반갑습니다.</p>
+  <div class="meta">2026. 8. 26. 수요일 · 4시간 · 노트북 1대 지참</div>
+</header>
+
+<p>수업 전에 준비해 오면 좋은 것들을 안내드립니다.</p>
+
+<p>먼저 <b>어떤 위키를 만들지</b> 주제를 하나 정해 오시면 됩니다. 그리고 수업에서 쓸 프로그램들이 용량이 큰 편이라, 강의실에서 여러 명이 동시에 내려받으면 설치가 늦어질 수 있습니다. 가능하면 미리 받아 와 주세요.</p>
+
+<div class="note">
+  <b>유료 계정은 수업 당일 나눠 드립니다.</b> 미리 로그인하지 않으셔도 되고, 지금은 <b>설치까지만</b> 해두시면 됩니다.
+</div>
+
+<div class="warn">
+  <b>설치가 막히면 그대로 두고 오셔도 됩니다.</b> 수업 처음에 세팅 시간이 있으니 혼자 오래 붙잡고 있지 않으셔도 됩니다.
+</div>
+
+<h2>어떤 위키를 만들지 생각해 오기 <span style="font-family:var(--mono);font-size:12px;font-weight:500;color:var(--warn);letter-spacing:.06em">중요</span></h2>
+<p>수업에서는 <b>내가 고른 자료</b>로 나만의 위키를 만듭니다. 어떤 주제로 만들지 하나 정해 오시면 바로 시작할 수 있습니다.</p>
+
+<table>
+  <tr><th>항목</th><th>예시 자료</th></tr>
+  <tr><td>수업</td><td>지난 학기 교과목 수업 자료 · 관련해서 내가 한 과제 모음 · 시험 대비로 흩어져 있는 필기</td></tr>
+  <tr><td>전공·연구</td><td>관심 있는 연구 분야의 논문 소개 페이지 · 학회나 연구실에서 나온 자료</td></tr>
+  <tr><td>진로·취업</td><td>가고 싶은 회사의 기술 블로그 · 직무별 인턴 후기 · 대학원 진학 준비 · 공모전 준비 자료</td></tr>
+  <tr><td>관심 분야</td><td>요즘 챙겨 보는 기술 동향 기사 · 관심 있는 정책이나 규제 · 카메라 렌즈 비교 · 여행 도시별 정보</td></tr>
+</table>
+
+<h3>고를 때 기준</h3>
+<ul>
+  <li><b>한 주제에 대해 서로 다른 글 두세 개</b>가 있는 주제 — 겹치는 내용이 있어야 자료가 합쳐지는 과정을 볼 수 있습니다</li>
+  <li>앞으로도 계속 찾아볼 것 같은 주제</li>
+  <li>용어가 여러 개 나오는 주제</li>
+  <li>한 페이지로는 정리가 안 되는 주제</li>
+</ul>
+
+<p>기사, 블로그 글, 논문, 강의 자료 등 <b>글로 된 자료면 무엇이든</b> 됩니다. 웹에서 담아도 되고, 갖고 있는 문서를 직접 넣어도 됩니다.</p>
+
+<div class="note">
+  수업에서 다루는 예시 자료가 아니라 <b>각자 정한 주제로 실습을 진행합니다.</b>
+  아직 못 정하셨다면 당일에 함께 골라 드리니 걱정하지 않으셔도 됩니다.
+</div>
+
+<h2 style="border-top:1px solid var(--rule);padding-top:32px">프로그램 설치</h2>
+<p>아래 세 가지는 <b>가능하면 미리</b> 받아 와 주세요. 용량이 커서 강의실에서 한꺼번에 내려받으면 오래 걸립니다. 다 못 하셨어도 수업 앞부분 세팅 시간에 시간을 드립니다.</p>
+
+<h2><span class="n">1</span>Claude 데스크톱 앱 설치</h2>
+<p>수업에서 자료를 읽고 정리해 줄 AI 도구입니다. <b>브라우저에서 쓰는 웹 버전이 아니라, 컴퓨터에 설치하는 앱</b>이어야 합니다. 내 컴퓨터의 파일을 직접 다루는 기능은 앱에만 있습니다.</p>
+
+<p><a class="dl" href="https://claude.com/download" target="_blank" rel="noopener">Claude 앱 내려받기</a></p>
+
+<div class="warn">
+  <b>로그인은 하지 않으셔도 됩니다.</b> 수업에서 쓸 계정을 당일에 나눠 드립니다.
+</div>
+
+<h2><span class="n">2</span>Obsidian 설치</h2>
+<p>정리된 결과를 <b>그래프로 보여 주는</b> 프로그램입니다. 무료입니다.</p>
+
+<p><a class="dl" href="https://obsidian.md" target="_blank" rel="noopener">Obsidian 내려받기</a></p>
+
+<h2><span class="n">3</span>크롬 브라우저</h2>
+<p>수업에서 웹 화면을 저장하는 도구를 설치하는데, 브라우저마다 화면이 조금씩 다릅니다. 수업에서는 크롬 브라우저를 기준으로 설명합니다.</p>
+
+<p><b>이미 크롬을 쓰고 계시면 새로 설치할 필요는 없고, 최신 버전인지만 확인해 주세요.</b> 오래된 버전에서는 확장 프로그램 설치가 막히는 경우가 있습니다.</p>
+
+<div class="card">
+  <b>최신 버전 확인하는 법</b>
+  <ol>
+    <li>주소창에 <code>chrome://settings/help</code> 를 붙여 넣고 엔터를 누릅니다.</li>
+    <li>“Chrome이 최신 버전입니다”가 보이면 그대로 두셔도 됩니다.</li>
+    <li>업데이트가 있으면 자동으로 내려받습니다. 끝나면 <b>다시 실행</b>을 누릅니다.</li>
+  </ol>
+</div>
+
+<p><a class="dl ghost" href="https://www.google.com/chrome/" target="_blank" rel="noopener">크롬이 없다면 내려받기</a></p>
+
+<h2><span class="n">✓</span>준비 확인</h2>
+<ul class="check">
+  <li><b>어떤 위키를 만들지 주제를 하나 정했다</b></li>
+  <li>Claude 데스크톱 앱이 설치되어 있다 (로그인은 당일에)</li>
+  <li>Obsidian이 설치되어 있고 실행된다</li>
+  <li>크롬 브라우저가 있고, 최신 버전이다</li>
+</ul>
+
+<footer>
+  준비하시다 막히는 부분이 있으면 편하게 문의해 주세요.<br>
+  수업 당일에 뵙겠습니다.
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('click', function (e) {
+  var li = e.target.closest('ul.check > li');
+  if (li) li.classList.toggle('on');
+});
+</script>
+</body>
+</html>

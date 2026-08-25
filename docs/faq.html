@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · 막혔을 때 | Claude로 만드는 나만의 LLM Wiki</title>
+<meta name="description" content="설치와 실습 중 막혔을 때 스스로 확인할 수 있는 안내입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="deck">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="bar">
+  <a class="home" href="index.html">← 타임테이블</a>
+  <span class="title">FAQ · 막혔을 때</span>
+  <span class="keys">← → 넘기기 · F 전체화면</span>
+  <span class="count">1 / 1</span>
+</div>
+<div class="prog"></div>
+<main class="slides" id="main">
+
+<section class="slide cover"><div class="wrap">
+<div class="num">FAQ · 막혔을 때</div>
+<h1 style="word-break:keep-all">막혔을 때<br>참고하실 안내</h1>
+<div class="meta"><span class="tag">설치</span><span class="tag">폴더</span><span class="tag">Obsidian</span><span class="tag">클리퍼</span><span class="tag">실행</span><span class="tag">그래프</span></div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow">목차</div>
+<table class="t">
+  <tr><th>번호</th><th>구간</th><th>이런 증상</th></tr>
+  <tr><td>1</td><td><a class="xref warn" href="#s3">Claude 앱</a></td><td>Code 탭이 안 눌림 · 요금제 안내가 뜸</td></tr>
+  <tr><td>2</td><td><a class="xref warn" href="#s4">폴더 열기</a></td><td>폴더 선택이 안 됨 · 압축 푼 폴더를 못 찾음</td></tr>
+  <tr><td>3</td><td><a class="xref warn" href="#s5">Obsidian</a></td><td>보관함을 잘못 열었음 · 그래프가 비어 있음</td></tr>
+  <tr><td>4</td><td><a class="xref warn" href="#s6">웹 클리퍼</a></td><td>아이콘이 안 보임 · 저장 위치가 raw가 아님 · 파일을 못 찾음</td></tr>
+  <tr><td>5</td><td><a class="xref warn" href="#s7">정리 실행</a></td><td>승인 창이 안 뜸 · 파일이 안 만들어짐 · 너무 오래 걸림</td></tr>
+  <tr><td>6</td><td><a class="xref warn" href="#s8">그래프</a></td><td>점이 안 보임 · 선이 안 그려짐</td></tr>
+</table>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">1 · Claude 앱</div>
+<h2>Code 탭이 안 눌릴 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>Code 탭이 안 보임</td><td>왼쪽 위 탭 줄을 봅니다. 브라우저가 아니라 <b>내려받아 설치한 앱</b>에서만 보입니다. 웹으로 로그인했다면 앱을 설치합니다.</td></tr>
+  <tr><td>Code 탭이 눌리지 않음</td><td>앱을 완전히 종료했다가 다시 엽니다. 설치 직후에는 한 번 재시작이 필요한 경우가 있습니다.</td></tr>
+  <tr><td>요금제를 올리라는 안내가 뜸</td><td><b>로그인한 계정이 배포받은 계정이 아닙니다.</b> 로그아웃하고 배포받은 계정으로 다시 로그인합니다.</td></tr>
+  <tr><td>로그인이 안 됨</td><td>브라우저 창이 열리며 인증이 진행됩니다. 창이 안 뜨면 팝업 차단을 확인합니다.</td></tr>
+</table>
+<div class="note warn">배포받은 계정으로 로그인했는데도 요금제 안내가 뜨면 <b>손을 들어 주세요.</b> 계정을 확인해 드리겠습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">2 · 폴더 열기</div>
+<h2>폴더를 못 열 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>폴더 선택이 안 됨 <span class="win">(윈도우)</span></td><td><b>Git이 설치되어 있는지 확인합니다.</b> 윈도우는 Git이 있어야 Code 탭이 내 컴퓨터의 폴더를 열 수 있습니다. <a href="https://git-scm.com" target="_blank" rel="noopener"><span class="path">git-scm.com</span></a> 에서 받아 기본값으로 설치한 뒤, Claude 앱을 다시 시작합니다.</td></tr>
+  <tr><td>압축 푼 폴더를 못 찾겠음</td><td>대개 <b>내려받기(Downloads) 폴더</b>에 그대로 있습니다. 압축을 풀면 <span class="path">okf-wiki-starter</span> 라는 이름으로 폴더가 생깁니다.</td></tr>
+  <tr><td>폴더를 골랐는데 비어 보임</td><td>한 겹 더 들어가야 하는 경우가 많습니다. <span class="path">raw</span> 와 <span class="path">wiki</span> 가 <b>바로 보이는 폴더</b>를 골라야 합니다.</td></tr>
+  <tr><td>입력창이 안 나옴</td><td>폴더가 열리면 아래쪽에 입력창이 생깁니다. 없으면 폴더 선택이 끝나지 않은 것입니다. 다시 고릅니다.</td></tr>
+</table>
+<div class="note">압축을 아직 안 풀었을 수도 있습니다. ZIP 파일 자체는 폴더로 열리지 않습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">3 · Obsidian</div>
+<h2>보관함이 이상할 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>보관함을 잘못 열었음</td><td>왼쪽 아래 보관함 아이콘 → <b>다른 보관함 열기</b> → <b>폴더를 보관함으로 열기</b>. 새 보관함 만들기가 <b>아닙니다.</b></td></tr>
+  <tr><td>빈 보관함이 열림</td><td>Claude 앱에서 연 폴더와 <b>같은 폴더</b>인지 확인합니다. 둘이 다르면 정리 결과가 보이지 않습니다.</td></tr>
+  <tr><td>그래프가 비어 있음</td><td>아직 정리를 안 돌렸으면 <b>정상입니다.</b> 정리를 실행한 뒤에도 비어 있으면 wiki 폴더에 파일이 생겼는지 봅니다.</td></tr>
+  <tr><td>그래프 화면을 못 찾겠음</td><td>왼쪽 세로줄의 <b>그래프 아이콘</b>(점과 선 모양)입니다.</td></tr>
+</table>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">4 · 웹 클리퍼</div>
+<h2>자료가 raw 에 안 담길 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>아이콘이 안 보임</td><td>주소창 오른쪽 <b>퍼즐 조각 아이콘</b>을 누르면 설치된 확장 목록이 나옵니다. 거기서 <b>고정</b>합니다.</td></tr>
+  <tr><td>저장 위치가 raw 가 아님</td><td>설정이 <b>두 곳</b>에 나뉘어 있습니다. General → 보관함(Vault), Templates의 Default → 저장 위치(<span class="path">raw</span>). 둘 다 맞춰야 합니다.</td></tr>
+  <tr><td>저장했는데 파일을 못 찾겠음</td><td>Obsidian의 <span class="path">raw/</span> 폴더를 봅니다. 없으면 위의 저장 위치가 비어 있는 것입니다.</td></tr>
+  <tr><td>본문이 이상하게 잘림</td><td>로그인이 필요한 페이지나 PDF 뷰어는 잘 안 잡힙니다. <b>화면을 캡처하거나, PDF는 직접 내려받아</b> <span class="path">raw/</span> 에 넣어 주세요.</td></tr>
+</table>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">5 · 정리 실행</div>
+<h2>정리가 안 돌 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>승인 창이 안 뜸</td><td>아직 읽는 중일 수 있습니다. 1~3분 걸립니다. 그래도 조용하면 같은 문장을 다시 넣습니다.</td></tr>
+  <tr><td>파일이 안 만들어짐</td><td><b>승인을 눌렀는지</b> 확인합니다.</td></tr>
+  <tr><td>엉뚱한 폴더에 만들어짐</td><td>Code 탭에서 연 폴더가 실습 폴더가 맞는지 확인합니다.</td></tr>
+  <tr><td>너무 오래 걸림</td><td>자료가 많으면 길어집니다. 그동안 Obsidian 그래프를 옆에 띄워 두면 문서가 생기는 것이 보입니다.</td></tr>
+  <tr><td>도중에 멈춤</td><td><b>"이어서 계속해 줘"</b> 라고 넣으면 하던 자리에서 이어 갑니다. 처음부터 다시 하지 않아도 됩니다.</td></tr>
+</table>
+<div class="note">잘못 만들어졌어도 <span class="path">raw/</span> 는 그대로입니다. <b>"wiki 폴더 비우고 다시 정리해 줘"</b> 로 되돌릴 수 있습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow alert">6 · 그래프</div>
+<h2>그래프에 아무것도 없을 때</h2>
+<table class="t">
+  <tr><th>증상</th><th>확인할 것</th></tr>
+  <tr><td>점이 하나도 없음</td><td>Obsidian이 <b>실습 폴더를 열고 있는지</b> 확인합니다. 왼쪽 파일 목록에 <span class="path">wiki</span> 가 보여야 합니다.</td></tr>
+  <tr><td>점은 있는데 선이 없음</td><td>문서에 <span class="wl">wiki/...</span> 링크가 안 들어간 것입니다. <b>"문서끼리 관련 개념으로 이어 줘"</b> 라고 하면 채웁니다.</td></tr>
+  <tr><td>혼자 떨어진 점이 많음</td><td>정상입니다. 모듈 ④에서 이어 주는 작업을 합니다.</td></tr>
+  <tr><td>점이 너무 적음</td><td>자료가 두세 개면 문서도 몇 개 안 나옵니다. 자료를 더 담고 정리를 다시 실행합니다.</td></tr>
+</table>
+<div class="note">화면이 갱신되지 않으면 그래프 창을 닫았다 다시 엽니다.</div>
+</div></section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

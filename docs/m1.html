@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>① LLM wiki와 OKF 이해하기 | Claude로 만드는 나만의 LLM Wiki</title>
-<meta name="description" content="RAG의 한계와 LLM Wiki 패턴, OKF 규격을 이해합니다.">
+<meta name="description" content="AI가 읽을 수 있는 자료가 어떻게 변해 왔는지 따라가며 LLM Wiki와 OKF를 이해합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -21,223 +21,256 @@
 </div>
 <div class="prog"></div>
 <main class="slides" id="main">
+
 <section class="slide cover"><div class="wrap">
-<div class="num">1-1 · 0:10 – 0:40 · 30분</div>
-<h1>① 지식관리 에이전트를 위한<br>LLM wiki와 OKF 이해하기</h1>
-<div class="meta"><span class="tag">LLM 위키의 장점</span></div>
+<div class="num">1-1 · 0:05 – 0:35 · 30분</div>
+<h1 style="word-break:keep-all">① 지식관리 에이전트를 위한<br>LLM wiki와 OKF 이해하기</h1>
+<div class="meta"><span class="tag">AI가 읽을 수 있는 자료의 변화</span></div>
 </div></section>
-<section class="slide"><div class="wrap">
-<div class="eyebrow">1-1 · 0:10 – 0:40 · 30분</div>
-<div class="spec top"><div class="box"><h4>이런 걸 배워요</h4><div class="lines">- RAG로는 아무것도 쌓이지 않는 이유
-- LLM Wiki, '미리 정리'로 이 문제를 해결하는 방식
-- OKF는 '마크다운 + 표식 하나'</div></div><div class="box"><h4>핵심 내용</h4><div class="lines core">LLM 위키의 장점</div></div></div>
-</div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">먼저 생각해 볼 것</div>
-<h2 class="big">PDF 열 개를 챗봇에 넣고<br>물어보면, 무슨 일이 벌어질까요?</h2>
-<p class="lead">겪어 본 불편을 떠올려 주세요. 느림, 엉뚱한 답, 매번 다른 말.</p>
-
-</div></section>
 <section class="slide"><div class="wrap">
-
-<div class="eyebrow">지금 쓰는 방식</div>
-<h2>RAG는 물어볼 때마다 찾습니다</h2>
-<p class="lead">보통 LLM에 문서를 넣고 쓸 때는 <b><span class="ft">RAG</span></b> 방식을 씁니다.</p>
-<p class="lead">파일을 올려두면 잘게 쪼개져 저장되고, 질문이 들어올 때마다 <span class="mark">관련 조각을 찾아 붙여</span> 답을 만듭니다.</p>
+<div class="eyebrow">1-1 · 0:05 – 0:35 · 30분</div>
+<div class="spec top">
+  <div class="box"><h4>이런 걸 배워요</h4><div class="lines">- AI가 읽을 수 있는 자료가 어떻게 변해 왔는지
+- RAG, '물어볼 때마다 찾기'라는 방식
+- LLM Wiki, '모을 때 미리 정리'라는 방식
+- OKF는 '마크다운 + 프론트매터 하나'</div></div>
+  <div class="box"><h4>핵심 내용</h4><div class="lines core">붙여넣기에서 위키까지,<br>AI가 읽을 수 있는 자료의 변화</div></div>
+</div>
+<div class="note">제목에 있는 <span class="ft">지식관리 에이전트</span>를 오늘 만들어 보겠습니다. 이번 모듈에서는 그게 어떤 것이고, 왜 필요한지 알아보겠습니다.</div>
 <div class="fn">
-  <p><b>RAG</b>자료를 미리 쪼개 저장해 두고, 질문이 올 때마다 관련 조각을 찾아 붙여 답을 만드는 방식. <span class="en">Retrieval-Augmented Generation</span></p>
-  <p><b>청킹</b>긴 문서를 문단 정도 크기로 잘게 나누는 것. 문서 전체는 한 번에 넣기엔 너무 길기 때문입니다.</p>
-  <p><b>임베딩</b>글을 숫자 목록으로 바꾸는 것. 뜻이 비슷한 글은 비슷한 숫자가 되어서, 컴퓨터가 의미를 비교할 수 있게 됩니다.</p>
-  <p><b>벡터 DB</b>임베딩으로 바꾼 숫자들을 모아 두고 "이것과 비슷한 것"을 빠르게 찾아 주는 저장소.</p>
-  <p><b>컨텍스트 주입</b>찾아낸 조각을 질문 앞에 붙여서 AI에게 함께 건네는 것. AI는 이 붙은 내용만 보고 답합니다.</p>
+  <p><b>Andrej Karpathy</b>OpenAI 창립 멤버(2015)이자 테슬라에서 AI 개발을 총괄(2017~2022)한 연구자입니다. 스탠퍼드 CS231n 강의를 만든 사람으로도 알려져 있습니다. <span class="en">안드레이 카파시</span></p>
+  <p><b>지식관리 에이전트</b>사람이 시킨 일을 대신 처리하는 AI를 에이전트라고 부릅니다. 그중에서 자료를 읽어 정리하고, 물으면 찾아 답하고, 빠진 곳을 짚어 주는 일을 맡는 것이 지식관리 에이전트입니다. 오늘은 Claude가 그 역할을 합니다.</p>
+  <p><b>RAG</b>자료를 미리 잘게 쪼개 저장해 두고, 질문이 올 때마다 관련 조각을 찾아 붙여 답을 만드는 방식. 파일을 올려 두고 쓰는 챗봇은 대개 이 방식입니다. <span class="en">Retrieval-Augmented Generation</span></p>
+  <p><b>마크다운</b>글씨 크기나 목록 같은 서식을 기호 몇 개로 표시하는 글쓰기 형식. 그냥 텍스트 파일이라 어떤 프로그램에서든 열립니다. 파일 확장자는 <span class="en">.md</span></p>
+  <p><b>프론트매터</b>문서 맨 앞에 <span class="en">---</span> 로 감싸 적어 두는 정보. 이 문서가 무엇에 관한 것인지를 사람과 프로그램이 함께 읽을 수 있게 합니다. Obsidian에서는 <b>속성(Properties)</b> 이라고 부릅니다. <span class="en">front matter</span></p>
+  <p><b>위키링크</b>대괄호 두 개로 문서 이름을 감싸면 그 문서로 이어지는 링크가 됩니다. Obsidian이 이 표시를 읽어 그래프의 선을 그립니다. OKF 규격 자체는 일반 마크다운 링크를 쓰지만, 오늘은 그래프를 볼 것이라 이쪽을 씁니다.</p>
 </div>
 </div></section>
+
 <section class="slide"><div class="wrap">
+<div class="eyebrow">들어가며</div>
+<h2>이런 적 있으신가요</h2>
+<p class="lead">AI에게 내 자료를 읽히려 할 때 자주 생기는 일입니다. 한 번 생각해 볼까요.</p>
+<div class="grid g2">
+  <div class="card"><div class="k">어긋난 답</div>
+  <p>수업 자료 PDF 여러 개를 올려놓고 물었는데, 답이 자료에 적힌 내용과 어긋났던 적</p></div>
+  <div class="card"><div class="k">잊어버림</div>
+  <p>같은 대화창에서 계속 이어 물었더니 앞에서 한 이야기를 잊어버린 적</p></div>
+  <div class="card"><div class="k">반복</div>
+  <p>어제 정리한 내용을 오늘 다시 물어보려고 같은 파일을 또 올린 적</p></div>
+  <div class="card"><div class="k">그때그때 다름</div>
+  <p>자료 세 개가 서로 다른 말을 할 때, 물어볼 때마다 답이 달라졌던 적</p></div>
+</div>
+</div></section>
 
-<div class="eyebrow">RAG의 동작</div>
-<h2>저장은 한 번, 검색은 질문마다</h2>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">변천사</div>
+<h2>AI가 읽을 수 있는 자료는 이렇게 변해 왔습니다</h2>
 <figure class="dia">
-<svg viewBox="0 0 900 300" role="img" aria-label="RAG 동작 원리 도해">
-  <text class="d-s" x="30" y="30">① 미리 저장 · 한 번</text>
-  <rect class="d-box" x="30" y="44" width="168" height="58" rx="10"/>
-  <text class="d-t" x="114" y="70" text-anchor="middle">문서</text>
-  <text class="d-s" x="114" y="88" text-anchor="middle">원본</text>
-  <path class="d-l" d="M203 73 H238" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="243" y="44" width="168" height="58" rx="10"/>
-  <text class="d-t" x="327" y="70" text-anchor="middle">청킹</text>
-  <text class="d-s" x="327" y="88" text-anchor="middle">조각으로 쪼갬</text>
-  <path class="d-l" d="M416 73 H451" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="456" y="44" width="168" height="58" rx="10"/>
-  <text class="d-t" x="540" y="70" text-anchor="middle">임베딩</text>
-  <text class="d-s" x="540" y="88" text-anchor="middle">조각 → 벡터(숫자)</text>
-  <path class="d-l" d="M629 73 H664" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="669" y="44" width="168" height="58" rx="10"/>
-  <text class="d-t" x="753" y="70" text-anchor="middle">벡터 DB</text>
-  <text class="d-s" x="753" y="88" text-anchor="middle">저장</text>
+<svg viewBox="0 0 900 160" role="img" aria-label="붙여넣기에서 파일 업로드를 거쳐 정리된 위키로 이어지는 흐름도">
+  <text class="d-s" x="145" y="24" text-anchor="middle">가장 단순한 방법</text>
+  <rect class="d-box" x="20" y="34" width="250" height="88" rx="12"/>
+  <text class="d-t" x="145" y="72" text-anchor="middle">붙여넣기</text>
+  <text class="d-s" x="145" y="97" text-anchor="middle">필요할 때마다 대화창에 옮겨 적기</text>
 
-  <text class="d-s" x="30" y="182" fill="#45A216">② 질문할 때마다 · 반복</text>
-  <rect class="d-box" x="30" y="196" width="168" height="58" rx="10"/>
-  <text class="d-t" x="114" y="222" text-anchor="middle">질문 → 벡터</text>
-  <text class="d-s" x="114" y="240" text-anchor="middle">같은 방식</text>
-  <path class="d-l" d="M203 225 H238" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="243" y="196" width="168" height="58" rx="10"/>
-  <text class="d-t" x="327" y="222" text-anchor="middle">유사도 top-k</text>
-  <text class="d-s" x="327" y="240" text-anchor="middle">가까운 조각 검색</text>
-  <path class="d-l" d="M416 225 H451" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="456" y="196" width="168" height="58" rx="10"/>
-  <text class="d-t" x="540" y="222" text-anchor="middle">컨텍스트 주입</text>
-  <text class="d-s" x="540" y="240" text-anchor="middle">프롬프트에 붙임</text>
-  <path class="d-l" d="M629 225 H664" marker-end="url(#rag1)"/>
-  <rect class="d-box" x="669" y="196" width="168" height="58" rx="10"/>
-  <text class="d-t" x="753" y="222" text-anchor="middle">LLM 생성</text>
-  <text class="d-s" x="753" y="240" text-anchor="middle">답</text>
+  <path class="d-l" d="M276 78 H319" marker-end="url(#fl)"/>
 
+  <text class="d-s" x="450" y="24" text-anchor="middle">지금 대부분 쓰는 방법</text>
+  <rect class="d-box hi" x="325" y="34" width="250" height="88" rx="12"/>
+  <text class="d-t" x="450" y="72" text-anchor="middle">파일 업로드 · RAG</text>
+  <text class="d-s" x="450" y="97" text-anchor="middle">올려 두면 물어볼 때마다 찾아 씀</text>
+
+  <path class="d-l" d="M581 78 H624" marker-end="url(#fl)"/>
+
+  <text class="d-s" x="755" y="24" text-anchor="middle" fill="#45A216">오늘 다루는 방법</text>
+  <rect class="d-box warm" x="630" y="34" width="250" height="88" rx="12"/>
+  <text class="d-t" x="755" y="72" text-anchor="middle">정리된 위키</text>
+  <text class="d-s" x="755" y="97" text-anchor="middle">모을 때 읽고 정리해서 쌓아 둠</text>
+
+  <text class="d-s" x="450" y="148" text-anchor="middle">오른쪽으로 갈수록 &#8212; AI가 읽기 전에 정리가 끝나 있습니다</text>
   <defs>
-    <marker id="rag1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#BEB4B4"/></marker>
+    <marker id="fl" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#9A908C"/></marker>
   </defs>
 </svg>
-<figcaption>①은 한 번, ②는 질문할 때마다 반복됩니다</figcaption>
 </figure>
-<div class="note">저장할 때는 <b>쪼개서 넣어 두기만</b> 합니다. 내용을 읽고 정리하는 일은 아무도 하지 않습니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">그래서 무엇이 문제인가</div>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">가장 널리 쓰이는 방식</div>
+<h2><span class="ft">RAG</span>가 무엇인가</h2>
+<p class="lead">파일을 올리면 <span class="mark">잘게 쪼개 저장</span>해 둡니다.
+물어보면 그중 질문과 가까운 조각 몇 개를 찾아 질문 앞에 붙여 AI에게 건넵니다.</p>
+<figure class="dia">
+<svg viewBox="0 0 900 210" role="img" aria-label="RAG 동작을 두 줄로 요약한 그림">
+  <text class="d-s" x="20" y="24">① 파일을 올릴 때 &#183; 한 번</text>
+  <rect class="d-box" x="20" y="34" width="200" height="66" rx="11"/>
+  <text class="d-t" x="120" y="65" text-anchor="middle">내 파일</text>
+  <text class="d-s" x="120" y="85" text-anchor="middle">PDF, 문서</text>
+  <path class="d-l" d="M226 67 H269" marker-end="url(#r2)"/>
+  <rect class="d-box" x="275" y="34" width="290" height="66" rx="11"/>
+  <text class="d-t" x="420" y="65" text-anchor="middle">잘게 쪼개서 저장</text>
+  <text class="d-s" x="420" y="85" text-anchor="middle">문단 정도 크기의 조각으로</text>
+
+  <text class="d-s" x="20" y="146" fill="#45A216">② 물어볼 때마다 &#183; 반복</text>
+  <rect class="d-box" x="20" y="156" width="200" height="44" rx="11"/>
+  <text class="d-t" x="120" y="184" text-anchor="middle">질문</text>
+  <path class="d-l" d="M226 178 H269" marker-end="url(#r2)"/>
+  <rect class="d-box warm" x="275" y="156" width="290" height="44" rx="11"/>
+  <text class="d-t" x="420" y="184" text-anchor="middle">가까운 조각 몇 개를 찾음</text>
+  <path class="d-l" d="M571 178 H614" marker-end="url(#r2)"/>
+  <rect class="d-box" x="620" y="156" width="260" height="44" rx="11"/>
+  <text class="d-t" x="750" y="184" text-anchor="middle">질문 앞에 붙여서 답함</text>
+  <defs>
+    <marker id="r2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#9A908C"/></marker>
+  </defs>
+</svg>
+</figure>
+<div class="note small">AI가 보는 것은 <b>찾아낸 조각 몇 개뿐</b>입니다. 문서 전체를 읽는 것이 아닙니다.
+쪼개고 찾는 과정이 안에서 어떻게 도는지는 <a class="xref" href="extra.html#s3" target="_blank" rel="noopener">더 알아보기</a> 에 정리해 두었습니다.</div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="eyebrow">그래서 무엇이 아쉬운가</div>
 <h2>아무것도 쌓이지 않습니다</h2>
-<p class="lead">매번 처음부터 다시 찾아내는 구조라, 새 자료가 들어와도 기존 지식과 이어지며 발전하지 않습니다. 내가 던진 질문과 피드백도 어디에도 남지 않습니다.</p>
+<p class="lead">물어볼 때마다 <span class="mark">처음부터 다시 찾습니다.</span>
+새 자료가 들어와도 기존 자료와 이어지지 않고, 내가 던진 질문과 그 답도 어디에도 남지 않습니다.</p>
 <div class="grid g3">
-  <div class="card"><div class="k">비용</div><h4>매번 처음부터</h4>
+  <div class="card"><div class="k">반복</div><h4>매번 처음부터</h4>
   <p>어제 정리한 내용을 오늘 또 정리합니다. 쌓이는 것이 없습니다.</p></div>
   <div class="card"><div class="k">맥락</div><h4>조각난 채로 도착</h4>
   <p>꺼내 온 몇 문단만 보고 답합니다. 문서 전체의 흐름은 모릅니다.</p></div>
   <div class="card"><div class="k">충돌</div><h4>서로 어긋나는 자료</h4>
-  <p>자료 셋이 다르게 말할 때 정리해 둔 기준이 없어 답이 그때그때 달라집니다.</p></div>
+  <p>자료들마다 다르게 말할 때 정리해 둔 기준이 없어 답이 그때그때 달라집니다.</p></div>
 </div>
-<div class="note">이전 대화 맥락이 유지되지 않아, 같은 자료를 매번 새로 입력해야 합니다. 다만 RAG가 나쁜 기술이라는 뜻은 아닙니다 — 자료가 수시로 바뀌고 방대하면 RAG가 맞습니다. 오늘 다루는 것은 <b>내가 고른 자료를 오래 쓰는 경우</b>입니다.</div>
-
+<div class="note">RAG가 나쁜 기술이라는 뜻은 아닙니다. 자료가 수시로 바뀌고 방대하면 RAG가 맞습니다.
+오늘 다루는 것은 <b>내가 고른 자료를 오래 쓰는 경우</b>입니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">LLM wiki</div>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">오늘 소개할 방식</div>
 <h2>LLM Wiki: 모을 때 미리 정리해 두기</h2>
-<p class="lead">Andrej Karpathy가 2026년 4월에 공개한 메모에서 나온 방식입니다.
-<span class="mark">자료가 들어오는 시점에 한 번 정리해서 위키로 만들어 둡니다.</span></p>
+<p class="lead">질문할 때 찾는 대신, <span class="mark">자료가 들어오는 시점에 한 번 읽고 정리해서 위키로 만들어 둡니다.</span>
+<span class="ft">Andrej Karpathy</span>가 2026년 4월에 공개한 메모에서 나온 방식입니다.</p>
 <figure class="dia">
 <img src="assets/img/m1-karpathy-gist.png" alt="Karpathy의 LLM Wiki 메모 원문">
-<figcaption>Andrej Karpathy, llm-wiki.md (GitHub Gist, 2026-04-04)</figcaption>
+<figcaption><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">Andrej Karpathy, llm-wiki.md (GitHub Gist, 2026-04-04)</a></figcaption>
 </figure>
-
+<div class="note">정리하는 일은 사람이 아니라 AI가 합니다. <b>사람은 좋은 자료를 고르고 질문을 던집니다.</b></div>
 </div></section>
+
 <section class="slide"><div class="wrap">
-
-<div class="eyebrow">두 방식 비교</div>
-<h2>RAG와 LLM Wiki, 무엇이 다른가</h2>
-<p class="lead">둘 다 자료를 읽고 답합니다. 갈리는 지점은 <span class="mark">정리를 언제 하느냐</span> 하나입니다.</p>
-<div class="vs">
-  <div class="side"><h4>RAG · 물어볼 때 찾기</h4><ul>
-    <li><b>언제 정리하나</b> — 질문할 때마다</li>
-    <li><b>무엇이 남나</b> — 남지 않음</li>
-    <li><b>시간이 지나면</b> — 처음과 같음</li>
-  </ul></div>
-  <div class="mid">vs</div>
-  <div class="side b"><h4>LLM Wiki · 모을 때 정리</h4><ul>
-    <li><b>언제 정리하나</b> — 자료를 넣을 때 한 번</li>
-    <li><b>무엇이 남나</b> — 위키 문서</li>
-    <li><b>시간이 지나면</b> — 두꺼워짐</li>
-  </ul></div>
-</div>
-<div class="note">Karpathy는 이 위키를 <b>영속적이고 복리로 누적되는 산출물</b>이라고 표현했습니다.</div>
-
-</div></section>
-<section class="slide"><div class="wrap">
-
 <div class="eyebrow">저장 구조</div>
 <h2>정보를 세 층으로 나눠 담습니다</h2>
-<p class="lead">각 층이 맡는 역할을 확인합니다. 둘은 폴더, 하나는 규칙 문서입니다.</p>
-<div class="grid g3">
-  <div class="card"><div class="k">1층</div><h4>raw/ · 원본</h4>
-  <p>모은 자료를 그대로 둡니다. <b>수정하지 않습니다.</b> 출처를 되짚는 기준이 됩니다.</p></div>
-  <div class="card accent"><div class="k">2층</div><h4>wiki/ · 정리본</h4>
-  <p>AI가 만들고 관리합니다. 개념 하나가 파일 하나가 되고, 링크로 이어집니다.</p></div>
-  <div class="card"><div class="k">3층</div><h4>규칙 · 문서</h4>
-  <p>어떤 형식으로 정리할지 적어 둔 문서입니다. 오늘은 <span class="path">okf-wiki</span> 스킬이 맡습니다.</p></div>
-</div>
-<div class="note"><span class="path">wiki/index.md</span>는 전체 목차,
-<span class="path">wiki/log.md</span>는 작업 기록입니다.</div>
+<figure class="dia pyr">
+<svg viewBox="0 0 900 285" role="img" aria-label="원본·위키·규칙 세 층을 피라미드로 나타낸 그림">
+  <!-- 피라미드 : 아래가 넓고 위로 갈수록 좁아진다 -->
+  <polygon class="d-box" points="200,31 253,109 147,109"/>
+  <polygon class="d-box warm" points="147,109 253,109 307,187 93,187"/>
+  <polygon class="d-box" points="93,187 307,187 360,265 40,265"/>
+  <text class="d-t" x="200" y="77" text-anchor="middle">규칙</text>
+  <text class="d-t" x="200" y="155" text-anchor="middle">위키</text>
+  <text class="d-t" x="200" y="233" text-anchor="middle">원본</text>
 
+  <path class="d-l" d="M238 70 H408" marker-end="url(#py)"/>
+  <path class="d-l" d="M292 148 H408" marker-end="url(#py)"/>
+  <path class="d-l" d="M345 226 H408" marker-end="url(#py)"/>
+
+  <text class="d-t" x="424" y="46">3층 · 규칙 <tspan class="d-s">the schema</tspan></text>
+  <text class="d-s" x="424" y="72">어떤 형식으로 정리할지 적어 둔 문서. AI가 그대로 따릅니다.</text>
+  <text class="d-s" x="424" y="94" fill="#37800F">.claude/skills/okf-wiki/SKILL.md</text>
+
+  <text class="d-t" x="424" y="124">2층 · 위키 <tspan class="d-s">the wiki</tspan></text>
+  <text class="d-s" x="424" y="150">AI가 만들고 관리합니다. 개념 하나가 파일 하나가 됩니다.</text>
+  <text class="d-s" x="424" y="172" fill="#37800F">wiki/ · 오늘 채울 곳</text>
+
+  <text class="d-t" x="424" y="202">1층 · 원본 <tspan class="d-s">raw sources</tspan></text>
+  <text class="d-s" x="424" y="228">모은 자료를 그대로 둡니다. 수정하지 않습니다.</text>
+  <text class="d-s" x="424" y="250" fill="#37800F">raw/ · 웹 클리퍼가 담는 곳</text>
+
+  <defs>
+    <marker id="py" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#9A908C"/></marker>
+  </defs>
+</svg>
+</figure>
+<div class="note">2층 안에 <span class="path">index.md</span>(전체 목차)와 <span class="path">log.md</span>(작업 기록)가 함께 만들어집니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
+<section class="slide"><div class="wrap">
 <div class="eyebrow">오늘 할 일</div>
-<h2>오늘은 세 가지 작업을 합니다</h2>
+<h2>세 가지 작업을 한 바퀴 돌립니다</h2>
 <div class="grid g3">
-  <div class="card"><div class="k">정리</div><h4>Ingest</h4>
-  <p>raw/의 자료를 읽어 개념 문서를 만듭니다. 같은 개념은 <b>하나로 합칩니다.</b></p></div>
-  <div class="card"><div class="k">질문</div><h4>Query</h4>
-  <p>위키를 근거로 답하고 출처를 답니다. 쓸 만한 답은 다시 저장합니다.</p></div>
-  <div class="card"><div class="k">점검</div><h4>Lint</h4>
-  <p>끊긴 링크, 연결 안 된 문서, 빠진 표식과 출처를 찾아냅니다.</p></div>
+  <div class="card"><div class="k">모듈 ③ 앞부분</div><h4>정리 · Ingest</h4>
+  <p>모은 자료를 읽어 개념 문서로 만듭니다. 같은 개념은 하나로 합칩니다.</p></div>
+  <div class="card"><div class="k">모듈 ③ 뒷부분</div><h4>질문 · Query</h4>
+  <p>위키를 근거로 묻고 출처 달린 답을 받습니다. 좋은 답은 다시 저장합니다.</p></div>
+  <div class="card"><div class="k">모듈 ④</div><h4>점검 · Lint</h4>
+  <p>끊긴 링크와 연결 안 된 문서를 찾아 메웁니다.</p></div>
 </div>
-<p class="lead">셋 다 한국어 문장으로 부탁하면 됩니다. 외워야 할 명령어는 없습니다.</p>
-
+<div class="note">수업 뒤에도 이 셋을 반복하면 위키가 자랍니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">OKF 규격</div>
-<h2>OKF는 마크다운입니다</h2>
-<p class="lead">Google이 2026년 6월에 공개한 파일 형식입니다.
-평소 쓰던 <span class="ft">마크다운</span> 맨 앞에 <span class="mark">표식 몇 줄</span>을 얹은 것이 전부입니다.</p>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">OKF</div>
+<h2>위키 문서를 무슨 형식으로 적을까</h2>
+<p class="lead"><a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing" target="_blank" rel="noopener">Google이 2026년 6월에 공개한</a> 형식입니다. <span class="mark"><span class="ft">프론트매터</span>가 붙은 <span class="ft">마크다운</span> 폴더</span>.</p>
 <figure class="dia">
 <img src="assets/img/m1-okf-document.png" alt="OKF 규격을 따르는 위키 문서">
-<figcaption>실제 OKF 문서 — 맨 앞의 표식, 문단 끝의 출처, 아래쪽의 연결</figcaption>
+<figcaption>실제 OKF 방식으로 정리된 문서</figcaption>
 </figure>
-<div class="fn">
-  <p><b>마크다운</b>글씨 크기나 목록 같은 서식을 기호 몇 개로 표시하는 글쓰기 형식. 그냥 텍스트 파일이라 어떤 프로그램에서든 열립니다. 파일 확장자는 <span class="en">.md</span></p>
-  <p><b>프론트매터</b>문서 맨 앞에 <span class="en">---</span> 로 감싸 적어 두는 정보. 이 문서가 무엇에 관한 것인지를 사람과 프로그램이 함께 읽을 수 있게 합니다. 이 교안에서는 "표식"이라고 부릅니다.</p>
-  <p><b>YAML</b>프론트매터를 적는 문법. <span class="en">이름: 값</span> 형태로 한 줄씩 쓰면 됩니다.</p>
-  <p><b>위키링크</b>대괄호 두 개로 문서 이름을 감싸면 그 문서로 이어지는 링크가 됩니다. Obsidian이 이 표시를 읽어 그래프의 선을 그립니다.</p>
-  <p><b>링크 방식</b>OKF 규격 자체는 일반 마크다운 링크를 씁니다. 대괄호 두 개는 Obsidian이 이해하는 방식인데, 오늘은 그래프를 볼 것이라 이쪽을 씁니다.</p>
+<div class="grid g3">
+  <div class="card"><div class="k">하나</div><h4>마크다운</h4>
+  <p>어떤 편집기로든 열리고, 특별한 프로그램이 필요 없습니다.</p></div>
+  <div class="card"><div class="k">둘</div><h4>파일 형식</h4>
+  <p>압축해 보내거나 그대로 옮길 수 있습니다.</p></div>
+  <div class="card accent"><div class="k">셋</div><h4>최소한의 프론트매터</h4>
+  <p>모든 문서에 요구하는 것은 <b>type 하나</b>뿐입니다.</p></div>
 </div>
+<div class="note small">OKF는 <b>2층(위키) 문서의 형식</b>이고, 이 형식을 따르라고 적어 둔 것이 <b>3층(규칙)</b> 파일입니다.</div>
 </div></section>
-<section class="slide"><div class="wrap">
 
-<div class="eyebrow">규격이 짧은 이유</div>
-<h2>필수 항목은 <span class="mark">type</span> 하나뿐</h2>
-<figure class="dia">
-<img src="assets/img/m1-okf-v02-blog.png" alt="OKF v0.2 발표 블로그">
-<figcaption>Google Cloud Blog — OKF v0.2 (2026-07-25). 항목이 늘어도 필수는 type 하나 그대로</figcaption>
-</figure>
+<section class="slide"><div class="wrap">
+<div class="eyebrow">OKF</div>
+<h2>프론트매터는 나중에 골라내기 위한 것입니다</h2>
+<p class="lead">문서 맨 앞에 <span class="path">type: core-concept</span> 처럼 한 줄을 적어 둡니다.
+<span class="mark">나중에 조건으로 뽑아내려면 이 한 줄이 있어야 합니다.</span></p>
 <div class="grid g2">
-  <div class="card"><h4>하나만 필수인 이유</h4>
-  <p>규칙이 많으면 아무도 지키지 않습니다. 최소한만 강제하고 나머지는 열어 둡니다.</p></div>
-  <div class="card"><h4>나머지 항목</h4>
-  <p>title, description, resource, tags, timestamp. 자기만의 항목을 추가해도 됩니다.</p></div>
+  <div class="card"><h4>프론트매터가 없으면</h4>
+  <p>문서가 쌓일수록 제목을 하나씩 눈으로 훑는 수밖에 없습니다.</p></div>
+  <div class="card accent"><h4>프론트매터가 있으면</h4>
+  <p>"개념 문서 전부", "논문만", "질문에 답한 문서만" 처럼 조건으로 뽑을 수 있습니다.</p></div>
 </div>
-<table class="t">
-  <tr><th>표식</th><th>어떤 문서에 붙나</th></tr>
-  <tr><td>core-concept</td><td>개념 하나를 설명하는 문서. 오늘 가장 많이 생깁니다.</td></tr>
-  <tr><td>standard</td><td>규격이나 표준을 다루는 문서</td></tr>
-  <tr><td>tool</td><td>도구나 프로그램을 다루는 문서</td></tr>
-  <tr><td>query-result</td><td>질문에 대한 답을 저장한 문서</td></tr>
-</table>
-
-<div class="fn">
-  <p><b>버전</b>OKF는 2026년 6월에 v0.1, 7월에 v0.2가 나왔습니다. v0.2에서 늘어난 항목(출처·검증·유효기간 등)은 전부 <b>선택</b>이라, 필수는 여전히 <span class="en">type</span> 하나입니다. 규격을 작게 유지한다는 원칙이 지켜진 셈입니다.</p>
-</div>
+<div class="note">필수가 <b>하나뿐인 이유</b>도 같습니다. 규칙이 많으면 지켜지기 어렵기 때문에, 최소한만 강제하고 나머지는 열어 두었습니다.
+항목의 종류와 늘리는 방법은 <a class="xref" href="extra.html#s5" target="_blank" rel="noopener">더 알아보기</a> 에 있습니다.</div>
 </div></section>
+
 <section class="slide"><div class="wrap">
-
-<div class="eyebrow">한 문장으로</div>
-<h2 class="big">질문할 때마다 다시 뒤지지 말고,<br>모을 때 미리 정리해 두자.</h2>
-<p class="lead">정리해 둔 결과가 마크다운 폴더라서, 나중에 다른 도구로 옮겨도 그대로 열립니다.</p>
-
+<div class="eyebrow">그래서 오늘</div>
+<h2>지금 시작하면 무엇이 다른가</h2>
+<p class="lead">읽는 자료의 양은 크게 다르지 않습니다. 갈리는 것은 <span class="mark">그것을 어떤 형태로 두느냐</span>입니다.</p>
+<div class="vs">
+  <div class="side"><h4>나중에 옮기려는 경우</h4><ul>
+    <li>자료는 폴더와 앱에 흩어져 있음</li>
+    <li>필요할 때마다 다시 찾아 올림</li>
+    <li>옮기려면 그때 한꺼번에 정리해야 함</li>
+  </ul></div>
+  <div class="mid">vs</div>
+  <div class="side b"><h4>처음부터 이 형태로 쌓는 경우</h4><ul>
+    <li>모을 때 한 번 정리해 두고 끝</li>
+    <li>새 자료가 기존 개념에 붙음</li>
+    <li>옮길 일이 없음 &#8212; 그냥 폴더</li>
+  </ul></div>
+</div>
+<div class="note">정리해 둔 결과가 <b>마크다운 폴더</b>라서, 나중에 다른 도구로 갈아타도 그대로 열립니다.
+오늘 만드는 것은 수업용 예제가 아니라 계속 쓸 폴더 하나입니다.</div>
 </div></section>
+
 <section class="slide"><div class="wrap">
 <div class="eyebrow">이 모듈 끝</div>
 <h2>다음으로</h2>
-<div class="nav-end"><a class="btn" href="m2.html">② 클로드 환경 세팅</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
+<div class="nav-end"><a class="btn" href="m2.html">② 클로드 환경 세팅</a><a class="btn ghost" href="extra.html" target="_blank" rel="noopener">더 알아보기</a><a class="btn ghost" href="index.html">타임테이블로</a></div>
 </div></section>
+
 </main>
 <script src="assets/deck.js"></script>
 </body>
